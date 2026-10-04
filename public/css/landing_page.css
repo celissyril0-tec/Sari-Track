@@ -1,0 +1,38 @@
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color:beige;
+    padding-left: 4rem;
+    padding-right: 4rem;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 5rem;
+    padding-right:5rem;
+}
+
+section{
+    height: 80vh;
+}
+
+.cta{
+    height: 50vh;
+}
+
+.nav-links{
+    display: flex;
+    gap: 2rem;
+}
+
+.footer1{
+    width: 40%;
+    margin-right: 4rem;
+}
+
+.footer2, .footer3{
+   margin-left: -4rem;
+   margin-right: 4rem;
+}
