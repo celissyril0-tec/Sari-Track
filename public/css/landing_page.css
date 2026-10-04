@@ -3,8 +3,8 @@ nav{
     align-items: center;
     justify-content: space-between;
     background-color:beige;
-    padding-left: 4rem;
-    padding-right: 4rem;
+    padding-left: 5rem;
+    padding-right: 5rem;
 }
 
 footer{
@@ -14,18 +14,129 @@ footer{
     padding-right:5rem;
 }
 
-section{
-    height: 80vh;
+
+nav h1{
+     font-family: "Archivo Black", sans-serif;
 }
 
-.cta{
-    height: 50vh;
+.nav-links a{
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
 }
 
 .nav-links{
     display: flex;
     gap: 2rem;
 }
+
+.sari-track{
+    padding: 4rem 5rem 4rem 5rem;
+    height: 60vh;
+    background-color: lightblue;
+}
+
+.intro-contents{
+    display: flex;
+    gap: 1rem;
+}
+
+.intro-contents h1{
+    font-size: 3rem;
+    margin-bottom: 0;
+}
+
+.left-side{
+    width: 50%;
+}
+
+.right-side{
+    width: 50%;
+    background-color: lightpink;
+}
+
+.info{
+    width: 180px;
+    margin-top: 10px;
+}
+
+.intro-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 4rem;
+}
+
+.advantages{
+    text-align: center;
+    height: 90vh;
+}
+
+.benefits{
+    text-align:left;
+    background-color: beige;
+    margin-left: 15rem;
+    margin-right: 15rem;
+    margin-bottom: 1rem;
+    padding: 1rem 2rem 1rem 7rem;
+    border-radius: 20px;
+}
+
+.Features{
+    height: 50vh;
+}
+
+.Features h2{
+    text-align: center;
+
+}
+
+.tools-contents{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.tool{
+   background-color: lightblue;
+   width: 200px;
+   padding-top: 3rem;
+   padding-left: 1rem;
+   padding-right: 1rem;
+   padding-bottom: 1rem;
+   border-radius: 20px;
+}
+
+
+.cta{
+    height: 40vh;
+    background-color: lightpink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cta h1{
+    margin-bottom: 0;
+}
+
+.cta-contents{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: white;
+    border-radius: 20px;
+}
+
+.cta-text{
+    width: 500px;
+    text-align: center;
+}
+
 
 .footer1{
     width: 40%;
