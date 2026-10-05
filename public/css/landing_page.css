@@ -1,27 +1,37 @@
+body{
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
 nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color:beige;
-    padding-left: 5rem;
-    padding-right: 5rem;
-}
-
-footer{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 5rem;
-    padding-right:5rem;
+    padding-left: 7rem;
+    padding-right: 7rem;
 }
 
 
 nav h1{
-     font-family: "Archivo Black", sans-serif;
+     font-size: 2rem;
+     color: #2874D0;
+}
+
+span{
+    color: #D0AC32;
 }
 
 .nav-links a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
+    color: black;
+}
+
+.get-started{
+    background-color:#D0AC32;
+    padding: 5px 15px;
+    border-radius: 20px;
 }
 
 .nav-links{
@@ -30,9 +40,20 @@ nav h1{
 }
 
 .sari-track{
-    padding: 4rem 5rem 4rem 5rem;
-    height: 60vh;
-    background-color: lightblue;
+    padding: 4rem 6rem 4rem 6rem;
+    height: 55vh;
+    background-color: #1760D0;
+}
+
+.quote{
+     margin-top: 1rem;
+     background-color: #E5C057;
+     color: #78552B;
+     width: 380px;
+     padding: 5px;
+     border-radius: 10px;
+     font-weight: bold;
+     font-size: 13px;
 }
 
 .intro-contents{
@@ -42,7 +63,11 @@ nav h1{
 
 .intro-contents h1{
     font-size: 3rem;
+    margin-top: 30px;
     margin-bottom: 0;
+    color: white;
+    line-height: 3rem;
+
 }
 
 .left-side{
@@ -55,8 +80,10 @@ nav h1{
 }
 
 .info{
-    width: 180px;
-    margin-top: 10px;
+    width: 200px;
+    margin-top: 5px;
+    color: white;
+    font-size: 14px;
 }
 
 .intro-buttons{
@@ -67,12 +94,54 @@ nav h1{
     padding-top: 4rem;
 }
 
-.advantages{
+button{
+    padding: 10px 40px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.btn1{
+   background-color: #dfb631; 
+   border: none;
+}
+
+.btn2{
+    border: none;
+}
+
+ .advantages {
+    background: linear-gradient(
+        to bottom,
+        #1760D0 0%,
+        #5288DE 50%,
+        #C6DDF8 100%
+    );
+    min-height: auto;
+    padding: 1rem 0 2rem;
     text-align: center;
-    height: 90vh;
+    margin: 0;
+}
+
+.adv{
+    margin: 0;
+    color: white;
+}
+
+.advantages h2{
+   color: #dfb631; 
+   margin-top: 10px;
+   
+}
+
+.benefits-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 .benefits{
+    width: 500px;
     text-align:left;
     background-color: beige;
     margin-left: 15rem;
@@ -82,13 +151,28 @@ nav h1{
     border-radius: 20px;
 }
 
+.benefits h3{
+    margin: 0;
+}
+
+.benefits p{
+    width: 450px;
+    margin: 0;
+    color: #1760D0;
+}
+
+
 .Features{
-    height: 50vh;
+    height: 60vh;
+     background-color: #FFF4D9;
 }
 
 .Features h2{
     text-align: center;
-
+    margin: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    color: #224A8A;
 }
 
 .tools-contents{
@@ -97,11 +181,26 @@ nav h1{
     gap: 2rem;
 }
 
+.tool h2{
+    margin: 0;
+    text-align: left;
+    color: #FFBE00;
+    padding-bottom: 1rem;
+}
+
+.tool p{
+    height: 100px;
+    width: 245px;
+    margin: 0;
+    color: #1760D0;
+}
+
+
 .tool{
-   background-color: lightblue;
-   width: 200px;
-   padding-top: 3rem;
-   padding-left: 1rem;
+background-color: white;
+   width: 270px;
+   padding-top: 4rem;
+   padding-left: 2rem;
    padding-right: 1rem;
    padding-bottom: 1rem;
    border-radius: 20px;
@@ -110,10 +209,10 @@ nav h1{
 
 .cta{
     height: 40vh;
-    background-color: lightpink;
     display: flex;
     align-items: center;
     justify-content: center;
+    color: white;
 }
 
 .cta h1{
@@ -121,7 +220,8 @@ nav h1{
 }
 
 .cta-contents{
-    width: 90%;
+   background: linear-gradient(105deg, #2F80ED 0%, #428DF0 45%, #8DB8F5 100%);
+    width: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -133,17 +233,60 @@ nav h1{
 }
 
 .cta-text{
-    width: 500px;
+    width: 620px;
     text-align: center;
 }
 
+footer{
+    background-color: #FFF4D9;
+    height: 35vh;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    padding-left: 5rem;
+    padding-right:5rem;
+}
+
+footer p{
+    font-size: 14px;
+    margin:0;
+}
+
+footer h1{
+    color: #2874D0;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+}
+
+footer h2{
+    margin: 0;
+}
 
 .footer1{
     width: 40%;
     margin-right: 4rem;
+    color: #2874D0;
+}
+
+.footer1 p{
+    width: 420px;
+}
+
+.footer2 h2{
+    color: #224A8A;
+}
+
+.footer2 p{
+    color: #2874D0;
+}
+
+.footer3{
+    color: rgb(105, 105, 105);
 }
 
 .footer2, .footer3{
+   padding-top: 2rem;
    margin-left: -4rem;
    margin-right: 4rem;
 }
+
