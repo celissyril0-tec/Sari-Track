@@ -1,0 +1,80 @@
+body{
+    height: 100vh;
+    min-height: 600px;
+    background: linear-gradient(to bottom, #0066d9, #ffffff);
+    font-family: 'Poppins', sans-serif;
+}
+
+h1{
+    color: white;
+    padding-top: 1rem;
+    padding-left: 5rem;
+}
+
+span{
+    color: #D0AC32;
+}
+
+u{
+    color: #0066d9;
+    text-decoration: none;
+}
+
+form{
+    background-color: rgb(252, 252, 179);
+    display: flex;
+    flex-direction: column;
+    width: 330px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+a{
+    text-decoration: none;
+}
+
+input{
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 8px;
+    border: none;
+    height: 25px;
+    border-radius: 5px;
+}
+
+label{
+    margin-left: 5px;
+}
+
+button{
+    background-color: #0066d9;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.intro{
+    text-align: center;
+    font-weight: bold;
+}
+
+.register{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.terms{
+    font-size: 12px;
+    width: 350px;
+}
+
+.login-text{
+    margin-top: 2rem;
+    font-size: 12px;
+}
+
+
+
