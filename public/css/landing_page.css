@@ -72,7 +72,7 @@ span{
 
 .intro-contents{
     display: flex;
-    gap: 2rem;
+    gap: 1rem;
 }
 
 .intro-contents h1{
@@ -87,6 +87,7 @@ span{
 
 .left-side{
     width: 50%;
+    margin-left: 2rem;
 }
 
 .right-side{
@@ -164,13 +165,15 @@ button{
 }
 
 .benefits{
-    width: 500px;
+    display: flex;
+    align-items: center;
+    width: 560px;
     text-align:left;
     background-color: beige;
     margin-left: 15rem;
     margin-right: 15rem;
     margin-bottom: 1rem;
-    padding: 1rem 2rem 1rem 7rem;
+    padding-right: 3rem;
     border-radius: 20px;
 }
 
@@ -179,21 +182,29 @@ button{
 }
 
 .benefits p{
-    width: 450px;
+    width: 480px;
     margin: 0;
 }
 
+.bene-pics{
+    height: 110px;
+    width: 110px;
+    object-fit: cover;
+}
 
 .Features{
     height: 60vh;
     background-color:  #FFF4D9;
 }
 
+.top{
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
 .Features h2{
     text-align: center;
     margin: 0;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
     color: #224A8A;
 }
 
@@ -207,7 +218,6 @@ button{
     margin: 0;
     text-align: left;
     color: #FFBE00;
-    padding-bottom: 1rem;
 }
 
 .tool p{
@@ -220,11 +230,17 @@ button{
 .tool{
    background-color: white;
    width: 270px;
-   padding-top: 4rem;
    padding-left: 2rem;
    padding-right: 1rem;
    padding-bottom: 1rem;
    border-radius: 20px;
+}
+
+.tool-pic{
+    height: 130px;
+    width: 130px;
+    margin-left: -1.5rem;
+    margin-bottom: -1rem;
 }
 
 
