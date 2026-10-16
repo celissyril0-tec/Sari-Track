@@ -5,35 +5,46 @@ body{
 }
 
 .side-bar {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
     position: fixed;
     top: 95px; 
     left: 45px; 
-    width: 150px; 
-    height: calc(100vh - 150px); 
+    width: 180px; 
+    height: calc(100vh - 130px); 
     background: linear-gradient(to bottom, #0755d9, #003580);
-    padding: 15px 10px;
     margin: 0;
     border-radius: 15px;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.25);
+    padding-top: 8px;
 }
 
 
-
-.menu-links {
+.menu-links,
+.bottom-links {
     list-style: none;
     margin: 0;
-    padding: 15px 0 0; 
+    padding: 15px 15px 0;
 }
 
 
-.menu-links li {
-    margin-bottom: 8px;
+.menu-links li,
+.bottom-links li {
+    margin-bottom: 2px;
 }
 
+.menu-links a,
+.bottom-links a {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
 
-.menu-links a {
-    display: block;
     padding: 8px 10px;
+    width: 100%;
+    box-sizing: border-box;
+
     color: white;
     text-decoration: none;
     font-size: 13px;
@@ -42,7 +53,20 @@ body{
 }
 
 
-.menu-links a:hover {
+.bottom-links {
+    margin-top: auto;
+    padding-bottom: 15px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.menu-links a:hover,
+.bottom-links a:hover {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
@@ -52,8 +76,9 @@ body{
     font-weight: bold;
 }
 
-
 .header {
+    display: flex;
+    justify-content: space-between;
     position: fixed;
     top: 0;
     left: 0;
@@ -68,14 +93,33 @@ body{
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: 3rem;
+  margin-left: 2rem;
 }
+
+.account-info {
+    display: flex;
+    align-items: center;
+    gap: 5px; 
+}
+
+.right-side span {
+    color: black;
+}
+
+.right-side{
+    display: flex;
+    align-items: center;
+    margin-right: 4rem;
+    gap: 2rem;
+}
+
+
 
 .header h2{
   color: #2874D0;
 }
 
-span{
+.header span{
   color: #D0AC32;
 }
 
@@ -88,7 +132,7 @@ span{
 main {
     background-color:  #FFF4D9;
     margin-top: 70px;
-    margin-left: 200px;
+    margin-left: 220px;
     padding: 30px;
     min-height: calc(100vh - 70px);
 }
