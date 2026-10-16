@@ -60,6 +60,7 @@ span{
 }
 
 .quote{
+    margin-left: 2rem;
      margin-top: 1rem;
      background-color: #e0c16b;
      color: #78552B;
@@ -92,12 +93,13 @@ span{
 
 .right-side{
     display: flex;
+    margin-right: -4rem;
     margin-top: -5rem;
 }
 
 .pic1{
     height: 310px;
-    width: 550px;
+    width: 600px;
     
 }
 
