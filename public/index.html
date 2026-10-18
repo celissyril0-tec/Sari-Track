@@ -31,7 +31,7 @@
     <nav class="side-bar">
         <ul class="menu-links">
             <li>
-              <a href="index.html">
+              <a href="index.html" class="active">
                 <img class="icon" src="pics/dashboard.png">
                 <span>Dashboard</span>
               </a>
@@ -59,7 +59,7 @@
             </li>
 
             <li>
-              <a href="utang.html">
+              <a href="calculator.html">
                 <img class="icon" src="pics/calculator-icon.png">
                 <span>Calculator</span>
               </a>
@@ -84,7 +84,6 @@
     </nav>
 
 
-
   <main>
     <p class="welcome">Welcome New User</p>
 
@@ -99,7 +98,7 @@
             credit records, and fast moving inventory effortlessly.
           </p>
 
-          <button class="add-btn">
+          <button class="add-btn" id="add-store-btn"  type="button">
             <img class="icon" src="pics/Vector.png">
             <span>+</span>
             Add store
@@ -123,21 +122,92 @@
 
       <article class="features">
         <img class="feature-icon" src="pics/sales.png">
-        <h3>Instant Sales</h3>
+        <h2>Instant Sales</h2>
         <p>Add up purchases and record customer totals in seconds with quick tap-to-compute checkout.</p>
       </article>
 
-      <article class="features">
+      <article class="features-bg-blue">
         <img class="feature-icon" src="pics/utang ledger.png">
-        <h3>Utang Ledger</h3>
+        <h2>Utang Ledger</h2>
         <p>Track customer credit and partial cash payoffs securely without damaged pages or disputed numbers.</p>
       </article>
 
       <article class="features">
         <img class="feature-icon" src="pics/inventory.png">
-        <h3>Inventory Alerts</h3>
+        <h2>Inventory Alerts</h2>
         <p>Monitor shelf counts in real time and catch low-stock notices before key items sell out completely.</p>
       </article>
+    </section>
+
+    <section class="add-store-form" id="add-store-form">
+
+      <div class="add-store-heading">
+
+      <img class="store-logo" src="pics/store-yellow.png">
+
+      <div class="heading-info">
+       <h3>Add Your Store </h3>
+       <p>Enter your details to get started</p>
+      </div>
+
+      </div>
+
+      <form id="store-form">
+        <h3>Store Information</h3>
+
+        <label for="store-name">Store Name </label>
+        <input type="text" id="store-name" name="store-name"  placeholder="Example: My Sari-Sari Store" required>
+
+        <label for="store-address">Store Address </label>
+        <input type="text" id="store-address" name="store-address" placeholder="Example: Brgy. Batangas City, Batangas">
+
+       
+        <label>Store Type (Optional)</label>
+
+        <div class="store-type-options">
+
+          <label>
+            <input type="radio" name="storeType" value="Sari-sari Store">
+             Sari-Sari Store
+          </label>
+
+          <label>
+            <input type="radio" name="storeType" value="Grocery">
+             Mini Grocery
+          </label>
+
+          <label>
+            <input type="radio" name="storeType" value="Other">
+             Other
+          </label>
+        </div>
+
+        <hr>
+         
+        <h3>What Happens Next?</h3>
+        <p>After creating your store, you can: </p>
+        <ul>
+          <li>Record daily sales</li>
+          <li>Add products and manage inventory </li>
+          <li>Track customer utang and payments</li>
+          <li>View sales reports</li>
+        </ul>
+
+    <div class="form-buttons">
+
+    <button type="button" class="cancel-btn" id="cancelBtn">
+        Cancel
+    </button>
+
+    <button type="submit" class="save-btn">
+        Save Store
+    </button>
+
+    </div>
+
+</form>
+        
+
     </section>
 
   </main>
