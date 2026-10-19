@@ -7,7 +7,6 @@ body{
  
 }
 
-
 .side-bar {
     display: flex;
     flex-direction: column;
@@ -312,10 +311,11 @@ button{
 
 }
 
-.heading-info h3{
-    margin-top: 1rem;
+.heading-info h2{
+    margin-top: 13px;
     margin-bottom: 0;
     font-weight: 600;
+     color: #16449b;
 }
 
 .store-logo{
@@ -329,6 +329,8 @@ button{
     padding: 10px 20px;
     width: 950px;
     border-radius: 20px;
+    border: 1px solid #c7c7c7;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
 #store-form h3{
@@ -404,8 +406,8 @@ button{
     align-items: center;
     border: none;
     border-radius: 20px;
-    padding: 15px 20px;
-    font-size: 14px;
+    padding: 15px 23px;
+    font-size: 16px;
     cursor: pointer;
     
 }
@@ -415,9 +417,19 @@ button{
     justify-content: flex-end;
     gap: 12px;
     padding-right: 2rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: 1rem;
     margin-top: -2rem;
 
+}
+
+form span{
+    color: red;
+}
+
+label span{
+    font-style: italic;
+     color: #a6a6a6;
+     font-size: 13px;
 }
 
 #store-form .save-btn{

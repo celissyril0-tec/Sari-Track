@@ -31,7 +31,7 @@
     <nav class="side-bar">
         <ul class="menu-links">
             <li>
-              <a href="index.html" class="active">
+              <a href="dashboard.html" class="active">
                 <img class="icon" src="pics/dashboard.png">
                 <span>Dashboard</span>
               </a>
@@ -146,7 +146,7 @@
       <img class="store-logo" src="pics/store-yellow.png">
 
       <div class="heading-info">
-       <h3>Add Your Store </h3>
+       <h2>Add Your Store </h2>
        <p>Enter your details to get started</p>
       </div>
 
@@ -155,14 +155,14 @@
       <form id="store-form">
         <h3>Store Information</h3>
 
-        <label for="store-name">Store Name </label>
+        <label for="store-name">Store Name <span> *</span> </label>
         <input type="text" id="store-name" name="store-name"  placeholder="Example: My Sari-Sari Store" required>
 
-        <label for="store-address">Store Address </label>
+        <label for="store-address">Store Address <span>(Optional)</span> </label>
         <input type="text" id="store-address" name="store-address" placeholder="Example: Brgy. Batangas City, Batangas">
 
        
-        <label>Store Type (Optional)</label>
+        <label>Store Type <span>(Optional)</span> </label>
 
         <div class="store-type-options">
 
@@ -199,15 +199,14 @@
         Cancel
     </button>
 
-    <button type="submit" class="save-btn">
+    <button type="submit" class="save-btn" onclick="window.location.href='dashboard.html'">
         Save Store
     </button>
 
     </div>
 
-</form>
+    </form>
         
-
     </section>
 
   </main>
