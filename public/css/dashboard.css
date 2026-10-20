@@ -1,0 +1,94 @@
+.menu-links a:hover,
+.bottom-links a:hover {
+    background-color: #2874D0;
+    border-radius: 10px;
+}
+
+.menu-links a.active,
+.bottom-links a.active {
+    background-color: white;
+    color: #0755d9;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+.menu-links a.active .icon,
+.bottom-links a.active .icon {
+    filter: brightness(0) saturate(100%)
+            invert(68%) sepia(86%) saturate(1000%)
+            hue-rotate(355deg) brightness(105%);
+}
+
+.user-store{
+    margin-top: 28px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #1E3A8A;
+}
+
+.logo{
+    height: 55px;
+    width: 55px;
+    object-fit: contain;
+}
+
+.store-name p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.store-name > p:first-of-type{
+    font-weight: 600;
+}
+
+main h3{
+    margin: 8px 12px;
+    font-weight: 600;
+    font-size: 19px;
+    color: #1E3A8A;
+
+}
+
+.store-overview{
+    display: flex;
+    gap: 2rem;
+}
+
+.store-overview article{
+    position: relative;
+    height: 110px;
+    width: 200px;
+    background-color: #FFFFFF;
+    border-radius: 1.5rem;
+    padding: 13px 30px;
+    border: 1px solid #c7c7c7;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+
+}
+
+.store-overview h1{
+    margin: 0;
+    font-size: 2.4rem;
+    color: #1E3A8A;
+}
+
+.store-overview h2{
+    margin: 0;
+    font-weight: 600;
+    font-size: 22px;
+    color: #0151D6;
+}
+
+.store-overview p{
+    margin: 0;
+    font-size: 14px;
+    color: #64748B;
+}
+.overview-icon{
+    position: absolute;
+    top: 16px;
+    right: 1.5rem;
+    height: 28px;
+    width: 28px;
+}

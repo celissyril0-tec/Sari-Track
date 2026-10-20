@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SariTrack</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -81,8 +82,52 @@
     </nav>
 
     <main>
-        <h2>Dashboard</h2>
+        <div class="user-store">
+          <img class="logo" src="pics/cat.png">
+
+          <div class="store-name">
+            <p>My Sari-Sari Store</p>
+            <p>Brgy. Alangilan, Batangas City, Batangas</p>
+          </div>
+        </div>
+
+        <h3>Business Overview</h3>
+
+        <section class="store-overview">
+            <article class="sales">
+
+              <h2>Today's Sales</h2>
+              <img class="overview-icon" src="pics/sales-report.png">
+
+              <h1>₱ 0.00</h1>
+
+              <p>No sales yet</p>
+
+            </article>
+
+            <article class="stock-warning">
+
+              <h2>Out of Stock</h2>
+              <img class="overview-icon" src="pics/warning.png">
+
+              <h1>0</h1>
+
+              <p>No stocks alerts yet</p>
+              
+            </article>
+
+            <article class="utang">
+
+              <h2>Utang</h2>
+
+              <h1>₱ 0.00</h1>
+
+              <p>No list yet</p>
+
+            </article>
+        </section>
     </main>
 
+<script src="js/script.js"></script>
 </body>
 </html>

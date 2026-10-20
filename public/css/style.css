@@ -73,30 +73,6 @@ body{
 }
 
 
-.menu-links a:hover,
-.bottom-links a:hover {
-    background-color: #2874D0;
-    border-radius: 10px;
-}
-
-
-.menu-links a.active,
-.bottom-links a.active {
-    background-color: white;
-    color: #0755d9;
-    border-radius: 10px;
-    font-weight: 500;
-}
-
-
-
-.menu-links a.active .icon,
-.bottom-links a.active .icon {
-    filter: brightness(0) saturate(100%)
-            invert(68%) sepia(86%) saturate(1000%)
-            hue-rotate(355deg) brightness(105%);
-}
-
 .header {
     display: flex;
     justify-content: space-between;
