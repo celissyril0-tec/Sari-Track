@@ -30,3 +30,5 @@ cancelStoreBtn.addEventListener("click", function () {
     infoSection.hidden = false;
     featuresSection.hidden = false;
 });
+
+

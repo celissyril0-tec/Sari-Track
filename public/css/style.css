@@ -1,9 +1,8 @@
 body{
   margin: 0;
-
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color:  #FFF4D9;
+  background-color:  #fbf6e8;
  
 }
 
@@ -128,7 +127,7 @@ body{
 }
 
 main {
-    background-color:  #FFF4D9;
+    background-color:  #fbf6e8;
     margin-top: 35px;
     margin-left: 300px;
     padding: 30px;

@@ -126,8 +126,44 @@
 
             </article>
         </section>
+
+        <section class="bottom-section">
+
+          <div class="card sales-card">
+          
+            <div class="card-top">
+               <h3>Sales Performance</h3>
+               <select id="salesRange">
+                <option>This Week</option>
+                <option>Last Week</option>
+               </select>
+            </div>
+
+            <div class="chart-box">
+              <canvas id="salesChart"></canvas>
+              <p class="empty-message">
+                No sales data available yet<br>
+                Record your first sale to see<br>
+                your sales trend here.
+              </p>
+            </div>
+          </div>
+
+        <div class=" card budget-card">
+           <h3>Budget Overview</h3>
+        <div class="donut-box">
+           <canvas id="budgetChart"></canvas>
+         </div>
+          <p class="percent">0%</p>
+          <h2 class="amount">₱ 0.00</h2>
+         <p class="note">No budget set yet </p>
+        </div>
+
+        </section>
     </main>
 
-<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/graph.js"></script>
 </body>
 </html>

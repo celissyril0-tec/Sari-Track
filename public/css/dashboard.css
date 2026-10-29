@@ -57,7 +57,7 @@ main h3{
 
 .store-overview article{
     position: relative;
-    height: 110px;
+    height: 100px;
     width: 200px;
     background-color: #FFFFFF;
     border-radius: 1.5rem;
@@ -69,20 +69,20 @@ main h3{
 
 .store-overview h1{
     margin: 0;
-    font-size: 2.4rem;
+    font-size: 2.1rem;
     color: #1E3A8A;
 }
 
 .store-overview h2{
     margin: 0;
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     color: #0151D6;
 }
 
 .store-overview p{
     margin: 0;
-    font-size: 14px;
+    font-size: 13px;
     color: #64748B;
 }
 .overview-icon{
@@ -91,4 +91,88 @@ main h3{
     right: 1.5rem;
     height: 28px;
     width: 28px;
+}
+
+.bottom-section{
+    display: flex;
+    gap: 30px;
+    margin-top: 1rem;
+}
+
+.card{
+    box-sizing: border-box;
+    background:  #fff1d9;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.card h3{
+    color: #1a56db;
+    margin: 0;
+}
+
+.card-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#salesRange{
+    background: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+    color: #444;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.sales-card{
+    width: 600px;
+    border: 1px solid #c7c7c7;
+     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.budget-card{
+    width: 280px;
+     border: 1px solid #c7c7c7;
+      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.chart-box{
+    position: relative;
+    height: 200px;   
+    margin-top: 10px;
+}
+
+.empty-message{
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: gray;
+}
+
+.donut-box{
+    width: 110px;
+    height: 110px;
+    margin: 10px auto;
+}
+
+.percent{
+    color: orange;
+    font-weight: bold;
+    margin: 0;
+}
+
+.amount{
+    margin: 0;
+}
+
+.note{
+    font-size: 12px;
+    color: gray;
+    margin: 0;
 }
