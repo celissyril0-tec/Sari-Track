@@ -52,13 +52,13 @@ main h3{
 
 .store-overview{
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .store-overview article{
     position: relative;
     height: 100px;
-    width: 200px;
+    width: 240px;
     background-color: #FFFFFF;
     border-radius: 1.5rem;
     padding: 13px 30px;
@@ -95,7 +95,7 @@ main h3{
 
 .bottom-section{
     display: flex;
-    gap: 30px;
+    gap: 25px;
     margin-top: 1rem;
 }
 
@@ -128,13 +128,13 @@ main h3{
 }
 
 .sales-card{
-    width: 600px;
+    width: 630px;
     border: 1px solid #c7c7c7;
      box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
 .budget-card{
-    width: 280px;
+    width: 300px;
      border: 1px solid #c7c7c7;
       box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }

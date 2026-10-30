@@ -111,8 +111,66 @@
     </div>
 
     <hr>
+
+    <section class="sales-division">
+      
+      <article class="total-sales">
+        <img class="division-icon" src="pics/sales-report.png">
+
+        <h2>Today's Sales</h2>
+
+        <h1>₱ 0.00</h1>
+
+        <p>No sales yet</p>
+
+      </article>
+
+      <article class="transactions">
+        
+        <h2>Transactions</h2>
+
+        <h1>0</h1>
+
+        <p>No transactions yet</p>
+
+      </article>
+
+      <article class="items-sold">
+
+         <h2>Items Sold</h2>
+
+        <h1>0</h1>
+
+        <p>No items sold yet</p>
+
+      </article>
+    </section>
+
+  <div class="card sales-card">
+
+  <div class="card-top">
+    <h3>Sales Performance</h3>
+    <select id="salesRange">
+      <option>This Week</option>
+      <option>Last Week</option>
+    </select>
+  </div>
+
+  <div class="chart-box">
+    <canvas id="salesChart"></canvas>
+    <p class="empty-message">
+      No sales data available yet<br>
+      Record your first sale to see<br>
+      your sales trend here.
+    </p>
+  </div>
+
+  </div>
     
   </main>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/graph.js"></script>
     
 </body>
 </html>

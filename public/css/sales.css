@@ -47,6 +47,7 @@
 .sales-intro p{
     margin-top: -10px;
     color: #64748B;
+    font-size: 14px;
 }
 
 .main-buttons{
@@ -76,4 +77,99 @@
 
 hr{
     margin-top: -5px;
+}
+
+.sales-division{
+    display: flex;
+    gap: 15px;
+}
+
+.sales-division article{
+    position: relative;
+    height: 100px;
+    width: 255px;
+    background-color: #FFFFFF;
+    border-radius: 1.5rem;
+    padding: 13px 30px;
+    border: 1px solid #c7c7c7;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.division-icon{
+    position: absolute;
+    top: 16px;
+    right: 1.5rem;
+    height: 28px;
+    width: 28px;
+}
+
+.sales-division h1{
+    margin: 0;
+    font-size: 2.1rem;
+    color: #1E3A8A;
+}
+
+.sales-division h2{
+    margin: 0;
+    font-weight: 600;
+    font-size: 20px;
+    color: #0151D6;
+}
+
+.sales-division p{
+    margin: 0;
+    font-size: 13px;
+    color: #64748B;
+}
+
+.card{
+    box-sizing: border-box;
+    background:  #fff1d9;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.card h3{
+    color: #1a56db;
+    margin: 0;
+}
+
+.card-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#salesRange{
+    background: white;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 12px;
+    color: #444;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.sales-card{
+    width: 980px;
+    border: 1px solid #c7c7c7;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+
+.chart-box{
+    position: relative;
+    height: 220px;   
+    margin-top: 10px;
+}
+
+.empty-message{
+    position: absolute;
+    top: 25px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: gray;
 }
