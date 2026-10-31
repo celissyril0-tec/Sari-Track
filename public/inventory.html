@@ -84,8 +84,179 @@
     </nav>
 
   <main>
-    <h1>Inventory</h1>
+    <div class="top">
+
+    <div class="sales-store">
+      <img class="logo" src="pics/cat.png">
+
+    <div class="sales-intro">
+      <h2>INVENTORY</h2>
+      <p>Manage and track inventory levels.</p>
+    </div>
+
+    </div>
+
+    <div class="main-buttons">
+     <button type="button" class="add-producr-btn" id="addProductBtn">
+      <img class="icon" src="pics/add.png">
+        Add Product
+     </button>
+
+     <button type="button" class="restock-btn" id="restockBtn">
+      <img class="icon" src="pics/view.png">
+        Restock
+     </button>
+    </div>
+
+    </div>
+
+    <hr>
+
+    <section class="inventory-division">
+      
+      <article class="total-products">
+        <img class="division-icon" src="pics/sales-report.png">
+
+        <h2>Total Products</h2>
+
+        <h1>0</h1>
+
+        <p>Products</p>
+
+      </article>
+
+      <article class="low-stock">
+        <img class="division-icon" src="pics/warning.png">
+        
+        <h2>Low Stock</h2>
+
+        <h1>0</h1>
+
+        <p>Needs checking</p>
+
+      </article>
+
+      <article class="out-of-stock">
+
+         <h2>Out of Stock</h2>
+
+        <h1>0</h1>
+
+        <p>Unavailable items</p>
+
+      </article>
+    </section>
+
+    <section class="stock-card">
+
+      <div class="stock-top">
+        <h3>Stock Overview</h3>
+        <select id="stockSort">
+          <option>Sort By:</option>
+          <option>Name</option>
+          <option>Stock Level</option>
+          <option>Staus</option>
+        </select>
+      </div>
+
+      <div class="stock-list" id="stockList">
+        <p class="stock-empty">No products yet. Add your first product to see ypur stock here.</p>
+      </div>
+
+    </section>
   </main>
+
+<div class="modal" id="addProductModal">
+  <div class="modal-box">
+    <h2>Add product</h2>
+    <p class="modal-sub">Add a new item to your inventory.</p>
+
+    <form id="addProductForm">
+      <label for="productName">Product name</label>
+      <input type="text" id="productName" placeholder="e.g. Lucky Me Pancit Canton Calamansi" autocomplete="off">
+
+      <div class="row">
+        <div>
+          <label for="productCategory">Category</label>
+          <select id="productCategory">
+            <option>Noodles</option>
+            <option>Drinks</option>
+            <option>Snacks</option>
+            <option>Household</option>
+            <option>Others</option>
+          </select>
+        </div>
+        <div>
+          <label for="productUnit">Unit</label>
+          <select id="productUnit">
+            <option>pack</option>
+            <option>piece</option>
+            <option>bottle</option>
+            <option>sachet</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="productPrice">Price each (₱)</label>
+          <input type="number" id="productPrice" min="0" step="0.01">
+        </div>
+        <div>
+          <label for="productStock">Starting stock</label>
+          <input type="number" id="productStock" min="0" value="0">
+        </div>
+      </div>
+
+      <label for="productLow">Low stock alert at</label>
+      <input type="number" id="productLow" min="0" value="5">
+
+      <div class="modal-buttons">
+        <button type="button" id="cancelAddBtn" class="cancel-btn">Cancel</button>
+        <button type="submit" class="save-btn">Save product</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="modal" id="restockModal">
+  <div class="modal-box">
+    <h2>Restock product</h2>
+    <p class="modal-sub">Add new stock to an existing product.</p>
+
+    <form id="restockForm">
+      <label for="restockItem">Product</label>
+      <div class="search-wrap">
+        <input type="text" id="restockItem" placeholder="Search product, e.g. Kopiko Brown Coffee" autocomplete="off">
+        <ul id="restockSuggestions" class="suggestions"></ul>
+      </div>
+
+      <div class="row">
+        <div>
+          <label for="currentStock">Current stock</label>
+          <input type="text" id="currentStock" value="0" readonly>
+        </div>
+        <div>
+          <label for="addStock">Quantity to add</label>
+          <input type="number" id="addStock" min="1" value="1">
+        </div>
+      </div>
+
+      <div class="total-row">
+        <span>New stock total:</span>
+        <span id="newStockText">0</span>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" id="cancelRestockBtn" class="cancel-btn">Cancel</button>
+        <button type="submit" class="save-btn">Save restock</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/inventory.js"></script>
     
 </body>
 </html>
