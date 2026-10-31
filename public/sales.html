@@ -169,7 +169,59 @@
     
   </main>
 
+  <div class="modal" id="saleModal">
+    <div class="modal-box">
+      <h2>Record new sale</h2>
+
+      <form id="saleForm">
+        <label for="itemInput">Item Sold</label>
+        <div class="search-wrap">
+          <input type="text" id="itemInput" placeholder="Search item, e.g Pancit Canton" autocomplete="off">
+
+          <ul id="suggestions" class="suggestions"></ul>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="qtyInput">Quantity</label>
+            <input type="number" id="qtyInput" value="1" min="1">
+          </div>
+          <div>
+            <label for="priceInput">Price each (₱) </label>
+            <input type="number" id="priceInput" min="0" step="0.01">
+          </div>
+        </div>
+
+        <button type="button" id="addItemBtn" class="add-item-btn"> Add to sale</button>
+        <p id="errorMsg" class="error-msg"></p>
+
+        <div class="summary">
+          <h3>Sale summary</h3>
+          <ul id="saleList"></ul>
+        </div>
+
+        <label for="paymentInput">Payment</label>
+        <select id="paymentInput">
+          <option>Cash</option>
+          <option>Utang</option>
+        </select>
+
+        <div class="total-row">
+          <span>Total: </span>
+          <span id="totalText">₱0.00</span>
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
+          <button type="submit" class="save-btn">Save sale</button> 
+        </div>
+
+      </form>
+    </div>
+  </div>
+
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/sales.js"></script>
 <script src="js/graph.js"></script>
     
 </body>
