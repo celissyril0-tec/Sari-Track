@@ -1,3 +1,7 @@
+html::-webkit-scrollbar {
+  display: none;                    /* Chrome, Edge and Safari */
+}
+
 .menu-links a:hover,
 .bottom-links a:hover {
     background-color: #2874D0;

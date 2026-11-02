@@ -85,8 +85,184 @@
 
 
   <main>
-    <h1>Utang Ledger</h1>
+  <div class="top">
+
+    <div class="utang-header">
+      <img class="logo" src="pics/cat.png">
+
+    <div class="utang-intro">
+      <h2>UTANG LEDGER</h2>
+      <p>Manage and track utang transactions.</p>
+    </div>
+    </div>
+
+    <div class="main-buttons">
+      <button type="button" class="add-utang-btn" id="addUtangBtn">
+       <img class="icon" src="pics/add.png">
+         Add Utang
+      </button>
+
+      <button type="button" class="record-payment-btn" id="paymentBtn">
+        Record Payment
+      </button>
+    </div>
+
+    </div>
+
+   </div>
+
+  <hr>
+
+   <section class="utang-division">
+      
+      <article class="total-utang">
+        <img class="division-icon" src="pics/sales-report.png">
+
+        <h2>Total Utang</h2>
+
+        <h1>0</h1>
+
+        <p>No unpaid balances</p>
+
+      </article>
+
+      <article class="customers">
+        
+        <h2>Customers</h2>
+
+        <h1>0</h1>
+
+        <p>No customers with utang</p>
+
+      </article>
+
+      <article class="paid-this-week">
+
+         <h2>Paid This Week</h2>
+
+        <h1>0</h1>
+
+        <p>No payments recorded this week</p>
+
+      </article>
+    </section>
+
+  <section class="utang-table">
+
+    <div class="utang-top">
+       <h3>Customer Balances</h3>
+
+      <div class="utang-tools">
+        <input type="search" id="searchBox" placeholder="Search customer">
+        <select id="sortBox">
+          <option value="new">Sort By: Newest</option>
+          <option value="name">Name</option>
+          <option value="balance">Highest Balance</option>
+          <option value="status">Status</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="utang-list" id="customerList">
+      <p class="empty">No utang records yet. Click "Add Utang" to record your first one.</p>
+    </div>
+     
+    </section>
+
   </main>
+
+  <div class="modal" id="addUtangModal">
+    <div class="modal-box">
+      <h2>Add Utang</h2>
+      <p class="modal-sub">Products a customer took credit. Stock is taken out of Inventory.</p>
+
+      <form id="addUtangForm">
+        <label for="utangName">Customer Name</label>
+        <input type="text" id="utangName" list="allCustomers" placeholder="e.g Marielle" autocomplete="off">
+        <datalist id="allCustomers"></datalist>
+
+        <label for="utangItem">Item taken</label>
+        <div class="search-wrap">
+          <input typ="text" id="utangItem" placeholder="Search item, e.g Lucky Me Pancit Canton" autocomplete="off">
+          <ul id="utangSuggestions" class="suggestions"></ul>
+        </div>
+
+        <div class="row">
+          <div>
+            <label for="utangQty">Quantity</label>
+            <input type="number" id="utangQty" min="1" value="1">
+          </div>
+
+          <div>
+            <label for="utangPrice">Price each (₱)</label>
+            <input type="number" id="utangPrice" min="0" step="0.01">
+          </div>
+        </div>
+
+        <div class="summary">
+          <h3>Utang Summary</h3>
+          <ul id="utangList"></ul>
+        </div>
+
+        <label for="utangDate">Date</label>
+        <input type="date" id="utangDate">
+
+        <div class="total-row">
+          <span> Utang to add: </span>
+          <span id="utangTotal">₱0.00</span>
+        </div>
+
+        <div class="modal-buttons">
+          <button type="button" class="cancel-btn" data-close>Cancel</button>
+          <button type="submit" class="save-btn">Add utang</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal" id="paymentModal">
+  <div class="modal-box">
+    <h2>Record payment</h2>
+    <p class="modal-sub">Collect a payment from a customer.</p>
+
+    <form id="paymentForm">
+      <label for="payName">Customer</label>
+      <input type="text" id="payName" list="owingCustomers" placeholder="Search customer" autocomplete="off">
+      <datalist id="owingCustomers"></datalist>
+
+      <div class="row">
+        <div>
+          <label for="payBalance">Current balance</label>
+          <input type="text" id="payBalance" value="₱0.00" readonly>
+        </div>
+        <div>
+          <label for="payAmount">Payment (₱)</label>
+          <input type="number" id="payAmount" min="0" step="0.01">
+        </div>
+      </div>
+
+      <label for="payMethod">Payment method</label>
+      <select id="payMethod">
+        <option>Cash</option>
+        <option>GCash</option>
+      </select>
+
+      <p class="error-msg" id="payError"></p>
+
+      <div class="total-row">
+        <span>New balance:</span>
+        <span id="newBalance">₱0.00</span>
+      </div>
+
+      <div class="modal-buttons">
+        <button type="button" class="cancel-btn" data-close>Cancel</button>
+        <button type="submit" class="save-btn">Save payment</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="js/utang.js"></script>
     
 </body>
 </html>
