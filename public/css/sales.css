@@ -83,20 +83,28 @@ hr{
     margin-top: -5px;
 }
 
+.top-section{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+}
+
 .sales-division{
-    display: flex;
+    display: block;
     gap: 15px;
 }
 
 .sales-division article{
     position: relative;
-    height: 100px;
-    width: 255px;
+    height: 105px;
+    width: 200px;
     background-color: #FFFFFF;
     border-radius: 1.5rem;
     padding: 13px 30px;
     border: 1px solid #c7c7c7;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    margin-top: 18px;
 }
 
 .division-icon{
@@ -157,20 +165,21 @@ hr{
 }
 
 .sales-card{
-    width: 980px;
+    width: 710px;
     border: 1px solid #c7c7c7;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
 .chart-box{
     position: relative;
-    height: 220px;   
+    height: 350px;   
+    width: 100%;
     margin-top: 10px;
 }
 
 .empty-message{
     position: absolute;
-    top: 25px;
+    top: 95px;
     left: 0;
     right: 0;
     text-align: center;

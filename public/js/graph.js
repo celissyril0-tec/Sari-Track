@@ -24,8 +24,8 @@ if (salesCanvas) {
       scales: {
         y: {
           beginAtZero: true,
-          suggestedMax: 3000,
-          ticks: { stepSize: 500 }   
+          suggestedMax: 1000,
+          ticks: { stepSize: 100 }   
         },
         x: {
           grid: { display: false }  
