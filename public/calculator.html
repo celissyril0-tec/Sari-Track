@@ -98,41 +98,139 @@
 
     <section class="container">
 
+    <div class="calc-layout">
 
-      <div class="calculator">
+        <div class="calc-box" role="tablist">
 
-         <div class="display" id="display">0</div>
+          <button type="button" class="calc-tab active" id="tabBasic" role="tab" aria-selected="true" aria-controls="panelBasic">
+            Basic Calculator
+          </button>
 
-         <div class="buttons">
+          <button type="button" class="calc-tab" id="tabProfit" role="tab" aria-selected="false" aria-controls="panelProfit">
+            Profit Calculator
+          </button>
 
-           <button class="clear" onclick="clearAll()">C</button>
-           <button class="clear" onclick="toggleSign()">+/-</button>
-           <button class="clear" onclick="percent()">%</button>
-           <button class="operator" onclick="pressOperator('÷')">÷</button>
+        </div>
+        
+        <div class="calc-panel" id="panelBasic" role="tabpanel">
 
-           <button class="number" onclick="pressNumber('7')">7</button>
-           <button class="number" onclick="pressNumber('8')">8</button>
-           <button class="number" onclick="pressNumber('9')">9</button>
-           <button class="operator" onclick="pressOperator('×')">×</button>
+          <div class="calculator">
+
+            <div class="display" id="display">0</div>
+
+            <div class="buttons">
+
+              <button class="clear" onclick="clearAll()">C</button>
+              <button class="clear" onclick="toggleSign()">+/-</button>
+              <button class="clear" onclick="percent()">%</button>
+              <button class="operator" onclick="pressOperator('÷')">÷</button>
+
+              <button class="number" onclick="pressNumber('7')">7</button>
+              <button class="number" onclick="pressNumber('8')">8</button>
+              <button class="number" onclick="pressNumber('9')">9</button>
+              <button class="operator" onclick="pressOperator('×')">×</button>
  
-           <button class="number" onclick="pressNumber('4')">4</button>
-           <button class="number" onclick="pressNumber('5')">5</button>
-           <button class="number" onclick="pressNumber('6')">6</button>
-           <button class="operator" onclick="pressOperator('−')">−</button>
+              <button class="number" onclick="pressNumber('4')">4</button>
+              <button class="number" onclick="pressNumber('5')">5</button>
+              <button class="number" onclick="pressNumber('6')">6</button>
+              <button class="operator" onclick="pressOperator('−')">−</button>
  
-          <button class="number" onclick="pressNumber('1')">1</button>
-          <button class="number" onclick="pressNumber('2')">2</button>
-          <button class="number" onclick="pressNumber('3')">3</button>
-          <button class="operator" onclick="pressOperator('+')">+</button>
+             <button class="number" onclick="pressNumber('1')">1</button>
+             <button class="number" onclick="pressNumber('2')">2</button>
+             <button class="number" onclick="pressNumber('3')">3</button>
+             <button class="operator" onclick="pressOperator('+')">+</button>
  
-          <button class="number zero" onclick="pressNumber('0')">0</button>
-          <button class="number" onclick="pressNumber('.')">.</button>
-          <button class="operator" onclick="calculate()">=</button>
+             <button class="number zero" onclick="pressNumber('0')">0</button>
+             <button class="number" onclick="pressNumber('.')">.</button>
+             <button class="operator" onclick="calculate()">=</button>
 
        </div>
 
       </div>
 
+    </div>
+
+    <div class="calc-panel" id="panelProfit" role="tabpanel" hidden>
+
+      <div class="p-grid">
+        <div class="p-cell">
+          <label for="pPack">Price of the whole pack (₱)</label>
+          <input type="number" id="pPack" min="0" step="0.01" placeholder="e.g. 300">
+        </div>
+
+        <div class="p-cell">
+          <label for="pPieces">Pieces in the whole pack</label>
+          <input type="number" id="pPieces" min="1" step="1" placeholder="e.g. 20">
+        </div>
+      </div>
+
+      <div class="p-cell p-off" id="pSellBox">
+        <label for="pSell">Selling price for each piece (₱)</label>
+        <input type="number" id="pSell" min="0" step="0.01" placeholder="e.g. 20">
+      </div>
+
+      <hr class="p-divider">
+
+      <div class="p-line" id="pCostBox">
+        <span class="p-line-label">Cost of each piece:</span>
+        <strong class="p-value" id="pCostEach">₱0.00</strong>
+      </div>
+
+      <div class="p-line" id="pEachBox">
+        <span class="p-line-label" id="pEachLabel">Profit of each piece:</span>
+        <strong class="p-value" id="pEach">₱0.00</strong>
+      </div>
+
+      <div class="p-line" id="pTotalBox">
+        <span class="p-line-label" id="pTotalLabel">Total profit:</span>
+        <strong class="p-value" id="pTotal">₱0.00</strong>
+      </div>
+
+    </div>
+        
+  </div>
+
+  <div class=" card budget-card">
+     <h3>Budget Overview</h3>
+
+    <div class="donut-box">
+      <canvas id="budgetChart"></canvas>
+    </div>
+      <p class="percent">0%</p>
+      <h2 class="amount">₱ 0.00</h2>
+      <p class="note">No budget set yet </p>
+
+      <div class="bd-edit">
+
+      <ul class="bd-legend"></ul>
+
+      <div class="bd-form">
+        <input type="number" class="bd-budget-input" min="0" step="0.01" placeholder="Budget">
+        <button type="button" class="bd-set-btn">Set Budget</button>
+      </div>
+
+      <div class="bd-form">
+        <select class="bd-cat">
+          <option>Stocks</option>
+          <option>Electricity</option>
+          <option>Water</option>
+          <option>Transportation</option>
+          <option>Others</option>
+        </select>
+        <input type="number"  class="bd-amount" min="0" step="0.01" placeholder="Amount">
+        <button type="button" class="bd-add-btn">Add</button>
+      </div>
+
+      <p class="bd-msg"></p>
+
+      <div class="bd-links">
+        <button type="button" class="bd-undo">Undo last expense</button>
+        <button type="button" class="bd-reset">Start over</button>
+      </div>
+    </div>
+  </div>
+
+    
       
 
     </section>
@@ -140,5 +238,6 @@
     </main>
 
     <script src="js/calculator.js"></script>  
+    <script src="js/graph.js"></script>
 </body>
 </html>
