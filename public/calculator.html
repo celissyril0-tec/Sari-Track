@@ -74,7 +74,7 @@
           </li>
 
           <li>
-            <a href="log-out.html">
+            <a href="login.html">
               <img class="icon" src="pics/logout.png">
               <span>Logout</span>
             </a>
@@ -83,7 +83,59 @@
     </nav>
 
     <main>
-        <h1>Calculator </h1>
+
+    <div class="upper-section">
+      <img class="logo" src="pics/cat.png">
+
+    <div class="calcu-intro">
+      <h2>CALCULATOR</h2>
+      <p>Tap, calculate, and know your earnings!</p>
+    </div>
+
+    </div>
+
+    <hr>
+
+    <section class="container">
+
+      <div class="calculator">
+
+         <div class="display" id="display">0</div>
+
+         <div class="buttons">
+
+           <button class="clear" onclick="clearAll()">C</button>
+           <button class="clear" onclick="toggleSign()">+/-</button>
+           <button class="clear" onclick="percent()">%</button>
+           <button class="operator" onclick="pressOperator('÷')">÷</button>
+
+           <button class="number" onclick="pressNumber('7')">7</button>
+           <button class="number" onclick="pressNumber('8')">8</button>
+           <button class="number" onclick="pressNumber('9')">9</button>
+           <button class="operator" onclick="pressOperator('×')">×</button>
+ 
+           <button class="number" onclick="pressNumber('4')">4</button>
+           <button class="number" onclick="pressNumber('5')">5</button>
+           <button class="number" onclick="pressNumber('6')">6</button>
+           <button class="operator" onclick="pressOperator('−')">−</button>
+ 
+          <button class="number" onclick="pressNumber('1')">1</button>
+          <button class="number" onclick="pressNumber('2')">2</button>
+          <button class="number" onclick="pressNumber('3')">3</button>
+          <button class="operator" onclick="pressOperator('+')">+</button>
+ 
+          <button class="number zero" onclick="pressNumber('0')">0</button>
+          <button class="number" onclick="pressNumber('.')">.</button>
+          <button class="operator" onclick="calculate()">=</button>
+
+       </div>
+
+      </div>
+
+    </section>
+       
     </main>
+
+    <script src="js/calculator.js"></script>  
 </body>
 </html>
