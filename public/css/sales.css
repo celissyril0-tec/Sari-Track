@@ -1,6 +1,3 @@
-html::-webkit-scrollbar {
-  display: none;                    /* Chrome, Edge and Safari */
-}
 
 .menu-links a:hover,
 .bottom-links a:hover {

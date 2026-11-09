@@ -4,8 +4,191 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/settings.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <header class="header">
+        <div class="left-side">
+            <img class="header-logo" src="pics/catlogo.png">
+            <h2>Sari<span>Track</span></h2>
+        </div>
+
+        <div class="right-side">
+          <img class="bell" src="icons/notifications.png">
+
+          <div class="account-info">
+            <img class="account" src="icons/account.png">
+            <span>My Account</span>
+         </div>
+
+        </div>
+    </header>
+
+    <nav class="side-bar">
+        <ul class="menu-links">
+            <li>
+              <a href="dashboard.html">
+                <img class="icon" src="icons/dashboard.png">
+                <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="sales.html">
+                <img class="icon" src="icons/sales_icon.png">
+                <span>Sales</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="inventory.html">
+                <img class="icon" src="icons/inventory-icon.png">
+                <span>Inventory</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="utang.html">
+                <img class="icon" src="icons/utang.png">
+                <span>Utang Ledger</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="calculator.html">
+                <img class="icon" src="icons/calculator-icon.png">
+                <span>Calculator</span>
+              </a>
+            </li>
+        </ul>
+
+        <ul class="bottom-links">
+          <li>
+            <a href="settings.html" class="active">
+              <img class="icon" src="icons/settings.png">
+              <span>Settings</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="log-out.html">
+                <img class="icon" src="icons/logout.png">
+              <span>Logout</span>
+            </a>
+          </li>
+        </ul>
+    </nav>
+
+    <main>
+
+    <div class="settings">
+      <img class="logo" src="pics/cat.png">
+
+    <div class="settings-intro">
+      <h2>SETTINGS</h2>
+      <p>Manage your account, store and system preferences.</p>
+    </div>
+
+    </div>
+
+    <hr>
+
+    <form id="settingsForm">
+    <div class="settings-grid">
+
+      
+      <div class="settings-card">
+        <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">Account</h2>
+        <div class="field">
+          <label for="sellerName">Seller Name</label>
+          <input type="text" id="sellerName" value="Maria Santos" required>
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" value="maria@email.com" required>
+        </div>
+      </div>
+
+      
+      <div class="settings-card">
+        <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">Store Information</h2>
+        <div class="field">
+          <label for="storeName">Store Name</label>
+          <input type="text" id="storeName" value="Maria's Sari-sari Store" required>
+        </div>
+        <div class="field">
+          <label for="address">Address</label>
+          <input type="text" id="address" value="Batangas City">
+        </div>
+      </div>
+
+    
+      <div class="settings-card">
+        <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">Inventory</h2>
+        <div class="field">
+          <label for="lowStock">Default Low Stock Alert</label>
+          <input type="number" id="lowStock" min="0" value="5">
+          <small>You get an alert when an item has this many or fewer left.</small>
+        </div>
+      </div>
+
+      <div class="settings-card">
+        <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">Utang</h2>
+        <div class="field">
+          <label for="dueDays">Default Due Period (days)</label>
+          <input type="number" id="dueDays" min="1" value="7">
+          <small>New utang entries will be due after this many days.</small>
+        </div>
+      </div>
+
+      <!-- Notifications -->
+      <div class="settings-card full">
+        <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">Notifications</h2>
+        <label class="check-row"><input type="checkbox" id="notifLowStock" checked> Low stock alerts</label>
+        <label class="check-row"><input type="checkbox" id="notifOverdue" checked> Overdue utang alerts</label>
+      </div>
+
+    </div>
+
+    <div class="save-bar">
+      <button type="submit" class="btn">Save Settings</button>
+      <span class="save-msg" id="saveMsg"></span>
+    </div>
+  </form>
+
+
+  <div class="settings-grid" style="margin-top:22px">
+
+    <div class="settings-card">
+      <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">Security</h2>
+      <form id="passwordForm">
+        <div class="field">
+          <label for="oldPass">Current Password</label>
+          <input type="password" id="oldPass" required>
+        </div>
+        <div class="field">
+          <label for="newPass">New Password</label>
+          <input type="password" id="newPass" minlength="8" required>
+          <small>At least 8 characters.</small>
+        </div>
+        <button type="submit" class="btn btn-blue btn-full">Change Password</button>
+        <p class="save-msg" id="passMsg"></p>
+      </form>
+    </div>
+
+    <div class="settings-card">
+      <h2 class="card-title"><img src="icons/account.png" class="card-icon" alt="">System Information</h2>
+      <div class="info-row"><span>Version</span><b>1.0</b></div>
+      <div class="info-row"><span>Platform</span><b>Web System</b></div>
+      <div class="info-row"><span>Currency</span><b>Philippine Peso (₱)</b></div>
+    </div>
+
+  </div>
+
+    </main>
     
 </body>
 </html>

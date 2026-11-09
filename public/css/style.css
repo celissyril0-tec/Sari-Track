@@ -1,3 +1,6 @@
+html::-webkit-scrollbar {
+  display: none;                    /* Chrome, Edge and Safari */
+}
 body{
   margin: 0;
   box-sizing: border-box;
