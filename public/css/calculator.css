@@ -1,3 +1,7 @@
+html::-webkit-scrollbar {
+  display: none;                    /* Chrome, Edge and Safari */
+}
+
 .menu-links a:hover,
 .bottom-links a:hover {
     background-color: #2874D0;
@@ -52,10 +56,10 @@ hr{
     background-color: #fcf1dc;
     padding: 1rem;
     border-radius: 1rem;
-    width: 300px;
+    width: 90%;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     margin-top: 20px;
-    margin-left: 20px;
+    
 }
 
 .display{
@@ -106,19 +110,20 @@ hr{
 }
  
 .clear {
-  background: #0b4fd1;
-  color: white;
+  background: #fde0e0;
+  color: #d32020;
 }
- 
+
 .operator {
-  background: #ffb800;
-  color: #12307a;
+  background: #dfe9fc;
+  color: #0b45c9;
 }
 
-/* ===== Calculator page: layout, tabs, Profit Calculator and Budget controls ===== */
-/* Written for your HTML: .container > .calc-layout (tabs + calculators) and .budget-card */
+.equals {
+  background: #ffc20e;
+  color: #1b2a6b;
+}
 
-/* the page area: the calculator box on the left, Budget Overview on the right */
 .container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 340px;
@@ -183,18 +188,18 @@ hr{
   box-shadow: 0 3px 8px rgba(255, 194, 14, 0.5);
 }
 
-/* only one calculator shows at a time */
+
 .calc-panel[hidden] {
   display: none !important;
 }
 
-/* your calculator stays in the middle of its tab */
+
 .calc-panel .calculator {
   margin-left: auto;
   margin-right: auto;
 }
 
-/* ----- Profit Calculator ----- */
+
 .p-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -242,7 +247,7 @@ hr{
   box-shadow: 0 0 0 3px rgba(255, 194, 14, 0.35);
 }
 
-/* the selling price box is dimmed until the pack price and pieces are filled in */
+
 #panelProfit input:disabled {
   background: #f6efe0;
   cursor: not-allowed;
@@ -258,7 +263,7 @@ hr{
   margin: 4px 0 16px 0;
 }
 
-/* one answer: the name on the left, the box on the right */
+
 .p-line {
   display: grid;
   grid-template-columns: 170px 1fr;
@@ -273,7 +278,7 @@ hr{
   color: #1b2a6b;
 }
 
-/* answer boxes with a colored stripe on the left */
+
 .p-value {
   display: flex;
   align-items: center;
@@ -301,15 +306,12 @@ hr{
   font-size: 22px;
 }
 
-/* when the selling price is lower than the cost */
 .p-line.p-loss .p-value {
   border-left-color: #b91c1c;
   color: #b91c1c;
 }
 
 
-
-/* ===== Budget Overview Card ===== */
 .budget-card {
     background-color: #fff1d9;
     padding: 24px;
@@ -319,7 +321,7 @@ hr{
     box-sizing: border-box;
 }
 
-/* Budget Overview title */
+
 .budget-card h3 {
     color: #0755d9;
     font-size: 21px;
@@ -327,7 +329,7 @@ hr{
     margin: 0 0 18px;
 }
 
-/* ===== Donut Chart ===== */
+
 .donut-box {
     display: flex;
     justify-content: center;
@@ -342,41 +344,81 @@ hr{
     height: 160px;
 }
 
-/* ===== Budget Information ===== */
+.donut-box {
+    position: relative;
+}
+
+.donut-center {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.donut-label {
+    font-size: 12px;
+    color: #7a7a7a;
+}
+
+.summary-label {
+    margin: 0;
+    text-align: center;
+    font-size: 13px;
+    color: #7a7a7a;
+}
+
 .budget-card .percent {
-    color: #ff9800;
-    font-size: 16px;
-    font-weight: 600;
-    margin: 0 0 2px;
+    color: #12307a;
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0;
 }
 
 .budget-card .amount {
-    color: #111;
-    font-size: 30px;
-    margin: 0 0 2px;
+    color: #12307a;
+    font-size: 32px;
+    font-weight: 700;
+    text-align: center;
+    margin: 2px 0;
 }
 
 .budget-card .note {
-    color: #64748b;
+    color: #7a7a7a;
     font-size: 14px;
-    margin: 0 0 15px; /* Reduced space before the inputs */
+    text-align: center;
+    margin: 0 0 20px;
 }
 
-/* ===== Expense Category Legend ===== */
+
 .bd-legend {
     list-style: none;
     padding: 0;
     margin: 0 0 15px;
 }
 
-/* ===== Input Rows ===== */
+
 .bd-form {
     display: flex;
     align-items: center;
     gap: 8px;
+    margin-bottom: 8px;
 }
 
-/* Input fields and dropdown */
+.bd-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #12307a;
+}
+
+.bd-add-btn {
+    width: 100%;
+}
+
 .bd-form input,
 .bd-form select {
     margin: 0;
@@ -385,7 +427,7 @@ hr{
     min-width: 0;
     height: 42px;
     padding: 0 12px;
-    border: 1px solid #f1d8ae;
+    border: 1.5px solid #f1d8ae;
     border-radius: 11px;
     background-color: white;
     font-size: 14px;
@@ -399,36 +441,31 @@ hr{
     border-color: #0755d9;
 }
 
-/* First row: Budget input */
 .bd-budget-input {
     flex: 1;
 }
 
-/* Second row: Category dropdown */
 .bd-cat {
     flex: 1;
 }
 
-/* Amount input */
 .bd-amount {
     flex: 1;
 }
-
-/* Buttons */
 .bd-form button {
     height: 42px;
     flex-shrink: 0;
     padding: 0 18px;
     border: none;
-    border-radius: 25px;
+    border-radius: 12px;
     background-color: #1a56db;
     color: white;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     cursor: pointer;
     white-space: nowrap;
     box-sizing: border-box;
-    margin: 5px;
+    margin: 0;
     align-self: center;
     line-height: normal;
     transform: none;
@@ -439,17 +476,17 @@ hr{
     background-color: #003fae;
 }
 
-/* ===== Message ===== */
+
 .bd-msg {
     font-size: 12px;
     color: #64748b;
     margin: 5px 0;
 }
 
-/* ===== Undo and Start Over ===== */
 .bd-links {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: 15px;
     margin-top: 10px;
 }
@@ -458,8 +495,23 @@ hr{
     border: none;
     background: none;
     color: #0755d9;
-    text-decoration: underline;
-    font-size: 12px;
+    font-size: 13px;
     padding: 0;
     cursor: pointer;
+    text-decoration: none;   
+
+}
+
+.bd-links .bd-reset {
+    color: #d32020;
+}
+
+.bd-form input[type=number]::-webkit-inner-spin-button,
+.bd-form input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.bd-form input[type=number] {
+    -moz-appearance: textfield;
+    appearance: textfield;
 }

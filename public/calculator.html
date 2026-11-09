@@ -193,33 +193,42 @@
   <div class="budget-card">
      <h3>Budget Overview</h3>
 
-    <div class="donut-box">
-      <canvas id="budgetChart"></canvas>
-    </div>
+  <div class="donut-box">
+     <canvas id="budgetChart"></canvas>
+    <div class="donut-center">
       <p class="percent">0%</p>
-      <h2 class="amount">₱ 0.00</h2>
-      <p class="note">No budget set yet </p>
+      <span class="donut-label">used</span>
+    </div>
+  </div>
+
+    <p class="summary-label">Total Spent</p>
+    <h2 class="amount">₱ 0.00</h2>
+    <p class="note">No budget set yet</p>
 
       <div class="bd-edit">
 
       <ul class="bd-legend"></ul>
 
-      <div class="bd-form">
-        <input type="number" class="bd-budget-input" min="0" step="0.01" placeholder="Budget">
-        <button type="button" class="bd-set-btn">Set Budget</button>
-      </div>
+     <label class="bd-label">Budget</label>
+        <div class="bd-form">
+          <input type="number" class="bd-budget-input" min="0" step="0.01" placeholder="Enter your budget">
+          <button type="button" class="bd-set-btn">Set</button>
+       </div>
 
-      <div class="bd-form">
+      <label class="bd-label">Add Expense</label>
+       <div class="bd-form">
         <select class="bd-cat">
           <option>Stocks</option>
-          <option>Electricity</option>
-          <option>Water</option>
-          <option>Transportation</option>
-          <option>Others</option>
+          <option>Supplies</option>
+          <option>Utilities</option>
         </select>
-        <input type="number"  class="bd-amount" min="0" step="0.01" placeholder="Amount">
-        <button type="button" class="bd-add-btn">Add</button>
+       <input type="number" class="bd-amount" min="0" step="0.01" placeholder="Amount">
       </div>
+
+
+<div class="bd-form">
+  <button type="button" class="bd-add-btn">Add Expense</button>
+</div>
 
       <p class="bd-msg"></p>
 
