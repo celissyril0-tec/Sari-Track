@@ -100,3 +100,74 @@ function percent() {
   }
   updateDisplay();
 }
+
+// ===== Calculator page: the two tabs and the Profit Calculator =====
+// Your own calculator.js (the basic calculator) is not touched.
+
+(function () {
+  function $(id) { return document.getElementById(id); }
+
+  function peso(n) {
+    return '₱' + n.toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  // ----- the two switch buttons -----
+  function showTab(which) {
+    var basic = which === 'basic';
+
+    $('panelBasic').hidden = !basic;
+    $('panelProfit').hidden = basic;
+
+    $('tabBasic').classList.toggle('active', basic);
+    $('tabProfit').classList.toggle('active', !basic);
+    $('tabBasic').setAttribute('aria-selected', basic);
+    $('tabProfit').setAttribute('aria-selected', !basic);
+  }
+
+  $('tabBasic').onclick = function () { showTab('basic'); };
+  $('tabProfit').onclick = function () { showTab('profit'); };
+
+  // ----- Profit Calculator -----
+  var sellHint = $('pSell').placeholder;             // your own wording, for example "e.g. 20"
+
+  function profitUpdate() {
+    var pack = Number($('pPack').value);
+    var pieces = Number($('pPieces').value);
+    var sellText = $('pSell').value;
+
+    // cost of each piece
+    var ready = pack > 0 && pieces >= 1;
+    var costEach = ready ? pack / pieces : 0;
+    $('pCostEach').textContent = peso(costEach);
+
+    // the selling price box turns on only after the pack price and pieces are filled in
+    $('pSell').disabled = !ready;
+    $('pSellBox').classList.toggle('p-off', !ready);
+    $('pSell').placeholder = ready ? sellHint : 'Fill in the pack price and pieces first';
+
+    // profit
+    if (!ready || sellText === '') {
+      showProfit(0, 0);
+      return;
+    }
+
+    var sell = Number(sellText);
+    var profitEach = sell - costEach;
+    var profitTotal = sell * pieces - pack;       // exact, so the total never has a rounding error
+    showProfit(profitEach, profitTotal);
+  }
+
+  function showProfit(each, total) {
+    var loss = total < 0;
+    $('pEachLabel').textContent = loss ? 'Loss of each piece:' : 'Profit of each piece:';
+    $('pTotalLabel').textContent = loss ? 'Total loss:' : 'Total profit:';
+    $('pEach').textContent = peso(Math.abs(each));
+    $('pTotal').textContent = peso(Math.abs(total));
+    $('pEachBox').classList.toggle('p-loss', loss);
+    $('pTotalBox').classList.toggle('p-loss', loss);
+  }
+
+  ['pPack', 'pPieces', 'pSell'].forEach(function (id) { $(id).oninput = profitUpdate; });
+
+  profitUpdate();
+})();

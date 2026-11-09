@@ -115,5 +115,351 @@ hr{
   color: #12307a;
 }
 
+/* ===== Calculator page: layout, tabs, Profit Calculator and Budget controls ===== */
+/* Written for your HTML: .container > .calc-layout (tabs + calculators) and .budget-card */
+
+/* the page area: the calculator box on the left, Budget Overview on the right */
+.container {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 20px;
+  align-items: start;
+  justify-content: stretch;
+  max-width: none;
+  margin-top: 20px;
+}
+
+.calc-layout {
+  background: #fdefd8;
+  border: 1.5px solid #f0dfb8;
+  border-radius: 24px;
+  padding: 22px 24px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+  min-width: 0;
+}
 
 
+.container .budget-card {
+  margin-top: 0;
+  box-sizing: border-box;
+}
+
+
+.calc-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: white;
+  border-radius: 999px;
+  padding: 5px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.calc-tab {
+  border: none;
+  background: transparent;
+  color: #0b45c9;
+  padding: 11px 10px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  margin: 0;
+}
+  
+
+.calc-tab:hover {
+  background: #fff6d6;
+}
+
+
+.calc-tab.active {
+  background: #ffc20e;
+  color: #1b2a6b;
+  box-shadow: 0 3px 8px rgba(255, 194, 14, 0.5);
+}
+
+/* only one calculator shows at a time */
+.calc-panel[hidden] {
+  display: none !important;
+}
+
+/* your calculator stays in the middle of its tab */
+.calc-panel .calculator {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----- Profit Calculator ----- */
+.p-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.p-cell {
+  min-width: 0;
+  margin-bottom: 12px;
+}
+
+.p-grid .p-cell {
+  margin-bottom: 0;
+}
+
+#panelProfit{
+    margin-top: 1.5rem;
+}
+
+#panelProfit label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1b2a6b;
+  margin-bottom: 4px;
+}
+
+#panelProfit input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 14px;
+  margin: 0;
+  border: 1.5px solid #f0dfb8;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 15px;
+  color: #1b2a6b;
+  background: white;
+}
+
+#panelProfit input:focus {
+  outline: none;
+  border-color: #ffc20e;
+  box-shadow: 0 0 0 3px rgba(255, 194, 14, 0.35);
+}
+
+/* the selling price box is dimmed until the pack price and pieces are filled in */
+#panelProfit input:disabled {
+  background: #f6efe0;
+  cursor: not-allowed;
+}
+
+.p-cell.p-off {
+  opacity: 0.55;
+}
+
+.p-divider {
+  border: none;
+  border-top: 2px dashed #f0dfb8;
+  margin: 4px 0 16px 0;
+}
+
+/* one answer: the name on the left, the box on the right */
+.p-line {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.p-line-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1b2a6b;
+}
+
+/* answer boxes with a colored stripe on the left */
+.p-value {
+  display: flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 14px;
+  background: white;
+  border: 1.5px solid #f0dfb8;
+  border-left: 6px solid #0b45c9;
+  border-radius: 12px;
+  font-size: 19px;
+  font-weight: 700;
+  color: #0b45c9;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+
+#pEachBox .p-value {
+  border-left-color: #14a44d;
+  color: #14803c;
+}
+
+#pTotalBox .p-value {
+  border-left-color: #ffc20e;
+  background: #fff8dd;
+  color: #14803c;
+  font-size: 22px;
+}
+
+/* when the selling price is lower than the cost */
+.p-line.p-loss .p-value {
+  border-left-color: #b91c1c;
+  color: #b91c1c;
+}
+
+
+
+/* ===== Budget Overview Card ===== */
+.budget-card {
+    background-color: #fff1d9;
+    padding: 24px;
+    border-radius: 20px;
+    width: 340px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    box-sizing: border-box;
+}
+
+/* Budget Overview title */
+.budget-card h3 {
+    color: #0755d9;
+    font-size: 21px;
+    font-weight: 500;
+    margin: 0 0 18px;
+}
+
+/* ===== Donut Chart ===== */
+.donut-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 18px;
+    width: 160px;
+    height: 160px;
+}
+
+.donut-box canvas {
+    width: 160px;
+    height: 160px;
+}
+
+/* ===== Budget Information ===== */
+.budget-card .percent {
+    color: #ff9800;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 0 0 2px;
+}
+
+.budget-card .amount {
+    color: #111;
+    font-size: 30px;
+    margin: 0 0 2px;
+}
+
+.budget-card .note {
+    color: #64748b;
+    font-size: 14px;
+    margin: 0 0 15px; /* Reduced space before the inputs */
+}
+
+/* ===== Expense Category Legend ===== */
+.bd-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px;
+}
+
+/* ===== Input Rows ===== */
+.bd-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Input fields and dropdown */
+.bd-form input,
+.bd-form select {
+    margin: 0;
+    height: 42px;
+    line-height: normal;
+    min-width: 0;
+    height: 42px;
+    padding: 0 12px;
+    border: 1px solid #f1d8ae;
+    border-radius: 11px;
+    background-color: white;
+    font-size: 14px;
+    color: #24324a;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.bd-form input:focus,
+.bd-form select:focus {
+    border-color: #0755d9;
+}
+
+/* First row: Budget input */
+.bd-budget-input {
+    flex: 1;
+}
+
+/* Second row: Category dropdown */
+.bd-cat {
+    flex: 1;
+}
+
+/* Amount input */
+.bd-amount {
+    flex: 1;
+}
+
+/* Buttons */
+.bd-form button {
+    height: 42px;
+    flex-shrink: 0;
+    padding: 0 18px;
+    border: none;
+    border-radius: 25px;
+    background-color: #1a56db;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    box-sizing: border-box;
+    margin: 5px;
+    align-self: center;
+    line-height: normal;
+    transform: none;
+
+}
+
+.bd-form button:hover {
+    background-color: #003fae;
+}
+
+/* ===== Message ===== */
+.bd-msg {
+    font-size: 12px;
+    color: #64748b;
+    margin: 5px 0;
+}
+
+/* ===== Undo and Start Over ===== */
+.bd-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.bd-links button {
+    border: none;
+    background: none;
+    color: #0755d9;
+    text-decoration: underline;
+    font-size: 12px;
+    padding: 0;
+    cursor: pointer;
+}
