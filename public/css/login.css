@@ -124,3 +124,158 @@ span{
     color: #D0AC32;
 }
 
+/* =====================================================
+   TABLET (screens 992px wide or smaller)
+   Same as desktop: cat on the left, form on the right
+   ===================================================== */
+@media (max-width: 992px) {
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  /* no extra blue strip at the bottom */
+  html, body {
+    overflow-x: hidden;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    background-color: #f2f8ff !important;
+  }
+  html, body, .login {
+    background-repeat: no-repeat !important;
+    background-size: 100% 100% !important;
+  }
+
+  /* The whole page: two columns side by side */
+  .login {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 12px !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    padding: 32px 24px !important;
+  }
+
+  /* ---------- LEFT: cat + logo ---------- */
+  .leftside {
+    flex: 0 1 300px !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+  }
+  .image {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+  .cat {
+    width: 100% !important;
+    max-width: 280px !important;
+    height: auto !important;
+  }
+  .bottom-left {
+    position: static !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    margin: 16px 0 0 0 !important;
+  }
+  .logo {
+    width: 50px !important;
+    height: 50px !important;
+  }
+  .bottom-left h1 {
+    font-size: 1.5rem !important;
+    margin: 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  /* ---------- RIGHT: the form card ---------- */
+  .right-side {
+    flex: 0 1 380px !important;
+    width: auto !important;
+    max-width: 380px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+   form {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 24px 20px !important;   /* same space on both sides */
+  }
+  
+  label {
+    display: block !important;
+  }
+ 
+   input {
+    display: block !important;
+    width: 100% !important;
+    margin: 4px 0 12px 0 !important;   /* removes any sideways shift */
+    padding: 12px !important;
+    font-size: 16px !important;   /* stops phones from zooming in when you tap a field */
+  }
+
+  form button {
+    display: block !important;
+    width: 100% !important;
+    margin: 16px 0 !important;
+    padding: 14px !important;
+  }
+  
+   form button {
+    display: block !important;
+    width: 100% !important;
+    margin: 16px 0 !important;   /* removes the sideways shift */
+    padding: 14px !important;
+  }
+}
+
+
+/* =====================================================
+   SMARTPHONE - Samsung Galaxy A55 (360px wide)
+   Only the form is shown
+   ===================================================== */
+@media (max-width: 600px) {
+
+  /* hides the cat and the catchphrase on phones */
+  .leftside {
+    display: none !important;
+  }
+
+  /* centers the form on the screen */
+  .login {
+    flex-direction: column !important;
+    justify-content: center !important;
+    min-height: 100vh !important;
+    padding: 20px 16px !important;
+  }
+
+  .right-side {
+    flex: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  form {
+    padding: 20px 16px !important;
+  }
+  .intro {
+    font-size: 1.2rem !important;
+  }
+  form p, form a {
+    font-size: 13px !important;
+  }
+}
+

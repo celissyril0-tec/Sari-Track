@@ -1,11 +1,12 @@
 html::-webkit-scrollbar {
   display: none;                    /* Chrome, Edge and Safari */
 }
+
 body{
   margin: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color: #FFFDF8;
+  background-color: #F1EBDD;
  
 }
 
@@ -130,7 +131,7 @@ body{
 }
 
 main {
-    background-color:  #fbf6e8;
+    background-color: #F1EBDD;
     margin-top: 35px;
     margin-left: 300px;
     padding: 30px;

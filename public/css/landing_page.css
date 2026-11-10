@@ -329,3 +329,315 @@ footer h2{
    margin-right: 4rem;
 }
 
+/* =====================================================
+   TABLET (screens 992px wide or smaller)
+   ===================================================== */
+@media (max-width: 992px) {
+
+  /* Navigation */
+  nav {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  /* Hero */
+  .sari-track {
+    height: auto;
+    padding: 3rem 2rem;
+  }
+  .quote {
+    margin-left: 0;
+  }
+  .left-side {
+    margin-left: 0;
+  }
+  .intro-contents h1 {
+    font-size: 2.6rem;
+    line-height: 1.1;
+  }
+  .right-side {
+    margin: 0;
+    align-items: center;
+  }
+  .pic1 {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+  }
+  .intro-buttons {
+    margin-top: 2rem;
+  }
+  .intro-buttons button {
+    margin-top: 0;
+  }
+
+  /* Benefits */
+  .advantages {
+    margin-top: -1px;            /* removes the thin white line */
+  }
+  .benefits {
+    width: 90%;
+    max-width: 560px;
+    margin: 0 auto 1rem auto;
+    box-sizing: border-box;
+  }
+  .benefits p {
+    width: auto;
+  }
+
+  /* Three tools */
+  .Features {
+    height: auto;
+    padding: 0 2rem 2rem;
+  }
+  .tools-contents {
+    gap: 1rem;
+  }
+  .tool {
+    flex: 1;
+    width: auto;
+    padding-left: 1.5rem;
+    box-sizing: border-box;
+  }
+  .tool p {
+    width: auto;
+    height: auto;
+  }
+
+  /* Call to action */
+  .cta {
+    height: auto;
+    padding: 2rem 0;
+  }
+  .cta-text {
+    width: 90%;
+  }
+
+  /* Footer */
+  footer {
+    height: auto;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+  .footer1 {
+    width: 100%;
+    margin-right: 0;
+  }
+  .footer1 p {
+    width: auto;
+  }
+  .footer2, .footer3 {
+    flex: 1;
+    margin: 0;
+    padding-top: 0;
+  }
+}
+
+
+/* =====================================================
+   SMARTPHONE - Samsung Galaxy A55 (360px wide)
+   Works for any phone 600px wide or smaller
+   ===================================================== */
+@media (max-width: 600px) {
+
+  /* Makes padding count inside the width, so nothing sticks out */
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* ---------- NAVIGATION ---------- */
+  nav {
+    height: auto;
+    flex-direction: column;
+    gap: 10px;
+    padding: 12px 16px;
+  }
+  .left-nav {
+    justify-content: center;
+    gap: 10px;
+  }
+  .link-logo {
+    height: 44px;
+    width: 44px;
+  }
+  nav h1 {
+    font-size: 1.5rem;
+    margin: 0;
+  }
+  .nav-links {
+    justify-content: center;
+    gap: 1rem;
+    font-size: 14px;
+  }
+
+  /* ---------- HERO ---------- */
+  .sari-track {
+    height: auto;
+    padding: 2rem 16px;
+  }
+  .quote {
+    width: auto;
+    margin: 0 0 8px 0;
+    padding: 8px 12px;
+    font-size: 11px;
+    text-align: center;
+  }
+  .intro-contents {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+  .left-side {
+    width: 100%;
+    margin: 0;
+    text-align: center;
+  }
+  .intro-contents h1 {
+    font-size: 2.2rem;
+    line-height: 1.2;
+    margin-top: 20px;
+    text-align: center;
+  }
+  .info {
+    width: auto;
+    margin: 10px 0 0 0;
+    text-align: center;
+  }
+  .right-side {
+    width: 100%;
+    margin: 10px 0 0 0;          /* removes the negative margins */
+    justify-content: center;
+  }
+  .pic1 {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+  }
+  .intro-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-top: 1rem;
+  }
+  .intro-buttons button {
+    width: 100%;
+    margin-top: 0;
+    padding: 14px;
+  }
+
+  /* ---------- EVERYTHING YOU NEED ---------- */
+  .advantages {
+    margin-top: -1px;            /* removes the thin white line */
+    padding: 40px 16px 24px;
+  }
+  .adv {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    letter-spacing: 1px;
+  }
+  .advantages h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+  }
+  .benefits-contents {
+    align-items: stretch;
+  }
+  .benefits {
+    width: 100%;
+    margin: 0 0 12px 0;
+    padding: 12px;
+    gap: 12px;
+  }
+  .img {
+    flex-shrink: 0;
+  }
+  .bene-pics {
+    height: 64px;
+    width: 64px;
+  }
+  .benefits h3 {
+    font-size: 15px;
+  }
+  .benefits p {
+    width: auto;
+    font-size: 13px;
+  }
+
+  /* ---------- THREE TOOLS ---------- */
+  .Features {
+    height: auto;
+    padding: 0 16px 24px;
+  }
+  .top {
+    padding: 24px 0 16px;
+    font-size: 1.25rem;
+  }
+  .tools-contents {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .tool {
+    width: 100%;
+    padding: 16px 20px;
+  }
+  .tool-pic {
+    height: 100px;
+    width: 100px;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+  .tool h2 {
+    font-size: 1.4rem;
+  }
+  .tool p {
+    width: auto;
+    height: auto;
+    font-size: 14px;
+  }
+
+  /* ---------- CALL TO ACTION ---------- */
+  .cta {
+    height: auto;
+    padding: 24px 16px;
+  }
+  .cta-contents {
+    width: 100%;
+    padding: 24px 16px;
+  }
+  .cta h1 {
+    font-size: 1.4rem;
+  }
+  .cta-text {
+    width: auto;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    height: auto;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+  footer h1 {
+    font-size: 2rem;
+  }
+  .footer1 {
+    width: 100%;
+    margin-right: 0;
+  }
+  .footer1 p {
+    width: auto;
+  }
+  .footer2, .footer3 {
+    margin: 0;
+    padding-top: 0;
+  }
+}
+
