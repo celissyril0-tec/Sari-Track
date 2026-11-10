@@ -124,17 +124,13 @@ span{
     color: #D0AC32;
 }
 
-/* =====================================================
-   TABLET (screens 992px wide or smaller)
-   Same as desktop: cat on the left, form on the right
-   ===================================================== */
 @media (max-width: 992px) {
 
   *, *::before, *::after {
     box-sizing: border-box;
   }
 
-  /* no extra blue strip at the bottom */
+  
   html, body {
     overflow-x: hidden;
     min-height: 100vh !important;
@@ -146,7 +142,7 @@ span{
     background-size: 100% 100% !important;
   }
 
-  /* The whole page: two columns side by side */
+ 
   .login {
     display: flex !important;
     flex-direction: row !important;
@@ -158,7 +154,7 @@ span{
     padding: 32px 24px !important;
   }
 
-  /* ---------- LEFT: cat + logo ---------- */
+  
   .leftside {
     flex: 0 1 300px !important;
     width: auto !important;
@@ -198,7 +194,7 @@ span{
     line-height: 1.1 !important;
   }
 
-  /* ---------- RIGHT: the form card ---------- */
+  
   .right-side {
     flex: 0 1 380px !important;
     width: auto !important;
@@ -212,9 +208,9 @@ span{
     width: 100% !important;
     height: auto !important;
     margin: 0 !important;
-    padding: 24px 20px !important;   /* same space on both sides */
+    padding: 24px 20px !important;  
   }
-  
+
   label {
     display: block !important;
   }
@@ -222,9 +218,9 @@ span{
    input {
     display: block !important;
     width: 100% !important;
-    margin: 4px 0 12px 0 !important;   /* removes any sideways shift */
+    margin: 4px 0 12px 0 !important;   
     padding: 12px !important;
-    font-size: 16px !important;   /* stops phones from zooming in when you tap a field */
+    font-size: 16px !important;   
   }
 
   form button {
@@ -237,24 +233,21 @@ span{
    form button {
     display: block !important;
     width: 100% !important;
-    margin: 16px 0 !important;   /* removes the sideways shift */
+    margin: 16px 0 !important;   
     padding: 14px !important;
   }
 }
 
 
-/* =====================================================
-   SMARTPHONE - Samsung Galaxy A55 (360px wide)
-   Only the form is shown
-   ===================================================== */
+
 @media (max-width: 600px) {
 
-  /* hides the cat and the catchphrase on phones */
+  
   .leftside {
     display: none !important;
   }
 
-  /* centers the form on the screen */
+  
   .login {
     flex-direction: column !important;
     justify-content: center !important;

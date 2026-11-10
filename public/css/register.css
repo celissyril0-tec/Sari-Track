@@ -119,10 +119,6 @@ span{
     color: #D0AC32;
 }
 
-/* =====================================================
-   TABLET (screens 992px wide or smaller)
-   Same as desktop: cat on the left, form on the right
-   ===================================================== */
 @media (max-width: 992px) {
 
   *, *::before, *::after {
@@ -133,14 +129,14 @@ span{
     overflow-x: hidden;
     min-height: 100vh !important;
     margin: 0 !important;
-    background-color: #f2f8ff !important;   /* light color that matches the bottom of the gradient */
+    background-color: #f2f8ff !important;   
   }
   html, body, .register {
-    background-repeat: no-repeat !important;   /* stops the gradient from repeating */
-    background-size: 100% 100% !important;     /* stretches it over the full height */
+    background-repeat: no-repeat !important;   
+    background-size: 100% 100% !important;     
   }
 
-  /* The whole page: two columns side by side */
+
   .register {
     display: flex !important;
     flex-direction: row !important;
@@ -152,7 +148,7 @@ span{
     padding: 32px 24px !important;
   }
 
-  /* ---------- LEFT: cat + logo ---------- */
+  
   .leftside {
     flex: 0 1 300px !important;
     width: auto !important;
@@ -192,7 +188,7 @@ span{
     line-height: 1.1 !important;
   }
 
-  /* ---------- RIGHT: the form card ---------- */
+  
   .right-side {
     flex: 0 1 380px !important;
     width: auto !important;
@@ -213,7 +209,7 @@ span{
   input {
     width: 100% !important;
     padding: 12px !important;
-    font-size: 16px !important;   /* stops phones from zooming in when you tap a field */
+    font-size: 16px !important;   
   }
   .create-btn {
     width: 100% !important;
@@ -222,18 +218,15 @@ span{
 }
 
 
-/* =====================================================
-   SMARTPHONE - Samsung Galaxy A55 (360px wide)
-   Only the form is shown
-   ===================================================== */
+
 @media (max-width: 600px) {
 
-  /* hides the cat and the catchphrase on phones */
+  
   .leftside {
     display: none !important;
   }
 
-  /* removes the extra blue strip at the bottom */
+  
   html, body {
     min-height: 100vh !important;
     margin: 0 !important;
@@ -243,7 +236,7 @@ span{
     background-size: 100% 100% !important;
   }
 
-  /* centers the form on the screen */
+ 
   .register {
     flex-direction: column !important;
     justify-content: center !important;
@@ -264,7 +257,7 @@ span{
     font-size: 1.1rem !important;
   }
 
-  /* keeps the small text inside the cream card */
+  
   .terms {
     width: 100% !important;
     max-width: 100% !important;
