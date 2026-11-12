@@ -329,15 +329,12 @@ footer h2{
    margin-right: 4rem;
 }
 
-
 @media (max-width: 992px) {
 
-  
   nav {
     padding-left: 2rem;
     padding-right: 2rem;
   }
-
 
   .sari-track {
     height: auto;
@@ -370,7 +367,7 @@ footer h2{
   }
 
   .advantages {
-    margin-top: -1px;            
+    margin-top: -1px;
   }
   .benefits {
     width: 90%;
@@ -382,26 +379,40 @@ footer h2{
     width: auto;
   }
 
- 
   .Features {
     height: auto;
     padding: 0 2rem 2rem;
   }
   .tools-contents {
-    gap: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
   }
   .tool {
-    flex: 1;
-    width: auto;
-    padding-left: 1.5rem;
-    box-sizing: border-box;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    column-gap: 16px;
+    align-items: center;
+    padding: 16px;
+  }
+  .tool-pic {
+    grid-row: 1 / 3;
+    width: 90px;
+    height: 90px;
+    margin: 0;
+  }
+  .tool h2 {
+    font-size: 1.3rem;
+    margin: 0;
   }
   .tool p {
     width: auto;
     height: auto;
+    font-size: 14px;
+    margin: 4px 0 0 0;
   }
 
- 
   .cta {
     height: auto;
     padding: 2rem 0;
@@ -410,14 +421,19 @@ footer h2{
     width: 90%;
   }
 
-
   footer {
     height: auto;
+    flex-direction: row;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 2rem;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+  footer h1 {
+    font-size: 2rem;
+    margin: 0;
   }
   .footer1 {
+    flex-basis: 100%;
     width: 100%;
     margin-right: 0;
   }
@@ -426,6 +442,7 @@ footer h2{
   }
   .footer2, .footer3 {
     flex: 1;
+    min-width: 0;
     margin: 0;
     padding-top: 0;
   }
@@ -465,7 +482,6 @@ footer h2{
     font-size: 14px;
   }
 
-  
   .sari-track {
     height: auto;
     padding: 2rem 16px;
@@ -500,7 +516,7 @@ footer h2{
   }
   .right-side {
     width: 100%;
-    margin: 10px 0 0 0;          
+    margin: 10px 0 0 0;
     justify-content: center;
   }
   .pic1 {
@@ -520,9 +536,8 @@ footer h2{
     padding: 14px;
   }
 
-  
   .advantages {
-    margin-top: -1px;            
+    margin-top: -1px;
     padding: 40px 16px 24px;
   }
   .adv {
@@ -558,7 +573,6 @@ footer h2{
     font-size: 13px;
   }
 
-  
   .Features {
     height: auto;
     padding: 0 16px 24px;
@@ -567,31 +581,42 @@ footer h2{
     padding: 24px 0 16px;
     font-size: 1.25rem;
   }
+
+  /* TOOLS: picture on the left, text on the right */
   .tools-contents {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 12px !important;
   }
-  .tool {
-    width: 100%;
-    padding: 16px 20px;
+  .tools-contents .tool {
+    display: grid !important;
+    grid-template-columns: 64px 1fr !important;
+    column-gap: 12px !important;
+    align-items: center !important;
+    width: 100% !important;
+    height: auto !important;
+    flex: none !important;
+    padding: 12px !important;
+    text-align: left !important;
   }
-  .tool-pic {
-    height: 100px;
-    width: 100px;
-    margin-left: 0;
-    margin-bottom: 0;
+  .tools-contents .tool-pic {
+    grid-row: 1 / span 2 !important;
+    width: 64px !important;
+    height: 64px !important;
+    margin: 0 !important;
   }
-  .tool h2 {
-    font-size: 1.4rem;
+  .tools-contents .tool h2 {
+    margin: 0 !important;
+    font-size: 15px !important;
   }
-  .tool p {
-    width: auto;
-    height: auto;
-    font-size: 14px;
+  .tools-contents .tool p {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    font-size: 13px !important;
   }
 
- 
   .cta {
     height: auto;
     padding: 24px 16px;
@@ -609,17 +634,21 @@ footer h2{
     line-height: 1.6;
   }
 
-  
   footer {
     height: auto;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 24px 16px;
   }
+
   footer h1 {
     font-size: 2rem;
+    margin: 0;
   }
+
   .footer1 {
+    flex-basis: 100%;
     width: 100%;
     margin-right: 0;
   }
@@ -627,8 +656,669 @@ footer h2{
     width: auto;
   }
   .footer2, .footer3 {
+    flex: 1;
+    min-width: 0;
     margin: 0;
     padding-top: 0;
   }
 }
 
+/* =====================================================
+   TABLET PORTRAIT LAYOUT
+   iPad Mini, iPad Air, iPad Pro, Surface Pro 7
+   ===================================================== */
+
+@media screen and (min-width: 601px)
+and (max-width: 1100px)
+and (orientation: portrait) {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    /* ---------- NAVIGATION ---------- */
+
+    nav {
+        height: auto;
+        min-height: 75px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 4%;
+        gap: 12px;
+    }
+
+    .left-nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .link-logo {
+        width: clamp(48px, 6vw, 65px);
+        height: clamp(48px, 6vw, 65px);
+        object-fit: contain;
+    }
+
+    nav h1 {
+        font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+        margin: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: clamp(12px, 2vw, 20px);
+        font-size: clamp(12px, 1.5vw, 15px);
+    }
+
+
+    /* =================================================
+       INTRO / HERO SECTION
+       ================================================= */
+
+    .sari-track {
+        height: auto;
+        min-height: 0;
+        padding: clamp(40px, 5vw, 65px) 5%;
+        box-shadow: none;
+        filter: none;
+        border-bottom: none;
+    }
+
+    .quote {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 0 clamp(15px, 2vw, 22px);
+        padding: 10px 15px;
+        font-size: clamp(12px, 1.5vw, 16px);
+        text-align: left;
+    }
+
+    .intro-contents {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(15px, 3vw, 35px);
+    }
+
+    .left-side {
+        width: 45%;
+        flex: 1 1 45%;
+        min-width: 0;
+        margin: 0 0 0 1rem;
+        text-align: left;
+    }
+
+    .intro-contents h1 {
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        line-height: 1.15;
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    .info {
+        width: 100%;
+        margin: 14px 0;
+        font-size: clamp(14px, 1.6vw, 17px);
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .right-side {
+        width: 55%;
+        flex: 1 1 55%;
+        min-width: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pic1 {
+        display: block;
+        width: 100%;
+        max-width: clamp(300px, 42vw, 460px);
+        height: auto;
+        object-fit: contain;
+    }
+
+    .intro-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: clamp(10px, 1.5vw, 16px);
+        margin-top: clamp(20px, 3vw, 35px);
+    }
+
+    .intro-buttons button {
+        width: auto;
+        margin-top: 0;
+        padding: clamp(14px, 1.8vw, 18px)
+                 clamp(24px, 2.8vw, 32px);
+        font-size: clamp(16px, 1.8vw, 18px);
+    }
+
+       
+
+
+    /* ---------- ADVANTAGES SECTION ---------- */
+
+    .advantages {
+        margin-top: 0;
+        padding: clamp(35px, 4vw, 50px) 5%;
+        box-shadow: none;
+        border-top: none;
+        margin-top: 0;
+}
+    }
+
+    .adv {
+        margin-bottom: 10px;
+        font-size: clamp(13px, 1.5vw, 16px);
+        letter-spacing: 1px;
+    }
+
+    .advantages h2 {
+        margin-top: 0;
+        margin-bottom: 22px;
+        font-size: clamp(1.6rem, 3vw, 2.1rem);
+    }
+
+    .benefits-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(12px, 1.5vw, 18px);
+    }
+
+    .benefits {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        max-width: 850px;
+        margin: 0;
+        padding: clamp(14px, 1.8vw, 22px);
+        gap: clamp(14px, 2vw, 22px);
+    }
+
+    .img {
+        flex-shrink: 0;
+    }
+
+    .bene-pics {
+        width: clamp(65px, 8vw, 85px);
+        height: clamp(65px, 8vw, 85px);
+        object-fit: contain;
+    }
+
+    .benefits h3 {
+        font-size: clamp(15px, 1.7vw, 19px);
+        margin-bottom: 6px;
+    }
+
+    .benefits p {
+        width: auto;
+        font-size: clamp(12px, 1.4vw, 15px);
+        line-height: 1.5;
+    }
+
+
+    /* ---------- FEATURES SECTION ---------- */
+
+    .Features {
+        height: auto;
+        padding: 0 4% 40px;
+    }
+
+    .top {
+        padding: 32px 0 22px;
+        font-size: clamp(1.5rem, 2.8vw, 2rem);
+    }
+
+    .tools-contents {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: space-between;
+        gap: clamp(10px, 1.5vw, 18px);
+    }
+
+    .tool {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: calc((100% - 36px) / 3);
+        min-width: 0;
+        padding: clamp(14px, 1.8vw, 20px);
+        margin: 0;
+    }
+
+    .tool-pic {
+        width: clamp(75px, 10vw, 115px);
+        height: clamp(75px, 10vw, 115px);
+        object-fit: contain;
+        margin: 0 0 10px;
+    }
+
+    .tool h2 {
+        font-size: clamp(15px, 1.7vw, 19px);
+        margin-bottom: 7px;
+    }
+
+    .tool p {
+        width: 100%;
+        height: auto;
+        font-size: clamp(11px, 1.3vw, 14px);
+        line-height: 1.5;
+    }
+
+
+    /* ---------- CALL TO ACTION ---------- */
+
+    .cta {
+        height: auto;
+        padding: 35px 5%;
+    }
+
+    .cta-contents {
+        width: 100%;
+        max-width: 850px;
+        margin: 0 auto;
+        padding: clamp(25px, 3vw, 40px);
+    }
+
+    .cta h1 {
+        font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    }
+
+    .cta-text {
+        width: 100%;
+        font-size: clamp(13px, 1.4vw, 16px);
+        line-height: 1.6;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 35px 5%;
+    }
+
+    footer h1 {
+        font-size: clamp(1.7rem, 2.5vw, 2.1rem);
+    }
+
+    .footer1 {
+        width: 45%;
+        margin-right: 0;
+    }
+
+    .footer1 p {
+        width: 100%;
+        font-size: clamp(12px, 1.3vw, 15px);
+        line-height: 1.5;
+    }
+
+    .footer2,
+    .footer3 {
+        width: 23%;
+        margin: 0;
+        padding-top: 0;
+        font-size: clamp(12px, 1.3vw, 15px);
+    }
+
+
+
+/* =====================================================
+   TABLET LANDSCAPE LAYOUT
+   iPad Mini, iPad Air, iPad Pro, Surface Pro 7
+   ===================================================== */
+
+@media screen and (min-width: 601px)
+and (max-width: 1440px)
+and (orientation: landscape) {
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    html, body {
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+
+    /* ---------- NAVIGATION ---------- */
+
+    nav {
+        height: auto;
+        min-height: clamp(65px, 7vw, 85px);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 5%;
+        gap: 15px;
+    }
+
+    .left-nav {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-shrink: 0;
+    }
+
+    .link-logo {
+        width: clamp(48px, 4.5vw, 65px);
+        height: clamp(48px, 4.5vw, 65px);
+        object-fit: contain;
+        flex-shrink: 0;
+    }
+
+    nav h1 {
+        font-size: clamp(1.5rem, 2vw, 2rem);
+        margin: 0;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        flex-wrap: nowrap;
+        gap: clamp(15px, 2vw, 25px);
+        font-size: clamp(13px, 1.2vw, 16px);
+    }
+
+
+    /* =================================================
+       INTRO / HERO SECTION
+       Larger contents for landscape screens
+       ================================================= */
+
+    .sari-track {
+        height: auto;
+        min-height: 0;
+        padding: clamp(45px, 5vw, 75px) 7%;
+        box-shadow: none;
+        filter: none;
+        border-bottom: none;
+    }
+
+    .quote {
+        width: fit-content;
+        max-width: 100%;
+        margin: 0 0 clamp(20px, 2.5vw, 30px);
+        padding: clamp(10px, 1.2vw, 14px)
+                 clamp(15px, 1.8vw, 22px);
+        font-size: clamp(14px, 1.35vw, 19px);
+        text-align: left;
+    }
+
+    .intro-contents {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: clamp(25px, 4vw, 60px);
+    }
+
+    .left-side {
+        width: 48%;
+        flex: 1 1 48%;
+        min-width: 0;
+        margin: 0;
+        text-align: left;
+    }
+
+    .intro-contents h1 {
+        font-size: clamp(2.5rem, 4.2vw, 4rem);
+        line-height: 1.12;
+        margin-top: clamp(15px, 2vw, 25px);
+        text-align: left;
+    }
+
+    .info {
+        width: 100%;
+        max-width: 580px;
+        margin: clamp(15px, 2vw, 24px) 0;
+        font-size: clamp(16px, 1.5vw, 21px);
+        line-height: 1.6;
+        text-align: left;
+    }
+
+    .right-side {
+        width: 52%;
+        flex: 1 1 52%;
+        min-width: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .pic1 {
+        display: block;
+        width: 100%;
+        max-width: clamp(380px, 43vw, 620px);
+        height: auto;
+        object-fit: contain;
+    }
+
+    .intro-buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: clamp(12px, 1.5vw, 20px);
+        margin-top: clamp(25px, 3vw, 40px);
+    }
+
+    .intro-buttons button {
+        width: auto;
+        margin-top: 0;
+        padding: clamp(13px, 1.4vw, 17px)
+                 clamp(25px, 2.8vw, 38px);
+        font-size: clamp(14px, 1.25vw, 17px);
+    }
+
+
+    /* ---------- ADVANTAGES SECTION ---------- */
+
+    .advantages {
+        margin-top: 0;
+        padding: clamp(40px, 4vw, 60px) 7%;
+         box-shadow: none;
+         border-top: none;
+         margin-top: 0;   
+    }
+
+    .adv {
+        margin-bottom: 12px;
+        font-size: clamp(14px, 1.2vw, 17px);
+        letter-spacing: 1px;
+    }
+
+    .advantages h2 {
+        margin-top: 0;
+        margin-bottom: clamp(22px, 2.5vw, 32px);
+        font-size: clamp(1.9rem, 2.7vw, 2.6rem);
+    }
+
+    .benefits-contents {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: clamp(15px, 1.5vw, 22px);
+    }
+
+    .benefits {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+        max-width: 1050px;
+        min-height: clamp(100px, 10vw, 125px);
+        margin: 0;
+        padding: clamp(17px, 1.8vw, 25px);
+        gap: clamp(18px, 2vw, 28px);
+    }
+
+    .img {
+        flex-shrink: 0;
+    }
+
+    .bene-pics {
+        width: clamp(75px, 7vw, 105px);
+        height: clamp(75px, 7vw, 105px);
+        object-fit: contain;
+    }
+
+    .benefits h3 {
+        font-size: clamp(17px, 1.5vw, 21px);
+        margin-bottom: 8px;
+    }
+
+    .benefits p {
+        width: auto;
+        font-size: clamp(14px, 1.2vw, 17px);
+        line-height: 1.55;
+    }
+
+
+    /* ---------- FEATURES SECTION ---------- */
+
+    .Features {
+        height: auto;
+        padding: 0 6% clamp(35px, 4vw, 55px);
+    }
+
+    .top {
+        padding: clamp(30px, 3vw, 45px) 0 25px;
+        font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+    }
+
+    .tools-contents {
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+        justify-content: center;
+        gap: clamp(15px, 2vw, 25px);
+    }
+
+    .tool {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: calc((100% - 50px) / 3);
+        min-width: 0;
+        padding: clamp(18px, 2vw, 27px);
+        margin: 0;
+    }
+
+    .tool-pic {
+        width: clamp(100px, 9vw, 145px);
+        height: clamp(100px, 9vw, 145px);
+        object-fit: contain;
+        margin: 0 0 12px;
+    }
+
+    .tool h2 {
+        font-size: clamp(18px, 1.5vw, 22px);
+        margin-bottom: 8px;
+    }
+
+    .tool p {
+        width: 100%;
+        height: auto;
+        font-size: clamp(14px, 1.15vw, 17px);
+        line-height: 1.55;
+    }
+
+
+    /* ---------- CALL TO ACTION ---------- */
+
+    .cta {
+        height: auto;
+        padding: clamp(40px, 4vw, 60px) 7%;
+    }
+
+    .cta-contents {
+        width: 100%;
+        max-width: 1050px;
+        margin: 0 auto;
+        padding: clamp(30px, 3.5vw, 50px);
+    }
+
+    .cta h1 {
+        font-size: clamp(2rem, 2.7vw, 2.6rem);
+    }
+
+    .cta-text {
+        width: 100%;
+        font-size: clamp(14px, 1.25vw, 17px);
+        line-height: 1.7;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: clamp(20px, 2.5vw, 35px);
+        padding: clamp(35px, 4vw, 55px) 7%;
+    }
+
+    footer h1 {
+        font-size: clamp(2rem, 2.5vw, 2.5rem);
+    }
+
+    .footer1 {
+        width: 42%;
+        margin-right: 0;
+    }
+
+    .footer1 p {
+        width: 100%;
+        font-size: clamp(13px, 1.1vw, 16px);
+        line-height: 1.6;
+    }
+
+    .footer2,
+    .footer3 {
+        width: 23%;
+        margin: 0;
+        padding-top: 0;
+        font-size: clamp(13px, 1.1vw, 16px);
+    }
+
+}

@@ -124,151 +124,540 @@ span{
     color: #D0AC32;
 }
 
-@media (max-width: 992px) {
+/* ================= SMARTPHONES ================= */
+/* ================= SMARTPHONES ================= */
+@media (max-width: 599px) {
 
-  *, *::before, *::after {
-    box-sizing: border-box;
-  }
-
-  
   html, body {
-    overflow-x: hidden;
-    min-height: 100vh !important;
     margin: 0 !important;
-    background-color: #f2f8ff !important;
-  }
-  html, body, .login {
-    background-repeat: no-repeat !important;
-    background-size: 100% 100% !important;
+    padding: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;                 /* no scrollbar */
   }
 
- 
   .login {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;          /* center top and bottom */
+    align-items: center !important;              /* center left and right */
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 16px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  /* Show only the form */
+  .image,
+  .leftside,
+  .right-side .form-brand {
+    display: none !important;
+  }
+
+  .right-side {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  /* The form card: tall, rounded, with a soft shadow */
+  .right-side form {
+    width: clamp(290px, 92vw, 440px) !important;
+    min-height: clamp(440px, 70dvh, 620px) !important;
+    max-height: 90dvh !important;
+    margin: 0 auto !important;
+    padding: clamp(24px, 7vw, 36px) clamp(20px, 6vw, 30px) !important;
+    border-radius: 22px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+
+  /* Title */
+  .right-side .intro-part {
+    text-align: center !important;
+    margin: 0 0 clamp(20px, 4.5dvh, 36px) 0 !important;
+  }
+
+  .right-side .intro {
+    margin: 0 0 6px 0 !important;
+    font-size: clamp(1.6rem, 7vw, 2rem) !important;
+  }
+
+  .right-side .intro-part p {
+    margin: 0 !important;
+    font-size: clamp(14px, 3.9vw, 16px) !important;
+  }
+
+  /* Labels and inputs */
+  .right-side label {
+    display: block !important;
+    margin: 0 0 8px 0 !important;
+    font-size: clamp(15px, 4.2vw, 17px) !important;
+  }
+
+  .right-side input {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(46px, 7dvh, 56px) !important;
+    margin: 0 0 clamp(16px, 3dvh, 24px) 0 !important;
+    padding: 0 16px !important;
+    border-radius: 12px !important;
+    font-size: 16px !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Forgot password link, on the right */
+  .right-side form > a {
+    align-self: flex-end !important;
+    margin: 0 0 clamp(20px, 4dvh, 32px) 0 !important;
+    font-size: clamp(14px, 3.8vw, 16px) !important;
+  }
+
+  /* Log In button */
+  .right-side button {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(50px, 7.5dvh, 60px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 12px !important;
+    font-size: clamp(17px, 4.6vw, 19px) !important;
+  }
+
+  /* Need an account? Register */
+  .right-side form > p {
+    margin: clamp(20px, 4dvh, 32px) 0 0 0 !important;
+    text-align: center !important;
+    font-size: clamp(14px, 3.8vw, 16px) !important;
+  }
+}
+
+/* ================= TABLET - PORTRAIT: form only ================= */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;                 /* no scrollbar */
+  }
+
+  .login {
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .image,
+  .leftside,
+  .right-side .form-brand {
+    display: none !important;                    /* show only the form */
+  }
+
+  .right-side {
+    width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .right-side form {
+    width: clamp(480px, 80vw, 680px) !important;
+    min-height: clamp(520px, 60dvh, 820px) !important;
+    max-height: 90dvh !important;
+    margin: 0 auto !important;
+    padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 48px) !important;
+    border-radius: 26px !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+
+  .right-side .intro-part {
+    text-align: center !important;
+    margin: 0 0 clamp(24px, 4.5dvh, 44px) 0 !important;
+  }
+
+  .right-side .intro {
+    margin: 0 0 8px 0 !important;
+    font-size: clamp(2rem, 5vw, 2.8rem) !important;
+  }
+
+  .right-side .intro-part p {
+    margin: 0 !important;
+    font-size: clamp(17px, 2.4vw, 21px) !important;
+  }
+
+  .right-side label {
+    display: block !important;
+    margin: 0 0 10px 0 !important;
+    font-size: clamp(17px, 2.4vw, 21px) !important;
+  }
+
+  .right-side input {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(54px, 5.5dvh, 68px) !important;
+    margin: 0 0 clamp(18px, 3dvh, 30px) 0 !important;
+    padding: 0 18px !important;
+    border-radius: 14px !important;
+    font-size: clamp(17px, 2.4vw, 21px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .right-side form > a {
+    align-self: flex-end !important;
+    margin: 0 0 clamp(24px, 4dvh, 40px) 0 !important;
+    font-size: clamp(16px, 2.2vw, 19px) !important;
+  }
+
+  .right-side button {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(58px, 6dvh, 72px) !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 14px !important;
+    font-size: clamp(19px, 2.6vw, 23px) !important;
+  }
+
+  .right-side form > p {
+    margin: clamp(24px, 4dvh, 40px) 0 0 0 !important;
+    text-align: center !important;
+    font-size: clamp(16px, 2.2vw, 19px) !important;
+  }
+}
+
+
+/* ================= TABLET - LANDSCAPE: cat + catchphrase + form ================= */
+@media (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) and (min-height: 500px) {
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;                 /* no scrollbar */
+  }
+
+  .login {
+    display: flex !important;
+    flex-direction: row !important;              /* cat on the left, form on the right */
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(32px, 6vw, 90px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .right-side .form-brand {
+    display: none !important;
+  }
+
+  /* Left side: cat, then logo + catchphrase */
+  .leftside {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: clamp(12px, 2.5dvh, 24px) !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .image {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  .cat {
+    height: clamp(180px, 42dvh, 340px) !important;   /* grows with the screen height */
+    width: auto !important;
+    max-width: 100% !important;
+  }
+
+  .bottom-left {
     display: flex !important;
     flex-direction: row !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 12px !important;
-    height: auto !important;
-    min-height: 100vh !important;
-    padding: 32px 24px !important;
+    gap: clamp(10px, 1.6vw, 16px) !important;
+    margin: 0 !important;
   }
 
-  
-  .leftside {
-    flex: 0 1 300px !important;
+  .bottom-left .logo {
+    width: clamp(44px, 8dvh, 64px) !important;
+    height: clamp(44px, 8dvh, 64px) !important;
+  }
+
+  .bottom-left h1 {
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: clamp(1.2rem, 2.6vw, 1.9rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Right side: the form */
+  .right-side {
     width: auto !important;
     height: auto !important;
     margin: 0 !important;
     padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .right-side form {
+    width: clamp(400px, 42vw, 540px) !important;
+    min-height: clamp(400px, 68dvh, 600px) !important;
+    max-height: 92dvh !important;
+    margin: 0 !important;
+    padding: clamp(24px, 3.5vw, 40px) clamp(24px, 3.5vw, 40px) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.18) !important;
+    box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
-  }
-  .image {
-    width: 100% !important;
-    display: flex !important;
     justify-content: center !important;
-    margin: 0 !important;
-  }
-  .cat {
-    width: 100% !important;
-    max-width: 280px !important;
-    height: auto !important;
-  }
-  .bottom-left {
-    position: static !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 10px !important;
-    margin: 16px 0 0 0 !important;
-  }
-  .logo {
-    width: 50px !important;
-    height: 50px !important;
-  }
-  .bottom-left h1 {
-    font-size: 1.5rem !important;
-    margin: 0 !important;
-    line-height: 1.1 !important;
+    gap: 0 !important;
   }
 
-  
-  .right-side {
-    flex: 0 1 380px !important;
-    width: auto !important;
-    max-width: 380px !important;
-    height: auto !important;
+  .right-side .intro-part {
+    text-align: center !important;
+    margin: 0 0 clamp(16px, 3.5dvh, 30px) 0 !important;
+  }
+
+  .right-side .intro {
+    margin: 0 0 6px 0 !important;
+    font-size: clamp(1.6rem, 3vw, 2.2rem) !important;
+  }
+
+  .right-side .intro-part p {
+    margin: 0 !important;
+    font-size: clamp(15px, 1.8vw, 18px) !important;
+  }
+
+  .right-side label {
+    display: block !important;
+    margin: 0 0 8px 0 !important;
+    font-size: clamp(15px, 1.8vw, 18px) !important;
+  }
+
+  .right-side input {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(44px, 6.5dvh, 58px) !important;
+    margin: 0 0 clamp(14px, 2.6dvh, 22px) 0 !important;
+    padding: 0 16px !important;
+    border-radius: 12px !important;
+    font-size: clamp(16px, 1.9vw, 19px) !important;
+    box-sizing: border-box !important;
+  }
+
+  .right-side form > a {
+    align-self: flex-end !important;
+    margin: 0 0 clamp(16px, 3.5dvh, 28px) 0 !important;
+    font-size: clamp(14px, 1.7vw, 17px) !important;
+  }
+
+  .right-side button {
+    display: block !important;
+    width: 100% !important;
+    height: clamp(48px, 7dvh, 62px) !important;
     margin: 0 !important;
     padding: 0 !important;
-  }
-  
-   form {
-    width: 100% !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 24px 20px !important;  
+    border-radius: 12px !important;
+    font-size: clamp(17px, 2vw, 20px) !important;
   }
 
-  label {
-    display: block !important;
-  }
- 
-   input {
-    display: block !important;
-    width: 100% !important;
-    margin: 4px 0 12px 0 !important;   
-    padding: 12px !important;
-    font-size: 16px !important;   
-  }
-
-  form button {
-    display: block !important;
-    width: 100% !important;
-    margin: 16px 0 !important;
-    padding: 14px !important;
-  }
-  
-   form button {
-    display: block !important;
-    width: 100% !important;
-    margin: 16px 0 !important;   
-    padding: 14px !important;
+  .right-side form > p {
+    margin: clamp(16px, 3.5dvh, 28px) 0 0 0 !important;
+    text-align: center !important;
+    font-size: clamp(14px, 1.7vw, 17px) !important;
   }
 }
 
 
+/* ============ LARGE TABLETS - LANDSCAPE (iPad Pro, Surface Pro) ============ */
+@media (min-width: 1181px) and (max-width: 1400px) and (orientation: landscape) and (min-height: 800px) {
 
-@media (max-width: 600px) {
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 100% !important;
+    overflow: hidden !important;                 /* no scrollbar */
+  }
 
-  
-  .leftside {
+  .login {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: clamp(60px, 7vw, 110px) !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 32px !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  .right-side .form-brand {
     display: none !important;
   }
 
-  
-  .login {
+  /* Left side: cat, then logo + catchphrase */
+  .leftside {
+    display: flex !important;
     flex-direction: column !important;
+    align-items: center !important;
     justify-content: center !important;
-    min-height: 100vh !important;
-    padding: 20px 16px !important;
+    gap: clamp(16px, 3dvh, 30px) !important;
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  .right-side {
-    flex: none !important;
-    width: 100% !important;
+  .image {
+    display: flex !important;
+    justify-content: center !important;
+    margin: 0 !important;
+  }
+
+  .cat {
+    height: clamp(300px, 46dvh, 460px) !important;
+    width: auto !important;
     max-width: 100% !important;
   }
 
-  form {
-    padding: 20px 16px !important;
+  .bottom-left {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+    margin: 0 !important;
   }
-  .intro {
-    font-size: 1.2rem !important;
+
+  .bottom-left .logo {
+    width: 72px !important;
+    height: 72px !important;
   }
-  form p, form a {
-    font-size: 13px !important;
+
+  .bottom-left h1 {
+    margin: 0 !important;
+    text-align: left !important;
+    font-size: clamp(1.8rem, 2.4vw, 2.3rem) !important;
+    line-height: 1.2 !important;
+  }
+
+  /* Right side: the form */
+  .right-side {
+    width: auto !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    justify-content: center !important;
+  }
+
+  .right-side form {
+    width: clamp(520px, 40vw, 640px) !important;
+    min-height: clamp(520px, 66dvh, 720px) !important;
+    max-height: 92dvh !important;
+    margin: 0 !important;
+    padding: 44px 48px !important;
+    border-radius: 28px !important;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18) !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 0 !important;
+  }
+
+  .right-side .intro-part {
+    text-align: center !important;
+    margin: 0 0 clamp(24px, 4dvh, 40px) 0 !important;
+  }
+
+  .right-side .intro {
+    margin: 0 0 8px 0 !important;
+    font-size: 2.4rem !important;
+  }
+
+  .right-side .intro-part p {
+    margin: 0 !important;
+    font-size: 19px !important;
+  }
+
+  .right-side label {
+    display: block !important;
+    margin: 0 0 10px 0 !important;
+    font-size: 19px !important;
+  }
+
+  .right-side input {
+    display: block !important;
+    width: 100% !important;
+    height: 60px !important;
+    margin: 0 0 clamp(18px, 3dvh, 28px) 0 !important;
+    padding: 0 18px !important;
+    border-radius: 14px !important;
+    font-size: 19px !important;
+    box-sizing: border-box !important;
+  }
+
+  .right-side form > a {
+    align-self: flex-end !important;
+    margin: 0 0 clamp(22px, 4dvh, 36px) 0 !important;
+    font-size: 18px !important;
+  }
+
+  .right-side button {
+    display: block !important;
+    width: 100% !important;
+    height: 64px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-radius: 14px !important;
+    font-size: 21px !important;
+  }
+
+  .right-side form > p {
+    margin: clamp(22px, 4dvh, 36px) 0 0 0 !important;
+    text-align: center !important;
+    font-size: 18px !important;
   }
 }
-
