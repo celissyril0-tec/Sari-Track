@@ -11,6 +11,7 @@
 <body>
      <header class="header">
         <div class="left-side">
+             <button class="menu-btn" id="menuBtn">☰</button>
             <img class="header-logo" src="pics/catlogo.png">
             <h2>Sari<span>Track</span></h2>
         </div>
@@ -154,15 +155,16 @@
            <h3>Budget Overview</h3>
         <div class="donut-box">
         <canvas id="budgetChart"></canvas>
-    <div class="donut-center">
-      <p class="percent">0%</p>
-      <span class="donut-label">used</span>
-    </div>
-  </div>
+          <div class="donut-center">
+            <p class="percent">0%</p>
+            <span class="donut-label">used</span>
+          </div>
+         </div>
 
     <p class="summary-label">Total Spent</p>
     <h2 class="amount">₱ 0.00</h2>
     <p class="note">No budget set yet</p>
+       </div>
 
         </section>
     </main>
@@ -170,5 +172,6 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="js/graph.js"></script>
 <script src="js/budget.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>

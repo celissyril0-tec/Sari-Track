@@ -448,6 +448,9 @@ footer h2{
   }
 }
 
+/* =====================================================
+   PHONE LAYOUT
+   ===================================================== */
 
 @media (max-width: 600px) {
 
@@ -664,13 +667,14 @@ footer h2{
 }
 
 /* =====================================================
-   TABLET PORTRAIT LAYOUT
+   TABLET PORTRAIT LAYOUT (touch screens only)
    iPad Mini, iPad Air, iPad Pro, Surface Pro 7
    ===================================================== */
 
 @media screen and (min-width: 601px)
 and (max-width: 1100px)
-and (orientation: portrait) {
+and (orientation: portrait)
+and (pointer: coarse) {
 
     *,
     *::before,
@@ -724,9 +728,7 @@ and (orientation: portrait) {
     }
 
 
-    /* =================================================
-       INTRO / HERO SECTION
-       ================================================= */
+    /* ---------- INTRO / HERO SECTION ---------- */
 
     .sari-track {
         height: auto;
@@ -812,8 +814,6 @@ and (orientation: portrait) {
         font-size: clamp(16px, 1.8vw, 18px);
     }
 
-       
-
 
     /* ---------- ADVANTAGES SECTION ---------- */
 
@@ -822,8 +822,6 @@ and (orientation: portrait) {
         padding: clamp(35px, 4vw, 50px) 5%;
         box-shadow: none;
         border-top: none;
-        margin-top: 0;
-}
     }
 
     .adv {
@@ -989,16 +987,18 @@ and (orientation: portrait) {
         font-size: clamp(12px, 1.3vw, 15px);
     }
 
+}
 
 
 /* =====================================================
-   TABLET LANDSCAPE LAYOUT
+   TABLET LANDSCAPE LAYOUT (touch screens only)
    iPad Mini, iPad Air, iPad Pro, Surface Pro 7
    ===================================================== */
 
 @media screen and (min-width: 601px)
 and (max-width: 1440px)
-and (orientation: landscape) {
+and (orientation: landscape)
+and (pointer: coarse) {
 
     *,
     *::before,
@@ -1055,10 +1055,7 @@ and (orientation: landscape) {
     }
 
 
-    /* =================================================
-       INTRO / HERO SECTION
-       Larger contents for landscape screens
-       ================================================= */
+    /* ---------- INTRO / HERO SECTION ---------- */
 
     .sari-track {
         height: auto;
@@ -1152,9 +1149,8 @@ and (orientation: landscape) {
     .advantages {
         margin-top: 0;
         padding: clamp(40px, 4vw, 60px) 7%;
-         box-shadow: none;
-         border-top: none;
-         margin-top: 0;   
+        box-shadow: none;
+        border-top: none;
     }
 
     .adv {

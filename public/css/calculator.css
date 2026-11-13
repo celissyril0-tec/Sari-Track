@@ -1,4 +1,12 @@
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+.menu-btn {
+  display: none;
+}
 
 .menu-links a:hover,
 .bottom-links a:hover {

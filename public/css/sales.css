@@ -1,4 +1,13 @@
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+.menu-btn {
+  display: none;
+}
+
 .menu-links a:hover,
 .bottom-links a:hover {
     background-color: #2874D0;
@@ -501,3 +510,4 @@ hr{
   background: #ffe9bd;
   color: #b45309;
 }
+

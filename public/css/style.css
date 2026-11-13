@@ -174,21 +174,22 @@ main {
     text-align: center;
     width: 550px;
     min-height: 150px;
-    padding: 10px 30px;
+    padding: 20px 30px;
     border-radius: 20px;
     margin-top: -1rem;
     box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
 }
 
 .add-store-info h2{
-  margin-top: -13px;
+  margin-top: -10px;
   margin-bottom: 5px;
   font-size: 21px;
   font-weight: 600;
 }
 
 .add-store-info p{
-    margin: 0;
+  margin-top: 0;
+    margin-bottom: 10px;
     width: 370px;
     font-size: 14px;
 }
@@ -205,8 +206,7 @@ button{
     justify-content: center;
     background-color: #FFBE00;
     border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
+    padding: 10px 15px;
     gap: 10px;
     font-size: 16px;
     border-radius: 20px;
@@ -438,513 +438,623 @@ label span{
     display: none !important;
 }
 
-/* =====================================================
-   TABLETS - ALL TABLETS
-   iPad Mini, iPad Air, iPad Pro, Surface Pro, Android
-   ===================================================== */
-
-@media (min-width: 601px) and (max-width: 1300px),
-       (min-width: 601px) and (max-width: 1400px) and (orientation: portrait),
-       (min-width: 1301px) and (max-width: 1600px) and (orientation: landscape) {
-
-    html {
-        height: auto;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    body {
-        height: auto;
-        overflow: visible;
-    }
-
-    .left-side {
-        margin-left: 1.5rem;
-    }
-
-    .right-side {
-        margin-right: 1.5rem;
-        gap: 1.2rem;
-    }
-
-    /* SIDEBAR */
-    .side-bar {
-        top: 90px;
-        bottom: 15px;
-        left: 20px;
-        width: 90px;
-        height: auto;
-        overflow-y: auto;
-        overflow-x: hidden;
-        scrollbar-width: none;
-    }
-
-    .icon{
-      height: 35px;
-      width: 35px;
-    }
-
-    .side-bar::-webkit-scrollbar {
-        display: none;
-    }
-
-    .side-bar span {
-        display: none;
-    }
-
-    .menu-links {
-        padding: 10px 8px 0 8px;
-    }
-
-    .menu-links a,
-    .bottom-links a {
-        justify-content: center;
-        padding: 10px 0;
-        gap: 0;
-    }
-
-    .bottom-links {
-        margin: auto 8px 0 8px;
-        padding: 0 0 8px 0;
-    }
-
-    /* MAIN CONTENT */
-    main {
-        display: flex;
-        flex-direction: column;
-        margin-top: 70px;
-        margin-left: 104px;
-        margin-right: 0;
-        min-height: calc(100vh - 70px);
-
-        padding: clamp(24px, 3vw, 40px)
-                 clamp(20px, 3vw, 32px) 24px
-                 clamp(20px, 3vw, 32px);
-
-        box-sizing: border-box;
-    }
-
-    .welcome {
-        font-size: clamp(26px, 3.4vw, 36px);
-        margin: 0 0 clamp(14px, 2vw, 24px) 0;
-    }
-
-    /* ADD STORE */
-    .add-store {
-        gap: 1rem;
-        margin-top: 0;
-    }
-
-    .add-store-info {
-        flex: 1;
-        min-width: 0;
-        width: auto;
-        margin-top: 0;
-        box-sizing: border-box;
-
-        min-height: clamp(190px, 23vw, 300px);
-
-        padding: clamp(28px, 3.5vw, 44px)
-                 clamp(28px, 4.5vw, 44px);
-    }
-
-    .add-store-info h2 {
-        margin: 0 0 8px 0;
-        font-size: clamp(24px, 3.1vw, 34px);
-    }
-
-    .add-store-info p {
-        width: auto;
-        max-width: 440px;
-        font-size: clamp(16px, 2vw, 20px);
-    }
-
-
-    /* CAT LOGO */
-    .logo {
-        height: clamp(190px, 23vw, 300px);
-        width: clamp(220px, 28vw, 340px);
-        object-fit: contain;
-    }
-
-    /* POWERFUL TOOLS INFO */
-    .info {
-        margin-top: clamp(18px, 2.6vw, 36px);
-    }
-
-    .info p {
-        font-size: clamp(16px, 2vw, 22px);
-    }
-
-    .bulb {
-        height: clamp(30px, 3.6vw, 42px);
-        width: clamp(30px, 3.6vw, 42px);
-    }
-
-    /* FEATURE CARDS */
-    .main-features {
-        --icon: clamp(80px, 10vw, 130px);
-
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-
-        gap: clamp(14px, 2vw, 28px);
-        margin-top: 14px;
-    }
-
-    .features,
-    .features-bg-blue {
-        flex: 1;
-        display: grid;
-
-        grid-template-columns: var(--icon) minmax(0, 1fr);
-        column-gap: clamp(16px, 2.6vw, 28px);
-
-        align-items: center;
-        width: auto;
-        box-sizing: border-box;
-
-        padding: clamp(16px, 2.6vw, 36px)
-                 clamp(20px, 3.4vw, 36px);
-    }
-
-    .feature-icon {
-        grid-row: 1 / span 2;
-
-        height: var(--icon);
-        width: var(--icon);
-
-        margin: 0;
-        object-fit: contain;
-    }
-
-    .features h2,
-    .features-bg-blue h2 {
-        margin: 0 0 6px 0;
-        font-size: clamp(1.3rem, 2.6vw, 2rem);
-        align-self: end;
-    }
-
-    .features p,
-    .features-bg-blue p {
-        width: auto;
-        margin: 0;
-        font-size: clamp(14px, 1.9vw, 19px);
-        line-height: 1.4;
-        align-self: start;
-    }
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 0;
+  line-height: 1;
+  color: #2874D0;
+  cursor: pointer;
 }
 
+@media (orientation: portrait) and (max-width: 1400px),
+       (orientation: landscape) and (max-height: 600px) and (max-width: 950px),
+       (orientation: landscape) and (min-width: 601px) and (max-width: 1100px) and (min-height: 601px),
+       (orientation: landscape) and (min-width: 1101px) and (max-width: 1400px) and (min-height: 800px) {
 
-/* =====================================================
-   PORTRAIT TABLETS
-   iPad Air, iPad Pro, Surface Pro
-   ===================================================== */
-
-@media (min-width: 601px) and (max-width: 1400px) and (orientation: portrait) {
-
-     .icon{
-      height: 35px;
-      width: 35px;
-    }
-
-  /* UPPER SECTION */
-    .add-store {
-        gap: clamp(16px, 2vw, 28px);
-        align-items: center;
-    }
-
-    /* BIGGER BLUE ADD STORE CARD */
-    .add-store-info {
-        flex: 1;
-        min-width: 0;
-
-        min-height: clamp(320px, 40vw, 430px);
-
-        padding: clamp(38px, 4vw, 52px)
-                 clamp(32px, 3.5vw, 46px);
-    }
-
-    .add-store-info h2 {
-        font-size: clamp(32px, 4vw, 42px);
-        margin-bottom: 12px;
-    }
-
-    .add-store-info p {
-        font-size: clamp(16px, 2.3vw, 20px);
-        line-height: 1.5;
-    }
-
-    /* BIGGER CAT */
-    .logo {
-        width: clamp(240px, 30vw, 350px);
-        height: clamp(250px, 31vw, 360px);
-
-        flex-shrink: 0;
-        object-fit: contain;
-    }
-
-    /* =========================================
-       LOWER CONTENT - RESPONSIVE STRETCHING
-       ========================================= */
-
-    .main-features {
-        --icon: clamp(75px, 8vw, 125px);
-
-        display: flex;
-        flex-direction: column;
-
-        flex: 1;
-        min-height: 0;
-        width: 100%;
-
-        gap: clamp(12px, 1.8vh, 24px);
-        margin-top: clamp(18px, 2vw, 28px);
-    }
-
-    .features,
-    .features-bg-blue {
-        display: grid;
-
-        grid-template-columns: var(--icon) minmax(0, 1fr);
-        column-gap: clamp(18px, 2.5vw, 36px);
-
-        flex: 1 1 0;
-        min-height: 110px;
-
-        width: 100%;
-
-        padding: clamp(18px, 3vh, 38px)
-                 clamp(22px, 3vw, 42px);
-
-        box-sizing: border-box;
-        align-items: center;
-    }
-
-    /* FEATURE IMAGES */
-    .feature-icon {
-        grid-row: 1 / span 2;
-
-        width: var(--icon);
-        height: var(--icon);
-
-        margin: 0;
-        object-fit: contain;
-    }
-
-    /* FEATURE TITLES */
-    .features h2,
-    .features-bg-blue h2 {
-        font-size: clamp(18px, 2vw + 0.5vh, 28px);
-
-        margin: 0 0 clamp(6px, 1vh, 12px);
-        align-self: end;
-    }
-
-    /* FEATURE DESCRIPTIONS */
-    .features p,
-    .features-bg-blue p {
-        width: auto;
-
-        font-size: clamp(13px, 1.3vw + 0.4vh, 19px);
-        line-height: 1.5;
-
-        margin: 0;
-        align-self: start;
-    }
-
-    /* =========================================
-       LARGER PORTRAIT TABLETS
-       ========================================= */
-
-    @media (min-width: 900px) {
-
-      .icon{
-      height: 35px;
-      width: 35px;
-    }
-
-        .main-features {
-            --icon: clamp(90px, 9vw, 135px);
-        }
-
-        .features,
-        .features-bg-blue {
-            padding: clamp(22px, 3.5vh, 42px)
-                     clamp(26px, 3.5vw, 46px);
-
-            column-gap: clamp(22px, 2.8vw, 38px);
-        }
-
-        .features h2,
-        .features-bg-blue h2 {
-            font-size: clamp(20px, 2.1vw + 0.5vh, 30px);
-        }
-
-        .features p,
-        .features-bg-blue p {
-            font-size: clamp(14px, 1.4vw + 0.4vh, 20px);
-        }
-    }
-}
-
-
-/* =====================================================
-   SURFACE PRO 7 - PORTRAIT
-   EXTRA SIZE FOR ADD STORE AND CAT ONLY
-   ===================================================== */
-
-@media (min-width: 900px) and (max-width: 1200px) and (min-height: 1200px) and (orientation: portrait) {
-
-    /* EXTRA BIG BLUE CARD */
-    .add-store-info {
-        min-height: clamp(400px, 50vw, 480px);
-
-        padding: clamp(48px, 5.5vw, 58px)
-                 clamp(40px, 5vw, 55px);
-    }
-
-    /* EXTRA BIG CAT LOGO */
-    .logo {
-        width: clamp(270px, 32vw, 370px);
-        height: clamp(280px, 33vw, 380px);
-    }
-}
-
-
-
-
-  
-
-/* =====================================================
-   SMARTPHONE - Samsung Galaxy A55 (360px wide)
-   Sidebar hides behind the ☰ button
-   ===================================================== */
-@media (max-width: 600px) {
+  html {
+    height: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  body {
+    height: auto;
+    overflow: visible;
+  }
 
   /* ---------- HEADER ---------- */
-  .menu-btn { display: block; }
   .left-side {
-    margin-left: 12px;
-    gap: 8px;
-  }
-  .header-logo {
-    height: 38px;
-    width: 38px;
-  }
-  .header h2 {
-    font-size: 1.2rem;
-    margin: 0;
+    margin-left: clamp(14px, 3vw, 28px);
+    gap: clamp(8px, 2vw, 14px);
   }
   .right-side {
-    margin-right: 12px;
-    gap: 14px;
+    margin-right: clamp(14px, 3vw, 28px);
+    gap: clamp(12px, 3vw, 22px);
+  }
+  .menu-btn {
+    display: block;
+    font-size: clamp(26px, 5.5vw, 34px);
+  }
+  .header-logo {
+    height: clamp(36px, 7vw, 50px);
+    width: clamp(36px, 7vw, 50px);
+  }
+  .header h2 {
+    margin: 0;
+    font-size: clamp(1.1rem, 3vw, 1.6rem);
   }
   .bell, .account {
-    height: 26px;
+    height: clamp(24px, 4.6vw, 32px);
     width: auto;
   }
-  .account-info span { display: none; }      /* hides "My Account", keeps the icon */
+  .account-info span {
+    font-size: clamp(0.8rem, 2vw, 1rem);
+  }
 
-  /* ---------- SIDEBAR: slides in from the left ---------- */
+  /* ---------- SIDEBAR: hidden until the ☰ button is tapped ---------- */
   .side-bar {
-    top: 70px;                               /* just under the header, so ☰ stays visible */
-    left: -270px;                            /* hidden outside the screen */
-    width: 240px;
-    height: calc(100vh - 70px);
-    border-radius: 0 15px 15px 0;
-    transition: left 0.3s ease;
+    top: 70px;
+    bottom: 0;
+    left: 0;
+    width: clamp(230px, 36vw, 300px);
+    height: auto;
+    border-radius: 0 20px 20px 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    transform: translateX(-105%);            /* slides out of the screen */
+    visibility: hidden;
+    transition: transform 0.3s ease, visibility 0.3s;
     z-index: 90;
   }
-  .side-bar.open { left: 0; }                /* the ☰ button adds "open" */
-  .side-bar span { display: inline; }        /* shows the words again */
-  .menu-links, .bottom-links { padding-left: 15px; padding-right: 15px; }
+  .side-bar::-webkit-scrollbar { display: none; }
+  .side-bar.open {
+    transform: translateX(0);                /* the ☰ button adds "open" */
+    visibility: visible;
+  }
+  .menu-links { padding: 18px 14px 0 14px; }
+  .bottom-links { padding: 0 14px 18px 14px; }
   .menu-links a, .bottom-links a {
-    justify-content: flex-start;
-    padding: 10px;
+    gap: 14px;
+    padding: clamp(10px, 1.8vw, 14px) 12px;
+    font-size: clamp(0.95rem, 2.2vw, 1.1rem);
+  }
+  .side-bar .icon {
+    width: clamp(22px, 3vw, 28px);
+    height: clamp(22px, 3vw, 28px);
   }
 
-  /* ---------- MAIN AREA ---------- */
+  /* ---------- MAIN AREA (no sidebar space needed) ---------- */
   main {
+    display: flex;
+    flex-direction: column;
     margin: 70px 0 0 0;
-    padding: 16px;
+    min-height: calc(100vh - 70px);
     box-sizing: border-box;
-  }
-  .welcome {
-    font-size: 22px;
-    margin: 8px 0 14px 0;
   }
 
-  /* welcome card: the cat sits on the top edge of the blue card */
-  .add-store {
-    flex-direction: column-reverse;
-    align-items: center;
-    gap: 0;
-    margin-top: 0;
-  }
-    /* welcome card: no cat on phones */
-  .cat-logo {
-    display: none;
-  }
-  .add-store {
-    flex-direction: column;
-    margin-top: 0;
-  }
-  .add-store-info {
-    flex: none;
+  /* all sections share the same centered width */
+  .welcome,
+  .new-user,
+  .info,
+  .main-features {
     width: 100%;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
     box-sizing: border-box;
-    min-height: 0;
+  }
+
+  .add-store {
+    margin-top: 0;                           
+  }
+
+  .add-store-info {
     margin-top: 0;
-    padding: 24px 20px;
+    width: auto;
+    min-width: 0;
+    flex: 1;
+    box-sizing: border-box;
   }
-  .add-store-info h2 {
-    margin: 0 0 8px 0;
-    font-size: 19px;
-  }
+
   .add-store-info p {
     width: auto;
-    font-size: 13px;
-    line-height: 1.5;
   }
-  .add-btn {
-    margin-top: 16px;
-    min-width: 180px;
+  .bulb { margin-top: 0; flex-shrink: 0; }
+  .info { gap: 10px; }
+  .info p { margin: 0; }
+
+  /* tool cards: picture on the left, words on the right */
+  .main-features { display: flex; flex-direction: column; }
+  .features, .features-bg-blue {
+    display: grid;
+    grid-template-columns: var(--icon) minmax(0, 1fr);
+    align-items: center;
+    width: auto;
+    box-sizing: border-box;
+  }
+  .feature-icon {
+    grid-row: 1 / span 2;
+    width: var(--icon);
+    height: var(--icon);
+    margin: 0;
+    object-fit: contain;
+  }
+  .features h2, .features-bg-blue h2 {
+    margin: 0 0 6px 0;
+    align-self: end;
+  }
+  .features p, .features-bg-blue p {
+    width: auto;
+    margin: 0;
+    line-height: 1.45;
+    align-self: start;
   }
 
-  /* "Powerful tools" line: bulb and text side by side, left aligned */
-  .info {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    text-align: left;
-    margin-top: 20px;
+  .add-store-form {
+    width: 100%;
+    max-width: 860px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+
+  /* ---------- heading: "Add Your Store" ---------- */
+  .add-store-heading {
+    gap: 12px;
+    margin: 0 0 clamp(12px, 2.4vh, 22px) 0;
+  }
+  .store-logo {
+    width: clamp(36px, 8vw, 64px);
+    height: clamp(36px, 8vw, 64px);
+  }
+  .heading-info h2 {
+    margin: 0;
+    font-size: clamp(1.25rem, min(4vw, 6vh), 2.4rem);
+  }
+  .heading-info p {
+    margin: 0;
+    font-size: clamp(0.85rem, min(2.2vw, 3.4vh), 1.2rem);
+  }
+
+  /* ---------- the cream card ---------- */
+  #store-form {
+    width: 100%;
+    box-sizing: border-box;
+    padding: clamp(18px, min(4.5vw, 5vh), 48px);
+    border-radius: clamp(18px, 3vw, 30px);
+  }
+  #store-form h3 {
+    margin: 0;
+    font-size: clamp(1.1rem, min(3vw, 4.6vh), 1.9rem);
+  }
+
+  /* ---------- labels ---------- */
+  #store-form label {
+    margin: clamp(10px, min(2.6vw, 3vh), 22px) 0 6px 0;
+    font-size: clamp(0.9rem, min(2.2vw, 3.6vh), 1.25rem);
+    font-weight: 500;
+  }
+
+  /* ---------- text boxes ---------- */
+  #store-form input[type="text"] {
+    width: 100%;
+    height: clamp(42px, min(6.6vw, 9.5vh), 66px);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: clamp(0.95rem, min(2.2vw, 3.6vh), 1.2rem);
+    border: 1.5px solid #e7dbbc;
+    border-radius: 12px;
+  }
+  #store-form input[type="text"]:focus {
+    outline: none;
+    border-color: #0754cf;          /* blue border when you tap a box */
+  }
+
+  /* ---------- store type: 3 choices ---------- */
+  #store-form .store-type-options {
+    flex-wrap: wrap;
     gap: 10px;
   }
-  .bulb {
-    margin-top: 0;
-    height: 30px;
-    width: 30px;
-    flex-shrink: 0;                          /* keeps the bulb from being squeezed */
-  }
-  .info p {
-    font-size: 14px;
+  #store-form .store-type-options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 auto;
     margin: 0;
-    line-height: 1.4;
+    padding: clamp(8px, min(1.6vw, 1.8vh), 14px) clamp(12px, 2.4vw, 20px);
+    font-size: clamp(0.9rem, min(2.2vw, 3.6vh), 1.25rem);
+    background: white;
+    border: 1.5px solid #e7dbbc;
+    border-radius: 12px;
+  }
+  #store-form .store-type-options input[type="radio"] {
+    width: 18px;
+    height: 18px;
+  }
+  #store-form .store-type-options label:has(input:checked) {
+    background: #eaf2ff;            /* the chosen one turns blue */
+    border-color: #0754cf;
   }
 
-  /* three tool cards: one per row */
+  /* ---------- "What Happens Next?" ---------- */
+  #store-form hr {
+    margin: clamp(14px, 3vh, 24px) 0;
+  }
+  #store-form > h3:not(:first-child) {
+    margin: 0 0 6px 0;
+    padding-left: 0;
+    font-size: clamp(1.1rem, min(3vw, 4.6vh), 1.9rem);
+  }
+  #store-form p {
+    padding-left: 0;
+    font-size: clamp(0.9rem, min(2.2vw, 3.6vh), 1.25rem);
+  }
+  #store-form ul {
+    margin: 6px 0 0 0;
+    padding-left: 1.6em;
+    font-size: clamp(0.9rem, min(2.2vw, 3.6vh), 1.25rem);
+    line-height: 1.7;
+  }
+
+  /* ---------- buttons: always side by side ---------- */
+  .form-buttons {
+    gap: 12px;
+    margin: clamp(16px, 3vh, 28px) 0 0 0;
+    padding: 0;
+  }
+  #store-form button {
+    flex: 1;                       
+    max-width: 260px;               
+    margin: 0;
+    padding: clamp(11px, min(1.8vw, 2.4vh), 18px) 10px;
+    font-family: inherit;
+    font-size: clamp(1rem, min(2.2vw, 3.6vh), 1.35rem);
+    font-weight: 600;
+    border-radius: 999px;
+  }
+  #store-form .cancel-btn {
+    border: 1.5px solid #e0d3b0;
+  }
+
+}
+
+/* =====================================================
+   3. SMARTPHONE - PORTRAIT
+   ===================================================== */
+@media (orientation: portrait) and (max-width: 600px) {
+
+  /* "My Account" words are hidden, the icon stays */
+  .account-info span { display: none; }
+
+  main {
+    --icon: clamp(54px, 16vw, 76px);
+    padding: clamp(16px, 5vw, 26px) clamp(14px, 4.5vw, 24px) clamp(24px, 6vw, 36px);
+  }
+
+  .welcome {
+    font-size: clamp(1.4rem, 6.6vw, 2rem);
+    margin: 0 auto clamp(12px, 3.5vw, 18px) auto;
+  }
+
+  /* ---------- BLUE CARD (the cat is hidden on phones) ---------- */
+  .cat-logo { display: none; }
+  .add-store-info {
+    min-height: 0;
+    padding: clamp(22px, 6.5vw, 34px) clamp(18px, 5.5vw, 28px);
+    border-radius: clamp(16px, 5vw, 24px);
+  }
+  .add-store-info h2 {
+    margin: 0 0 clamp(6px, 2vw, 10px) 0;
+    font-size: clamp(1.15rem, 5.6vw, 1.6rem);
+  }
+  .add-store-info p {
+    max-width: 36em;
+    font-size: clamp(0.85rem, 3.8vw, 1.05rem);
+    line-height: 1.55;
+  }
+  .add-btn {
+    margin-top: clamp(16px, 5vw, 24px);
+    padding: clamp(11px, 3.2vw, 15px) clamp(24px, 7.5vw, 36px);
+    font-size: clamp(1rem, 4.3vw, 1.2rem);
+    gap: clamp(8px, 2.4vw, 12px);
+  }
+  .add-btn img {
+    width: clamp(20px, 5.6vw, 26px);
+    height: clamp(20px, 5.6vw, 26px);
+  }
+
+  /* ---------- "POWERFUL TOOLS" LINE ---------- */
+  .info {
+    justify-content: flex-start;
+    margin-top: clamp(20px, 6vw, 30px);
+  }
+  .bulb {
+    width: clamp(26px, 7.5vw, 36px);
+    height: clamp(26px, 7.5vw, 36px);
+  }
+  .info p {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+    line-height: 1.35;
+  }
+
+  /* ---------- THREE TOOL CARDS ---------- */
   .main-features {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    gap: 14px;
-    margin-top: 12px;
+    gap: clamp(12px, 3.5vw, 18px);
+    margin-top: clamp(12px, 3.5vw, 18px);
   }
   .features, .features-bg-blue {
-    flex: none;
-    width: auto;
-    padding: 14px 16px;
+    column-gap: clamp(12px, 3.8vw, 18px);
+    padding: clamp(14px, 4vw, 20px);
+    border-radius: clamp(14px, 4vw, 20px);
   }
-  .features p, .features-bg-blue p { font-size: 15px; }
+  .features h2, .features-bg-blue h2 {
+    font-size: clamp(1.05rem, 4.9vw, 1.4rem);
+  }
+  .features p, .features-bg-blue p {
+    font-size: clamp(0.82rem, 3.6vw, 1rem);
+  }
+}
+
+
+/* =====================================================
+   4. SMARTPHONE - LANDSCAPE 
+   ===================================================== */
+@media (orientation: landscape) and (max-height: 600px) and (max-width: 950px) {
+
+  .account-info span { display: none; }
+
+  main {
+    --icon: clamp(44px, 9vh, 64px);
+    padding: clamp(14px, 4vh, 22px) clamp(16px, 4vw, 32px) clamp(20px, 5vh, 30px);
+  }
+
+  .welcome {
+    font-size: clamp(1.3rem, 6.5vh, 1.8rem);
+    margin: 0 auto clamp(8px, 2.5vh, 14px) auto;
+  }
+
+  /* blue card and cat side by side */
+  .add-store {
+    gap: clamp(12px, 3vw, 24px);
+    align-items: center;
+  }
+  .add-store-info {
+    min-height: 0;
+    padding: clamp(16px, 5vh, 26px) clamp(18px, 3.5vw, 30px);
+    border-radius: 18px;
+  }
+  .add-store-info h2 {
+    margin: 0 0 6px 0;
+    font-size: clamp(1.05rem, 5.2vh, 1.5rem);
+  }
+  .add-store-info p {
+    max-width: 36em;
+    font-size: clamp(0.8rem, 3.6vh, 1rem);
+    line-height: 1.45;
+  }
+  .add-btn {
+    margin-top: clamp(10px, 3vh, 16px);
+    padding: clamp(8px, 2.4vh, 12px) clamp(20px, 3.5vw, 30px);
+    font-size: clamp(0.9rem, 3.8vh, 1.1rem);
+  }
+  .add-btn img {
+    width: clamp(18px, 4.6vh, 24px);
+    height: clamp(18px, 4.6vh, 24px);
+  }
+  .logo {
+    height: clamp(110px, 34vh, 190px);
+    width: clamp(120px, 20vw, 210px);
+    object-fit: contain;
+  }
+
+  .info { margin-top: clamp(12px, 3.5vh, 20px); }
+  .bulb {
+    width: clamp(24px, 6vh, 34px);
+    height: clamp(24px, 6vh, 34px);
+  }
+  .info p { font-size: clamp(0.85rem, 3.8vh, 1.05rem); }
+
+  /* three tool cards in one row (they are wide enough) */
+  .main-features {
+    flex-direction: row;
+    gap: clamp(10px, 2vw, 18px);
+    margin-top: clamp(10px, 3vh, 16px);
+  }
+  .features, .features-bg-blue {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(12px, 3.5vh, 18px) clamp(12px, 2vw, 18px);
+    border-radius: 16px;
+  }
+  .feature-icon { margin-bottom: 4px; }
+  .features h2, .features-bg-blue h2 {
+    align-self: flex-start;                  /* words stay on the left */
+    font-size: clamp(0.95rem, 4.2vh, 1.2rem);
+  }
+  .features p, .features-bg-blue p {
+    align-self: flex-start;
+    font-size: clamp(0.75rem, 3.3vh, 0.92rem);
+  }
+}
+
+
+/* =====================================================
+   5. TABLET - PORTRAIT (standing up)
+   ===================================================== */
+@media (orientation: portrait) and (min-width: 601px) and (max-width: 1400px) {
+
+  main {
+    --icon: clamp(76px, calc(4.4vw + 3.6vh), 140px);
+    padding: clamp(22px, 3vh, 42px) clamp(28px, 5.5vw, 76px) clamp(24px, 3.4vh, 50px);
+  }
+
+  .welcome {
+    font-size: clamp(2rem, 4.4vw, 3rem);
+    margin: 0 auto clamp(14px, 2.2vh, 26px) auto;
+  }
+
+  /* ---------- BLUE CARD + CAT ---------- */
+  .add-store {
+    gap: clamp(16px, 2.6vw, 34px);
+    align-items: center;
+  }
+  .add-store-info {
+    min-height: clamp(240px, 22.5vh, 370px);
+    padding: clamp(28px, 3.6vh, 52px) clamp(26px, 4vw, 52px);
+    border-radius: clamp(20px, 2.6vw, 30px);
+    justify-content: center;
+  }
+  .add-store-info h2 {
+    margin: 0 0 clamp(10px, 1.4vh, 18px) 0;
+    font-size: clamp(1.5rem, 3.4vw, 2.3rem);
+  }
+  .add-store-info p {
+    max-width: 30em;
+    font-size: clamp(1rem, 2.1vw, 1.35rem);
+    line-height: 1.55;
+  }
+  .add-btn {
+    margin-top: clamp(20px, 3vh, 34px);
+    padding: clamp(14px, 1.9vh, 22px) clamp(32px, 4.6vw, 54px);
+    font-size: clamp(1.05rem, 2.3vw, 1.45rem);
+    gap: clamp(10px, 1.5vw, 16px);
+  }
+  .add-btn img {
+    width: clamp(24px, 3vw, 36px);
+    height: clamp(24px, 3vw, 36px);
+  }
+  .logo {
+    height: clamp(190px, 25vw, 420px);
+    width: clamp(205px, 27.5vw, 450px);
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  /* ---------- "POWERFUL TOOLS" LINE ---------- */
+  .info {
+    margin-top: clamp(20px, 2.8vh, 40px);
+    gap: clamp(10px, 1.6vw, 18px);
+  }
+  .bulb {
+    width: clamp(34px, 4.6vw, 56px);
+    height: clamp(34px, 4.6vw, 56px);
+  }
+  .info p { font-size: clamp(1.05rem, 2.5vw, 1.6rem); }
+
+  /* ---------- THREE TOOL CARDS: wide rows ---------- */
+  .main-features {
+    flex: 1;
+    gap: clamp(12px, 1.8vh, 26px);
+    margin-top: clamp(14px, 2vh, 28px);
+  }
+  .features, .features-bg-blue {
+    flex: 1;
+    max-height: clamp(120px, 15.5vh, 215px);
+    column-gap: clamp(18px, 2.8vw, 40px);
+    padding: clamp(14px, 2.1vh, 34px) clamp(22px, 3.6vw, 48px);
+    border-radius: clamp(16px, 2.2vw, 26px);
+  }
+  .features h2, .features-bg-blue h2 {
+    margin-bottom: clamp(6px, 1vh, 12px);
+    font-size: clamp(1.25rem, 3vw, 2rem);
+  }
+  .features p, .features-bg-blue p {
+    font-size: clamp(0.95rem, 2.1vw, 1.3rem);
+  }
+}
+
+
+/* =====================================================
+   6. TABLET - LANDSCAPE (lying down)
+   ===================================================== */
+@media (orientation: landscape) and (min-width: 601px) and (max-width: 1100px) and (min-height: 601px),
+       (orientation: landscape) and (min-width: 1101px) and (max-width: 1400px) and (min-height: 800px) {
+
+  main {
+    --icon: clamp(70px, 9vh, 110px);
+    padding: clamp(22px, 3.6vh, 40px) clamp(32px, 5vw, 80px) clamp(28px, 4vh, 48px);
+  }
+
+  .welcome {
+    font-size: clamp(2rem, 4.4vh, 2.8rem);
+    margin: 0 auto clamp(14px, 2.4vh, 26px) auto;
+  }
+
+  /* ---------- BLUE CARD + CAT ---------- */
+  .add-store {
+    gap: clamp(20px, 3vw, 48px);
+    align-items: center;
+  }
+  .add-store-info {
+    min-height: clamp(210px, 26vh, 320px);
+    padding: clamp(24px, 3.6vh, 44px) clamp(30px, 4vw, 64px);
+    border-radius: clamp(20px, 2.4vw, 30px);
+    justify-content: center;
+  }
+  .add-store-info h2 {
+    margin: 0 0 clamp(8px, 1.4vh, 16px) 0;
+    font-size: clamp(1.5rem, 3.6vh, 2.3rem);
+  }
+  .add-store-info p {
+    max-width: 30em;
+    font-size: clamp(1rem, 2.3vh, 1.35rem);
+    line-height: 1.55;
+  }
+  .add-btn {
+    margin-top: clamp(16px, 2.8vh, 30px);
+    padding: clamp(12px, 1.8vh, 20px) clamp(30px, 3.4vw, 52px);
+    font-size: clamp(1rem, 2.3vh, 1.4rem);
+  }
+  .add-btn img {
+    width: clamp(22px, 3.2vh, 34px);
+    height: clamp(22px, 3.2vh, 34px);
+  }
+  .logo {
+    height: clamp(190px, 28vh, 360px);
+    width: clamp(220px, 26vw, 400px);
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+
+  /* ---------- "POWERFUL TOOLS" LINE ---------- */
+  .info { margin-top: clamp(18px, 3vh, 38px); }
+  .bulb {
+    width: clamp(32px, 4.6vh, 50px);
+    height: clamp(32px, 4.6vh, 50px);
+  }
+  .info p { font-size: clamp(1.05rem, 2.7vh, 1.6rem); }
+
+  /* ---------- THREE TOOL CARDS: three in a row ---------- */
+  .main-features {
+    flex-direction: row;
+    gap: clamp(16px, 2.4vw, 36px);
+    margin-top: clamp(16px, 2.6vh, 32px);
+  }
+  .features, .features-bg-blue {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(18px, 3vh, 38px) clamp(18px, 2.4vw, 36px);
+    border-radius: clamp(18px, 2vw, 28px);
+  }
+  .feature-icon { margin-bottom: clamp(6px, 1vh, 14px); }
+  .features h2, .features-bg-blue h2 {
+    align-self: flex-start;                  /* words stay on the left */
+    font-size: clamp(1.2rem, 2.9vh, 1.9rem);
+  }
+  .features p, .features-bg-blue p {
+    align-self: flex-start;
+    font-size: clamp(0.92rem, 2.1vh, 1.2rem);
+  }
 }

@@ -1,3 +1,7 @@
+html,
+body {
+  overflow-x: hidden;
+}
 
 .menu-links a:hover,
 .bottom-links a:hover {
@@ -202,4 +206,609 @@ main h3{
     font-size: 12px;
     color: gray;
     margin: 0;
+}
+
+.menu-btn {
+  display: none;
+}
+
+
+
+@media (max-width: 600px) {
+ 
+  /* ----- Header ----- */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    padding: 0 clamp(12px, 4vw, 20px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    z-index: 1100;
+  }
+ 
+  .left-side,
+  .right-side,
+  .account-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+ 
+  .header h2 {
+    margin: 0;
+    font-size: clamp(1.1rem, 5vw, 1.4rem);
+  }
+ 
+  .header-logo {
+    width: clamp(30px, 9vw, 42px);
+  }
+ 
+  .bell,
+  .account {
+    width: clamp(22px, 7vw, 30px);
+  }
+ 
+  .account-info span {
+    display: none;
+  }
+ 
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: clamp(1.5rem, 6vw, 1.8rem);
+    cursor: pointer;
+  }
+ 
+  /* ----- Sidebar (hidden until the menu button is clicked) ----- */
+  .side-bar {
+    position: fixed !important;
+    top: 60px !important;
+    left: 0 !important;
+    width: clamp(220px, 70vw, 280px);
+    height: calc(100vh - 60px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+ 
+  .side-bar.open {
+    transform: translateX(0);
+    box-shadow: 6px 0 18px rgba(0, 0, 0, 0.18);
+  }
+ 
+  /* ----- Main content ----- */
+  main {
+    margin-left: 0 !important;
+    margin-top: 60px !important;
+    width: 100% !important;
+    padding: clamp(14px, 4vw, 22px);
+    box-sizing: border-box;
+  }
+ 
+  /* ----- Store name ----- */
+  .user-store {
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 3vw, 16px);
+  }
+ 
+  .user-store .logo {
+    width: clamp(48px, 14vw, 68px);
+  }
+ 
+  .store-name p {
+    margin: 0;
+  }
+ 
+  .store-name p:first-child {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+    font-weight: 600;
+  }
+ 
+  .store-name p:last-child {
+    font-size: clamp(0.72rem, 3.2vw, 0.9rem);
+  }
+ 
+  /* ----- Make every card fit the screen (overrides old fixed widths) ----- */
+  .store-overview,
+  .bottom-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+ 
+  .store-overview article,
+  .card,
+  .sales-card,
+  .budget-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+ 
+  /* ----- 3 overview cards: 1 column ----- */
+  .store-overview {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(12px, 3vw, 18px);
+  }
+ 
+  .store-overview article {
+    padding: clamp(16px, 4vw, 22px);
+    border-radius: 16px;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+ 
+  .store-overview h2 {
+    font-size: clamp(0.95rem, 4vw, 1.15rem);
+  }
+ 
+  .store-overview h1 {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+ 
+  .overview-icon {
+    width: clamp(28px, 8vw, 38px);
+  }
+ 
+  /* ----- Sales and Budget cards: stacked ----- */
+  .bottom-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(14px, 4vw, 20px);
+    margin-top: clamp(14px, 4vw, 20px);
+  }
+ 
+  .card {
+    padding: clamp(16px, 4vw, 22px);
+    border-radius: 16px;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+ 
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+ 
+  .card h3 {
+    font-size: clamp(1rem, 4.2vw, 1.2rem);
+  }
+ 
+  .chart-box {
+    position: relative;
+    width: 100%;
+    height: clamp(200px, 58vw, 280px);
+    overflow: hidden;
+  }
+ 
+  .chart-box canvas {
+    max-width: 100%;
+  }
+ 
+  .empty-message {
+    font-size: clamp(0.7rem, 3vw, 0.85rem);
+  }
+ 
+  .donut-box {
+    position: relative;
+    width: clamp(150px, 46vw, 210px);
+    margin: 0 auto;
+  }
+}
+ 
+ 
+/* ==========================================================
+   3. TABLETS - PORTRAIT (601px to 1024px)
+   iPad Mini, iPad Air, Asus Zenbook Fold, Surface Pro 7, iPad Pro
+   ========================================================== */
+@media (min-width: 601px) and (max-width: 1024px) and (orientation: portrait) {
+ 
+  /* ----- Header ----- */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 clamp(20px, 4vw, 36px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    z-index: 1100;
+  }
+ 
+  .left-side,
+  .right-side,
+  .account-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+ 
+  .header h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+  }
+ 
+  .header-logo {
+    width: clamp(40px, 6vw, 56px);
+  }
+ 
+  .bell,
+  .account {
+    width: clamp(28px, 4vw, 36px);
+  }
+ 
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+    cursor: pointer;
+  }
+ 
+  /* ----- Sidebar (hidden until the menu button is clicked) ----- */
+  .side-bar {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: clamp(260px, 38vw, 330px);
+    height: calc(100vh - 70px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+ 
+  .side-bar.open {
+    transform: translateX(0);
+    box-shadow: 6px 0 18px rgba(0, 0, 0, 0.18);
+  }
+ 
+  /* ----- Main content ----- */
+  main {
+    margin-left: 0 !important;
+    margin-top: 70px !important;
+    width: 100% !important;
+    padding: clamp(24px, 4vw, 40px);
+    box-sizing: border-box;
+  }
+ 
+  /* ----- Store name ----- */
+  .user-store {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2.5vw, 24px);
+  }
+ 
+  .user-store .logo {
+    width: clamp(70px, 10vw, 100px);
+  }
+ 
+  .store-name p {
+    margin: 0;
+  }
+ 
+  .store-name p:first-child {
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    font-weight: 600;
+  }
+ 
+  .store-name p:last-child {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+ 
+  /* ----- Make every card fit the screen (overrides old fixed widths) ----- */
+  .store-overview,
+  .bottom-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+ 
+  .store-overview article,
+  .card,
+  .sales-card,
+  .budget-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+ 
+  /* ----- 3 overview cards: 1 row ----- */
+  .store-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(14px, 2.5vw, 24px);
+  }
+ 
+  .store-overview article {
+    padding: clamp(16px, 2.8vw, 28px);
+    border-radius: 18px;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+ 
+  .store-overview h2 {
+    font-size: clamp(0.95rem, 2.3vw, 1.3rem);
+  }
+ 
+  .store-overview h1 {
+    font-size: clamp(1.5rem, 4vw, 2.4rem);
+  }
+ 
+  .overview-icon {
+    width: clamp(30px, 4.5vw, 46px);
+  }
+ 
+  /* ----- Sales card on top, Budget card below ----- */
+  .bottom-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(18px, 3vw, 28px);
+    margin-top: clamp(18px, 3vw, 28px);
+  }
+ 
+  .card {
+    padding: clamp(20px, 3.5vw, 32px);
+    border-radius: 18px;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+ 
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+ 
+  .card h3 {
+    font-size: clamp(1.1rem, 2.6vw, 1.5rem);
+  }
+ 
+  .chart-box {
+    position: relative;
+    width: 100%;
+    height: clamp(260px, 38vw, 380px);
+    overflow: hidden;
+  }
+ 
+  .chart-box canvas {
+    max-width: 100%;
+  }
+ 
+  .empty-message {
+    font-size: clamp(0.85rem, 2vw, 1rem);
+  }
+ 
+  .donut-box {
+    position: relative;
+    width: clamp(180px, 30vw, 260px);
+    margin: 0 auto;
+  }
+}
+ 
+ 
+/* ==========================================================
+   4. TABLETS - LANDSCAPE (601px to 1400px, touch screens)
+   iPad Mini, iPad Air, Asus Zenbook Fold, iPad Pro, Surface Pro 7
+   ========================================================== */
+@media (min-width: 601px) and (max-width: 1400px) and (orientation: landscape) and (pointer: coarse) {
+ 
+  /* ----- Header ----- */
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    padding: 0 clamp(24px, 3vw, 44px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    z-index: 1100;
+  }
+ 
+  .left-side,
+  .right-side,
+  .account-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+ 
+  .header h2 {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.4vw, 1.9rem);
+  }
+ 
+  .header-logo {
+    width: clamp(40px, 4.5vw, 58px);
+  }
+ 
+  .bell,
+  .account {
+    width: clamp(28px, 3vw, 38px);
+  }
+ 
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    font-size: clamp(1.8rem, 2.4vw, 2.2rem);
+    cursor: pointer;
+  }
+ 
+  /* ----- Sidebar (hidden until the menu button is clicked) ----- */
+  .side-bar {
+    position: fixed !important;
+    top: 70px !important;
+    left: 0 !important;
+    width: clamp(250px, 26vw, 320px);
+    height: calc(100vh - 70px);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    box-sizing: border-box;
+    z-index: 1000;
+  }
+ 
+  .side-bar.open {
+    transform: translateX(0);
+    box-shadow: 6px 0 18px rgba(0, 0, 0, 0.18);
+  }
+ 
+  /* ----- Main content ----- */
+  main {
+    margin-left: 0 !important;
+    margin-top: 70px !important;
+    width: 100% !important;
+    padding: clamp(20px, 3vw, 44px);
+    box-sizing: border-box;
+  }
+ 
+  /* ----- Store name ----- */
+  .user-store {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 2vw, 24px);
+  }
+ 
+  .user-store .logo {
+    width: clamp(64px, 7vw, 100px);
+  }
+ 
+  .store-name p {
+    margin: 0;
+  }
+ 
+  .store-name p:first-child {
+    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+    font-weight: 600;
+  }
+ 
+  .store-name p:last-child {
+    font-size: clamp(0.85rem, 1.5vw, 1.1rem);
+  }
+ 
+  /* ----- Make every card fit the screen (overrides old fixed widths) ----- */
+  .store-overview,
+  .bottom-section {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+ 
+  .store-overview article,
+  .card,
+  .sales-card,
+  .budget-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+ 
+  /* ----- 3 overview cards: 1 row ----- */
+  .store-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(16px, 2.5vw, 28px);
+  }
+ 
+  .store-overview article {
+    padding: clamp(18px, 2.4vw, 32px);
+    border-radius: 18px;
+    box-sizing: border-box;
+    min-width: 0;
+  }
+ 
+  .store-overview h2 {
+    font-size: clamp(1rem, 1.7vw, 1.4rem);
+  }
+ 
+  .store-overview h1 {
+    font-size: clamp(1.6rem, 3vw, 2.6rem);
+  }
+ 
+  .overview-icon {
+    width: clamp(32px, 3.8vw, 52px);
+  }
+ 
+  /* ----- Sales card (wide) beside Budget card (narrow) ----- */
+  .bottom-section {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: clamp(18px, 2.5vw, 32px);
+    margin-top: clamp(18px, 2.5vw, 32px);
+  }
+ 
+  .card {
+    padding: clamp(18px, 2.4vw, 34px);
+    border-radius: 18px;
+    box-sizing: border-box;
+    min-width: 0;
+    max-width: 100%;
+  }
+ 
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+ 
+  .card h3 {
+    font-size: clamp(1.05rem, 1.8vw, 1.5rem);
+  }
+ 
+  .chart-box {
+    position: relative;
+    width: 100%;
+    height: clamp(220px, 28vw, 380px);
+    overflow: hidden;
+  }
+ 
+  .chart-box canvas {
+    max-width: 100%;
+  }
+ 
+  .empty-message {
+    font-size: clamp(0.8rem, 1.3vw, 1rem);
+  }
+ 
+  .donut-box {
+    position: relative;
+    width: clamp(150px, 18vw, 240px);
+    margin: 0 auto;
+  }
 }

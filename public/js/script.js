@@ -1,3 +1,20 @@
+var menuBtn = document.getElementById("menuBtn");
+var sideBar = document.querySelector(".side-bar");
+
+if (menuBtn && sideBar) {
+  menuBtn.onclick = function () {
+    sideBar.classList.toggle("open");
+  };
+
+  // close the sidebar after tapping a menu link
+  var links = sideBar.querySelectorAll("a");
+  for (var i = 0; i < links.length; i++) {
+    links[i].onclick = function () {
+      sideBar.classList.remove("open");
+    };
+  }
+}
+
 
 const addStoreBtn = document.getElementById("add-store-btn");
 const addStorePage = document.getElementById("add-store-form");
@@ -32,20 +49,5 @@ cancelStoreBtn.addEventListener("click", function () {
 });
 
 
-// Open or close the sidebar on phones
-var menuBtn = document.getElementById("menuBtn");
-var sideBar = document.querySelector(".side-bar");
 
-if (menuBtn && sideBar) {
-  menuBtn.onclick = function () {
-    sideBar.classList.toggle("open");
-  };
 
-  // close the sidebar after tapping a menu link
-  var links = sideBar.querySelectorAll("a");
-  for (var i = 0; i < links.length; i++) {
-    links[i].onclick = function () {
-      sideBar.classList.remove("open");
-    };
-  }
-}
