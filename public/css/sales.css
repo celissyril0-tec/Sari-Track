@@ -511,3 +511,898 @@ hr{
   color: #b45309;
 }
 
+/* =====================================================
+   1. SHARED RULES  (all phones AND tablets)
+   ===================================================== */
+@media (max-width: 599px),
+       (min-width: 600px) and (max-width: 1024px) and (orientation: portrait),
+       (max-width: 940px) and (max-height: 500px) and (orientation: landscape),
+       (min-width: 601px) and (max-width: 1180px) and (min-height: 501px) and (orientation: landscape),
+       (min-width: 1181px) and (max-width: 1400px) and (min-height: 501px) and (orientation: landscape) and (pointer: coarse) {
+
+  /* box-sizing is ONLY inside these phone/tablet queries,
+     so your desktop layout is not affected */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* ---------- Header: fixed at the top ---------- */
+  .header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: var(--header-h) !important;
+    padding: 0 var(--side) !important;
+    z-index: 900 !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .left-side {
+    width: auto !important;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(8px, 2vw, 14px);
+  }
+
+  .left-side h2 {
+    margin: 0;
+    white-space: nowrap;
+  }
+
+  .right-side {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: clamp(10px, 2vw, 18px);
+  }
+
+  .account-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .menu-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    cursor: pointer;
+  }
+
+  /* ---------- Sidebar: hidden, slides in with the ☰ button ---------- */
+  .side-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    height: 100vh !important;
+    width: clamp(220px, 60vw, 280px) !important;
+    overflow-y: auto;
+    z-index: 1000 !important;
+    transform: translateX(-100%) !important;
+    transition: transform 0.3s ease;
+  }
+
+  .side-bar.show,
+  .side-bar.open,
+  .side-bar.active {
+    transform: translateX(0) !important;
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ---------- MAIN: one column, SAME gap between every section ---------- */
+  main {
+    margin: var(--header-h) 0 0 0 !important;   /* sits right under the header */
+    padding: var(--gap) var(--side) calc(var(--gap) * 2) !important;
+    width: 100% !important;
+    min-width: 0;
+    display: flex !important;
+    flex-direction: column;
+    gap: var(--gap);
+  }
+
+  main > * {
+    margin: 0 !important;          /* removes old random spaces */
+  }
+
+  main > hr {
+    display: none;
+  }
+
+  /* ---------- Title + buttons ---------- */
+  .top {
+    display: flex !important;
+    padding: 0 !important;
+  }
+
+  .sales-store {
+    display: flex !important;
+    align-items: center;
+    margin: 0 !important;
+  }
+
+  .sales-store .logo {
+    height: auto;
+  }
+
+  .sales-intro h2,
+  .sales-intro p {
+    margin: 0 !important;
+  }
+
+  .main-buttons button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    white-space: nowrap;           /* text stays on one line */
+    border-radius: 12px;
+  }
+
+  /* ---------- Graph + cards section ---------- */
+  .top-section {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: var(--gap);
+    margin: 0 !important;
+  }
+
+  .top-section > * {
+    min-width: 0;
+  }
+
+  /* THE 3 CARDS GO FIRST (above the graph) */
+  .sales-division {
+    order: -1;
+  }
+
+  .sales-card {
+    order: 1;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    border-radius: 18px;
+  }
+
+  .card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .chart-box {
+    position: relative;
+  }
+
+  .chart-box canvas {
+    max-width: 100% !important;
+  }
+
+  /* "No sales data" message: centered inside the grid lines */
+  .empty-message {
+    position: absolute;
+    top: calc(50% - 10px);
+    left: calc(50% + 14px);
+    transform: translate(-50%, -50%);
+    width: 80%;
+    margin: 0;
+    text-align: center;
+  }
+
+  /* ---------- The 3 small cards ----------
+     Title on the left, icon on the top-right,
+     big number under it, small text at the bottom */
+  .sales-division {
+    width: 100% !important;
+    max-width: none !important;
+    display: grid !important;
+    gap: var(--gap);
+  }
+
+  .sales-division article {
+    width: 100% !important;
+    max-width: none !important;
+    height: auto !important;
+    min-height: 0 !important;
+    min-width: 0;
+    margin: 0 !important;
+    padding: clamp(14px, 3.5vw, 22px) !important;
+    border-radius: 16px;
+    overflow: visible !important;
+    display: grid !important;
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    column-gap: 10px;
+    row-gap: 4px;
+  }
+
+  .sales-division h2 {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .sales-division .division-icon {
+    grid-column: 2;
+    grid-row: 1;
+    position: static !important;
+    order: 0;
+    width: clamp(22px, 6vw, 30px) !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0;
+    background: none;
+    object-fit: contain;
+  }
+
+  .sales-division h1 {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .sales-division p {
+    grid-column: 1 / -1;
+    grid-row: 3;
+  }
+
+  .sales-division h2,
+  .sales-division h1,
+  .sales-division p {
+    margin: 0 !important;
+    line-height: 1.2;
+  }
+
+  /* ---------- Transactions ---------- */
+  .transactions-card {
+    width: 100% !important;
+    max-width: none !important;
+    border-radius: 18px;
+  }
+
+  .transactions-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .transaction-table {
+    width: 100%;
+  }
+
+  /* ---------- Record Sale popup ---------- */
+  .modal-box {
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .modal-box input,
+  .modal-box select {
+    width: 100%;
+    font-size: 16px;               /* stops iPhone zoom while typing */
+  }
+
+  .modal-box .row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .modal-box .row > div {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .modal-buttons {
+    display: flex;
+    gap: 10px;
+  }
+
+  .modal-buttons button {
+    flex: 1;
+    min-height: 44px;
+  }
+}
+
+
+/* =====================================================
+   2. SMARTPHONES - PORTRAIT  (up to 599px)
+   Order: title -> 2 small buttons -> 3 cards -> graph -> transactions
+   ===================================================== */
+@media (max-width: 599px) {
+
+  :root {
+    --header-h: clamp(54px, 14vw, 62px);
+    --side: clamp(10px, 3.5vw, 16px);
+    --gap: clamp(10px, 3vw, 14px);
+  }
+
+  /* ---------- Header ---------- */
+  .header-logo {
+    width: clamp(30px, 9vw, 36px) !important;
+    height: auto;
+  }
+
+  .left-side h2 {
+    font-size: clamp(1.05rem, 4.8vw, 1.3rem);
+  }
+
+  .bell {
+    width: clamp(22px, 6vw, 26px) !important;
+  }
+
+  .account {
+    width: clamp(26px, 7.5vw, 32px) !important;
+  }
+
+  .account-info span {
+    display: none;
+  }
+
+  /* ---------- Page order ----------
+     "display: contents" lets the title, buttons and cards be
+     rearranged freely using the "order" numbers below */
+  .top,
+  .top-section {
+    display: contents !important;
+  }
+
+  .sales-store       { order: 1; }
+  .main-buttons      { order: 2; }
+  .sales-division    { order: 3; }
+  .sales-card        { order: 4; }
+  .transactions-card { order: 5; }
+
+  /* display: contents skips the shared "main > *" margin reset,
+     so the old margins are removed here instead */
+  .sales-store,
+  .main-buttons,
+  .sales-division,
+  .sales-card,
+  .transactions-card {
+    margin: 0 !important;
+  }
+
+  /* ---------- Title ---------- */
+  .sales-store {
+    gap: clamp(10px, 3vw, 14px);
+  }
+
+  .sales-store .logo {
+    width: clamp(54px, 16vw, 66px) !important;
+  }
+
+  .sales-intro h2 {
+    font-size: clamp(1.15rem, 5.2vw, 1.4rem);
+  }
+
+  .sales-intro p {
+    font-size: clamp(0.72rem, 3vw, 0.85rem);
+  }
+
+  /* ---------- Buttons (small, side by side) ---------- */
+  .main-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: calc(var(--gap) - 2px);
+    width: 100%;
+    padding: 0 !important;
+  }
+
+  .main-buttons button {
+    flex: 1;
+    width: auto !important;
+    min-width: 0;
+    min-height: clamp(36px, 10vw, 40px);      /* lower = smaller button */
+    padding: 0 8px;
+    gap: 6px;
+    border-radius: 10px;
+    font-size: clamp(0.7rem, 3.1vw, 0.82rem);
+  }
+
+  .main-buttons .icon {
+    width: clamp(14px, 3.8vw, 16px) !important;
+  }
+
+  /* ---------- 3 cards: Today's Sales full width,
+                 Transactions + Items Sold side by side ---------- */
+  .sales-division {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .sales-division .total-sales {
+    grid-column: span 2;
+  }
+
+  /* text inside the 2 small cards */
+  .sales-division h2 {
+    font-size: clamp(0.85rem, 3.9vw, 1rem);
+    font-weight: 700;
+  }
+
+  .sales-division h1 {
+    font-size: clamp(1.5rem, 7.5vw, 1.9rem);
+  }
+
+  .sales-division p {
+    font-size: clamp(0.72rem, 3vw, 0.85rem);
+  }
+
+  .sales-division .division-icon {
+    width: clamp(22px, 6vw, 28px) !important;
+  }
+
+  /* Today's Sales (full width) keeps the bigger text */
+  .total-sales h2 {
+    font-size: clamp(1.05rem, 4.8vw, 1.25rem);
+  }
+
+  .total-sales h1 {
+    font-size: clamp(1.9rem, 9vw, 2.4rem);
+  }
+
+  .total-sales p {
+    font-size: clamp(0.8rem, 3.4vw, 0.95rem);
+  }
+
+  .total-sales .division-icon {
+    width: clamp(24px, 7vw, 30px) !important;
+  }
+
+  /* ---------- Graph + Transactions cards ---------- */
+  .sales-card,
+  .transactions-card {
+    padding: clamp(14px, 4vw, 18px);
+  }
+
+  .card-top,
+  .transactions-top {
+    margin-bottom: 12px;
+  }
+
+  .card-top h3,
+  .transactions-top h3 {
+    font-size: clamp(1rem, 4.6vw, 1.15rem);
+  }
+
+  .card-top select,
+  .transactions-top select {
+    font-size: 0.8rem;
+  }
+
+  .chart-box {
+    height: clamp(180px, 50vw, 230px);
+  }
+
+  .empty-message {
+    font-size: clamp(0.7rem, 3.2vw, 0.85rem);
+  }
+
+  .transaction-table {
+    min-width: 520px;               /* scrolls sideways on phones */
+    font-size: clamp(0.75rem, 3.2vw, 0.85rem);
+  }
+
+  /* ---------- Record Sale popup ---------- */
+  .modal-box {
+    width: 92% !important;
+    padding: clamp(16px, 5vw, 24px) !important;
+    border-radius: 16px;
+  }
+}
+
+
+/* =====================================================
+   3. SMARTPHONES - LANDSCAPE  (phone turned sideways)
+   Buttons beside the title, 3 cards in one row
+   ===================================================== */
+@media (max-width: 940px) and (max-height: 500px) and (orientation: landscape) {
+
+  :root {
+    --header-h: 52px;
+    --side: clamp(14px, 3vw, 24px);
+    --gap: clamp(10px, 2vw, 14px);
+  }
+
+  .header-logo {
+    width: 30px !important;
+    height: auto;
+  }
+
+  .left-side h2 {
+    font-size: 1.1rem;
+  }
+
+  .account-info span {
+    display: none;
+  }
+
+  .top {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center !important;
+    gap: var(--gap);
+  }
+
+  .sales-store {
+    gap: 12px;
+  }
+
+  .sales-store .logo {
+    width: clamp(46px, 7vw, 58px) !important;
+  }
+
+  .sales-intro h2 {
+    font-size: clamp(1rem, 2.4vw, 1.2rem);
+  }
+
+  .sales-intro p {
+    font-size: clamp(0.7rem, 1.6vw, 0.8rem);
+  }
+
+  .main-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px;
+  }
+
+  .main-buttons button {
+    padding: 0 clamp(10px, 2vw, 16px);
+    min-height: 40px;
+    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+  }
+
+  .main-buttons .icon {
+    width: 18px !important;
+  }
+
+  /* 3 cards in a row, compact */
+  .sales-division {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .sales-division article {
+    padding: 8px 12px !important;
+    row-gap: 2px;
+  }
+
+  .sales-division h2 {
+    font-size: clamp(0.75rem, 1.7vw, 0.9rem);
+    font-weight: 700;
+  }
+
+  .sales-division h1 {
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+
+  .sales-division p {
+    font-size: clamp(0.65rem, 1.3vw, 0.75rem);
+  }
+
+  .sales-division .division-icon {
+    width: clamp(18px, 3vw, 22px) !important;
+  }
+
+  .sales-card,
+  .transactions-card {
+    padding: 12px;
+  }
+
+  .card-top,
+  .transactions-top {
+    margin-bottom: 10px;
+  }
+
+  .chart-box {
+    height: clamp(140px, 42vh, 200px);
+  }
+
+  .empty-message {
+    font-size: 0.75rem;
+  }
+
+  .transaction-table {
+    font-size: 0.8rem;
+  }
+
+  .modal-box {
+    width: min(90%, 520px) !important;
+    padding: 16px !important;
+  }
+}
+
+
+/* =====================================================
+   4. TABLETS - PORTRAIT  (iPad Mini 768, iPad Air 820, Surface Pro 912)
+   Title left + buttons right, 3 cards in ONE row,
+   graph, then transactions
+   ===================================================== */
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+
+  :root {
+    --header-h: clamp(64px, 8vw, 74px);
+    --side: clamp(18px, 3.5vw, 32px);
+    --gap: clamp(14px, 2.4vw, 22px);
+  }
+
+  .header-logo {
+    width: clamp(38px, 5.5vw, 46px) !important;
+    height: auto;
+  }
+
+  .left-side h2 {
+    font-size: clamp(1.3rem, 3vw, 1.6rem);
+  }
+
+  .bell {
+    width: clamp(26px, 3.6vw, 32px) !important;
+  }
+
+  .account {
+    width: clamp(30px, 4.4vw, 38px) !important;
+  }
+
+  .account-info span {
+    font-size: clamp(0.85rem, 1.9vw, 1rem);
+  }
+
+  .top {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center !important;
+    gap: var(--gap);
+  }
+
+  .sales-store {
+    flex: 1;                         /* title area takes all the space left of the buttons */
+    min-width: 0;
+    gap: clamp(12px, 2.2vw, 18px);
+  }
+
+  .sales-store .logo {
+    width: clamp(68px, 10vw, 84px) !important;
+    flex-shrink: 0;
+  }
+
+  .sales-intro h2 {
+    font-size: clamp(1.4rem, 3.6vw, 1.8rem);
+  }
+
+  .sales-intro p {
+    font-size: clamp(0.8rem, 1.9vw, 0.95rem);
+    text-wrap: balance;              /* splits the text into 2 even lines */
+  }
+
+  .main-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-shrink: 0;                  /* buttons keep their size */
+    gap: 8px;
+  }
+
+  .main-buttons button {
+    min-height: clamp(40px, 5.5vw, 46px);
+    padding: 0 clamp(10px, 2vw, 16px);
+    font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+  }
+
+  .main-buttons .icon {
+    width: clamp(16px, 2.2vw, 20px) !important;
+  }
+
+  /* 3 equal cards in a row */
+  .sales-division {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .sales-division article {
+    padding: clamp(14px, 2.6vw, 22px) !important;
+  }
+
+  .sales-division h2 {
+    font-size: clamp(0.9rem, 2.1vw, 1.1rem);
+    font-weight: 700;
+  }
+
+  .sales-division h1 {
+    font-size: clamp(1.6rem, 4.2vw, 2.2rem);
+  }
+
+  .sales-division p {
+    font-size: clamp(0.72rem, 1.7vw, 0.9rem);
+  }
+
+  .sales-division .division-icon {
+    width: clamp(22px, 3.4vw, 30px) !important;
+  }
+
+  .sales-card,
+  .transactions-card {
+    padding: clamp(18px, 3vw, 28px);
+  }
+
+  .card-top,
+  .transactions-top {
+    margin-bottom: clamp(12px, 2vw, 18px);
+  }
+
+  .card-top h3,
+  .transactions-top h3 {
+    font-size: clamp(1.15rem, 2.8vw, 1.5rem);
+  }
+
+  .chart-box {
+    height: clamp(260px, 42vw, 380px);
+  }
+
+  .empty-message {
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
+  }
+
+  .transaction-table {
+    font-size: clamp(0.85rem, 1.9vw, 1.05rem);
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: clamp(10px, 2vw, 16px) 10px;
+  }
+
+  .modal-box {
+    width: min(90%, 600px) !important;
+    padding: clamp(20px, 4vw, 32px) !important;
+    border-radius: 18px;
+  }
+}
+
+
+/* =====================================================
+   5. TABLETS - LANDSCAPE  (iPad Mini 1024, Air 1180, Pro 1366, Surface 1368)
+   NOTE: widths 1181px and up only count as a tablet on TOUCH screens
+   (pointer: coarse), so a laptop/desktop with a mouse keeps the
+   original desktop design.
+   Same order as portrait, but wider and bigger
+   ===================================================== */
+@media (min-width: 601px) and (max-width: 1180px) and (min-height: 501px) and (orientation: landscape),
+       (min-width: 1181px) and (max-width: 1400px) and (min-height: 501px) and (orientation: landscape) and (pointer: coarse) {
+
+  :root {
+    --header-h: clamp(62px, 6vw, 72px);
+    --side: clamp(24px, 4vw, 44px);
+    --gap: clamp(14px, 2vw, 22px);
+  }
+
+  .header-logo {
+    width: clamp(38px, 4vw, 46px) !important;
+    height: auto;
+  }
+
+  .left-side h2 {
+    font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  }
+
+  .bell {
+    width: clamp(26px, 2.6vw, 32px) !important;
+  }
+
+  .account {
+    width: clamp(30px, 3vw, 38px) !important;
+  }
+
+  .top {
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center !important;
+    gap: var(--gap);
+  }
+
+  .sales-store {
+    gap: clamp(14px, 2vw, 22px);
+  }
+
+  .sales-store .logo {
+    width: clamp(76px, 8vw, 96px) !important;
+  }
+
+  .sales-intro h2 {
+    font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  }
+
+  .sales-intro p {
+    font-size: clamp(0.8rem, 1.3vw, 0.95rem);
+  }
+
+  .main-buttons {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: clamp(10px, 1.2vw, 14px);
+  }
+
+  .main-buttons button {
+    min-height: clamp(46px, 4.6vw, 54px);
+    padding: 0 clamp(16px, 2.2vw, 26px);
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  }
+
+  .main-buttons .icon {
+    width: clamp(20px, 2vw, 26px) !important;
+  }
+
+  /* 3 equal cards in a row (text scales up to fill the card) */
+  .sales-division {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .sales-division article {
+    padding: clamp(16px, 2vw, 26px) !important;
+  }
+
+  .sales-division h2 {
+    font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+    font-weight: 700;
+  }
+
+  .sales-division h1 {
+    font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  }
+
+  .sales-division p {
+    font-size: clamp(0.78rem, 1.2vw, 0.95rem);
+  }
+
+  .sales-division .division-icon {
+    width: clamp(24px, 2.8vw, 34px) !important;
+  }
+
+  .sales-card,
+  .transactions-card {
+    padding: clamp(18px, 2.2vw, 30px);
+  }
+
+  .card-top,
+  .transactions-top {
+    margin-bottom: clamp(12px, 1.6vw, 20px);
+  }
+
+  .card-top h3,
+  .transactions-top h3 {
+    font-size: clamp(1.15rem, 2vw, 1.5rem);
+  }
+
+  .chart-box {
+    height: clamp(200px, 24vw, 320px);
+  }
+
+  .empty-message {
+    font-size: clamp(0.9rem, 1.4vw, 1.1rem);
+  }
+
+  .transaction-table {
+    font-size: clamp(0.85rem, 1.3vw, 1.05rem);
+  }
+
+  .transaction-table th,
+  .transaction-table td {
+    padding: clamp(10px, 1.4vw, 16px) 10px;
+  }
+
+  .modal-box {
+    width: min(90%, 620px) !important;
+    padding: clamp(20px, 2.5vw, 32px) !important;
+    border-radius: 18px;
+  }
+}
