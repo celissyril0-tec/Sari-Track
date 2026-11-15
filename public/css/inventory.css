@@ -460,32 +460,6 @@ hr{
   background: #fdf7ea;
 }
 
-/* =====================================================
-   responsive-inventory.css  (SariTrack - Inventory page)
-   Same devices and same layout idea as the Sales page.
-   Link it AFTER style.css and inventory.css:
-
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/inventory.css">
-   <link rel="stylesheet" href="css/responsive-inventory.css">
-
-   Layout order:
-   PHONE (portrait) : title -> 2 small buttons (right) -> 3 cards -> stock overview
-   TABLETS/LANDSCAPE: title + buttons (one row) -> 3 cards -> stock overview
-   (the HTML is NOT changed - CSS "order" moves things around)
-
-   1. Shared rules (all phones + tablets)
-   2. Smartphones - portrait
-   3. Smartphones - landscape
-   4. Tablets - portrait
-   5. Tablets - landscape
-
-   EASY TO EDIT - each device block starts with 3 numbers:
-   --header-h = header height
-   --side     = space on the left and right of the page
-   --gap      = space between every section (same everywhere = even)
-   ===================================================== */
-
 
 /* =====================================================
    1. SHARED RULES  (all phones AND tablets)
@@ -589,11 +563,13 @@ hr{
   }
 
   main > * {
-    margin: 0 !important;          /* removes old random spaces */
+    margin: 0 !important;          
   }
 
   main > hr {
-    display: none;
+    display: block;
+    width: 100%;
+    margin: 0 !important;
   }
 
   /* ---------- Title + buttons ---------- */
@@ -622,7 +598,7 @@ hr{
     align-items: center;
     justify-content: center;
     gap: 8px;
-    white-space: nowrap;           /* text stays on one line */
+    white-space: nowrap;           
     border-radius: 12px;
   }
 
@@ -708,7 +684,7 @@ hr{
 
   .stock-list {
     width: 100%;
-    overflow-x: auto;              /* long lists never push the page sideways */
+    overflow-x: auto;             
   }
 
   .stock-empty {
@@ -725,7 +701,7 @@ hr{
   .modal-box input,
   .modal-box select {
     width: 100%;
-    font-size: 16px;               /* stops iPhone zoom while typing */
+    font-size: 16px;               
   }
 
   .modal-box .row {
@@ -783,6 +759,8 @@ hr{
   .account-info span {
     display: none;
   }
+  
+  main > hr { order: 2; }
 
   /* ---------- Page order ----------
      "display: contents" lets the title and buttons be
@@ -832,10 +810,10 @@ hr{
   }
 
   .main-buttons button {
-    flex: 1;                                  /* both buttons share the row equally */
+    flex: 1;                                  
     width: auto !important;
     min-width: 0;
-    min-height: clamp(34px, 9.5vw, 38px);     /* lower = shorter button */
+    min-height: clamp(34px, 9.5vw, 38px);     
     padding: 0 8px;
     gap: 6px;
     border-radius: 10px;

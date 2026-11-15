@@ -125,21 +125,20 @@ span{
 }
 
 /* ================= SMARTPHONES ================= */
-/* ================= SMARTPHONES ================= */
 @media (max-width: 599px) {
 
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    overflow: hidden !important;                 /* no scrollbar */
+    overflow: hidden !important;
   }
 
   .login {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: center !important;          /* center top and bottom */
-    align-items: center !important;              /* center left and right */
+    justify-content: center !important;
+    align-items: center !important;
     height: 100vh !important;
     height: 100dvh !important;
     min-height: 0 !important;
@@ -165,7 +164,6 @@ span{
     justify-content: center !important;
   }
 
-  /* The form card: tall, rounded, with a soft shadow */
   .right-side form {
     width: clamp(290px, 92vw, 440px) !important;
     min-height: clamp(440px, 70dvh, 620px) !important;
@@ -181,7 +179,6 @@ span{
     gap: 0 !important;
   }
 
-  /* Title */
   .right-side .intro-part {
     text-align: center !important;
     margin: 0 0 clamp(20px, 4.5dvh, 36px) 0 !important;
@@ -197,7 +194,6 @@ span{
     font-size: clamp(14px, 3.9vw, 16px) !important;
   }
 
-  /* Labels and inputs */
   .right-side label {
     display: block !important;
     margin: 0 0 8px 0 !important;
@@ -215,14 +211,12 @@ span{
     box-sizing: border-box !important;
   }
 
-  /* Forgot password link, on the right */
   .right-side form > a {
     align-self: flex-end !important;
     margin: 0 0 clamp(20px, 4dvh, 32px) 0 !important;
     font-size: clamp(14px, 3.8vw, 16px) !important;
   }
 
-  /* Log In button */
   .right-side button {
     display: block !important;
     width: 100% !important;
@@ -233,7 +227,6 @@ span{
     font-size: clamp(17px, 4.6vw, 19px) !important;
   }
 
-  /* Need an account? Register */
   .right-side form > p {
     margin: clamp(20px, 4dvh, 32px) 0 0 0 !important;
     text-align: center !important;
@@ -241,14 +234,14 @@ span{
   }
 }
 
-/* ================= TABLET - PORTRAIT: form only ================= */
+
 @media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
 
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    overflow: hidden !important;                 /* no scrollbar */
+    overflow: hidden !important;
   }
 
   .login {
@@ -268,7 +261,7 @@ span{
   .image,
   .leftside,
   .right-side .form-brand {
-    display: none !important;                    /* show only the form */
+    display: none !important;
   }
 
   .right-side {
@@ -351,19 +344,19 @@ span{
 }
 
 
-/* ================= TABLET - LANDSCAPE: cat + catchphrase + form ================= */
+/* ================= TABLET - LANDSCAPE: form only ================= */
 @media (min-width: 768px) and (max-width: 1180px) and (orientation: landscape) and (min-height: 500px) {
 
   html, body {
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    overflow: hidden !important;                 /* no scrollbar */
+    overflow: hidden !important;
   }
 
   .login {
     display: flex !important;
-    flex-direction: row !important;              /* cat on the left, form on the right */
+    flex-direction: row !important;
     justify-content: center !important;
     align-items: center !important;
     gap: clamp(32px, 6vw, 90px) !important;
@@ -380,50 +373,9 @@ span{
     display: none !important;
   }
 
-  /* Left side: cat, then logo + catchphrase */
+  .image,
   .leftside {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(12px, 2.5dvh, 24px) !important;
-    width: auto !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .image {
-    display: flex !important;
-    justify-content: center !important;
-    margin: 0 !important;
-  }
-
-  .cat {
-    height: clamp(180px, 42dvh, 340px) !important;   /* grows with the screen height */
-    width: auto !important;
-    max-width: 100% !important;
-  }
-
-  .bottom-left {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(10px, 1.6vw, 16px) !important;
-    margin: 0 !important;
-  }
-
-  .bottom-left .logo {
-    width: clamp(44px, 8dvh, 64px) !important;
-    height: clamp(44px, 8dvh, 64px) !important;
-  }
-
-  .bottom-left h1 {
-    margin: 0 !important;
-    text-align: left !important;
-    font-size: clamp(1.2rem, 2.6vw, 1.9rem) !important;
-    line-height: 1.2 !important;
+    display: none !important;
   }
 
   /* Right side: the form */
@@ -514,7 +466,7 @@ span{
     margin: 0 !important;
     padding: 0 !important;
     height: 100% !important;
-    overflow: hidden !important;                 /* no scrollbar */
+    overflow: hidden !important;
   }
 
   .login {
@@ -536,50 +488,9 @@ span{
     display: none !important;
   }
 
-  /* Left side: cat, then logo + catchphrase */
+  .image,
   .leftside {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: clamp(16px, 3dvh, 30px) !important;
-    width: auto !important;
-    height: auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .image {
-    display: flex !important;
-    justify-content: center !important;
-    margin: 0 !important;
-  }
-
-  .cat {
-    height: clamp(300px, 46dvh, 460px) !important;
-    width: auto !important;
-    max-width: 100% !important;
-  }
-
-  .bottom-left {
-    display: flex !important;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: center !important;
-    gap: 16px !important;
-    margin: 0 !important;
-  }
-
-  .bottom-left .logo {
-    width: 72px !important;
-    height: 72px !important;
-  }
-
-  .bottom-left h1 {
-    margin: 0 !important;
-    text-align: left !important;
-    font-size: clamp(1.8rem, 2.4vw, 2.3rem) !important;
-    line-height: 1.2 !important;
+    display: none !important;
   }
 
   /* Right side: the form */

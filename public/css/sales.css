@@ -201,7 +201,7 @@ hr{
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);   /* dark, see-through layer */
+  background: rgba(0, 0, 0, 0.5);   
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -442,7 +442,7 @@ hr{
   color: #1b2a6b;
 }
 
-/* white box around the table; scrolls sideways on small screens */
+
 .table-wrap {
   background: white;
   border-radius: 14px;
@@ -520,8 +520,6 @@ hr{
        (min-width: 601px) and (max-width: 1180px) and (min-height: 501px) and (orientation: landscape),
        (min-width: 1181px) and (max-width: 1400px) and (min-height: 501px) and (orientation: landscape) and (pointer: coarse) {
 
-  /* box-sizing is ONLY inside these phone/tablet queries,
-     so your desktop layout is not affected */
   *,
   *::before,
   *::after {
@@ -603,7 +601,7 @@ hr{
 
   /* ---------- MAIN: one column, SAME gap between every section ---------- */
   main {
-    margin: var(--header-h) 0 0 0 !important;   /* sits right under the header */
+    margin: var(--header-h) 0 0 0 !important;  
     padding: var(--gap) var(--side) calc(var(--gap) * 2) !important;
     width: 100% !important;
     min-width: 0;
@@ -613,11 +611,13 @@ hr{
   }
 
   main > * {
-    margin: 0 !important;          /* removes old random spaces */
+    margin: 0 !important;          
   }
 
   main > hr {
-    display: none;
+    display: block;
+    width: 100%;
+    margin: 0 !important;
   }
 
   /* ---------- Title + buttons ---------- */
@@ -646,7 +646,7 @@ hr{
     align-items: center;
     justify-content: center;
     gap: 8px;
-    white-space: nowrap;           /* text stays on one line */
+    white-space: nowrap;           
     border-radius: 12px;
   }
 
@@ -794,7 +794,7 @@ hr{
   .modal-box input,
   .modal-box select {
     width: 100%;
-    font-size: 16px;               /* stops iPhone zoom while typing */
+    font-size: 16px;               
   }
 
   .modal-box .row {
@@ -907,7 +907,7 @@ hr{
     flex: 1;
     width: auto !important;
     min-width: 0;
-    min-height: clamp(36px, 10vw, 40px);      /* lower = smaller button */
+    min-height: clamp(36px, 10vw, 40px);      
     padding: 0 8px;
     gap: 6px;
     border-radius: 10px;
@@ -917,6 +917,8 @@ hr{
   .main-buttons .icon {
     width: clamp(14px, 3.8vw, 16px) !important;
   }
+
+  main > hr { order: 2; }
 
   /* ---------- 3 cards: Today's Sales full width,
                  Transactions + Items Sold side by side ---------- */

@@ -299,7 +299,7 @@ main h3{
     display: flex;
     align-items: center;
     gap: clamp(10px, 3vw, 16px);
-    margin-top: 0 !important;          /* removes the old extra space */
+    margin-top: 0 !important;          
   }
  
   .user-store .logo {

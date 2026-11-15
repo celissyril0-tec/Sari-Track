@@ -522,35 +522,6 @@ hr{
     appearance: textfield;
 }
 
-/* =====================================================
-   responsive-calculator.css  (SariTrack - Calculator page)
-   Same devices and same layout idea as the other pages.
-   Link it AFTER style.css and calculator.css:
-
-   <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="css/calculator.css">
-   <link rel="stylesheet" href="css/responsive-calculator.css">
-
-   Layout order:
-   PHONE / TABLET (portrait): title -> calculator box -> budget card
-   LANDSCAPE (phone + tablet): title -> calculator box BESIDE budget card
-   (the HTML is NOT changed)
-
-   1. Shared rules (all phones + tablets)  - they read the numbers below
-   2. Smartphones - portrait
-   3. Smartphones - landscape
-   4. Tablets - portrait
-   5. Tablets - landscape
-
-   EASY TO EDIT - each device block starts with a list of numbers:
-   --header-h = header height          --side = space left and right
-   --gap      = space between sections --pad  = space inside the cards
-   --btn-h    = calculator button height
-   --disp-h   = calculator display height
-   --calc-w   = widest the calculator can get
-   --donut    = size of the budget donut chart
-   ===================================================== */
-
 
 /* =====================================================
    1. SHARED RULES  (all phones AND tablets)
@@ -561,8 +532,7 @@ hr{
        (min-width: 601px) and (max-width: 1180px) and (min-height: 501px) and (orientation: landscape),
        (min-width: 1181px) and (max-width: 1400px) and (min-height: 501px) and (orientation: landscape) and (pointer: coarse) {
 
-  /* box-sizing is ONLY inside these phone/tablet queries,
-     so your desktop layout is not affected */
+
   *,
   *::before,
   *::after {
@@ -573,7 +543,7 @@ hr{
     overflow-x: hidden;
   }
 
-  /* ---------- Header: fixed at the top ---------- */
+
   .header {
     position: fixed !important;
     top: 0 !important;
@@ -622,7 +592,7 @@ hr{
     cursor: pointer;
   }
 
-  /* ---------- Sidebar: hidden, slides in with the ☰ button ---------- */
+  
   .side-bar {
     position: fixed !important;
     top: 0 !important;
@@ -642,9 +612,9 @@ hr{
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.25);
   }
 
-  /* ---------- MAIN: one column, SAME gap between every section ---------- */
+  
   main {
-    margin: var(--header-h) 0 0 0 !important;   /* sits right under the header */
+    margin: var(--header-h) 0 0 0 !important;   
     padding: var(--gap) var(--side) calc(var(--gap) * 2) !important;
     width: 100% !important;
     min-width: 0;
@@ -654,13 +624,14 @@ hr{
   }
 
   main > * {
-    margin: 0 !important;          /* removes old random spaces */
+    margin: 0 !important;         
   }
 
-  main > hr {
-    display: none;
+   main > hr {
+    display: block;
+    width: 100%;
+    margin: 0 !important;
   }
-
   /* ---------- Title ---------- */
   .upper-section {
     display: flex !important;
@@ -789,7 +760,7 @@ hr{
   }
 
   .bd-form {
-    flex-wrap: wrap;               /* fields drop to the next line if too narrow */
+    flex-wrap: wrap;              
   }
 
   .bd-form input,
@@ -839,6 +810,8 @@ hr{
     --pct: clamp(1.3rem, 6vw, 1.6rem);
     --amt: clamp(1.6rem, 8vw, 2rem);
   }
+
+  main > hr { order: 2; }
 
   /* ---------- Header ---------- */
   .header-logo {
