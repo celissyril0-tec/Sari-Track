@@ -339,7 +339,11 @@ span{
   .right-side form > p {
     margin: clamp(24px, 4dvh, 40px) 0 0 0 !important;
     text-align: center !important;
-    font-size: clamp(16px, 2.2vw, 19px) !important;
+    font-size: clamp(18px, 2.8vw, 24px) !important;
+  }
+
+  .right-side form > p a {
+    font-size: 1.1em !important;
   }
 }
 
@@ -454,7 +458,11 @@ span{
   .right-side form > p {
     margin: clamp(16px, 3.5dvh, 28px) 0 0 0 !important;
     text-align: center !important;
-    font-size: clamp(14px, 1.7vw, 17px) !important;
+    font-size: clamp(16px, 2vw, 21px) !important;
+  }
+
+  .right-side form > p a {
+    font-size: 1.1em !important;
   }
 }
 
@@ -569,6 +577,10 @@ span{
   .right-side form > p {
     margin: clamp(22px, 4dvh, 36px) 0 0 0 !important;
     text-align: center !important;
-    font-size: 18px !important;
+    font-size: 22px !important;
+  }
+
+  .right-side form > p a {
+    font-size: 1.1em !important;
   }
 }
