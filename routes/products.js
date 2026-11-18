@@ -60,7 +60,7 @@ function cleanProductInput(body, isUpdate) {
 
     for (const field of ['category_id', 'product_unit']) {
         if (body[field] !== undefined) {
-            const okNull = field === 'category_id' && body[field] === null;
+            const okNull = false;
             if (!okNull && !Number.isInteger(body[field])) {
                 errors.push(`${field} must be a whole number.`);
             } else {
@@ -70,6 +70,8 @@ function cleanProductInput(body, isUpdate) {
     }
 
     if (!isUpdate) {
+        if (body.category_id === undefined) errors.push('category_id is required.');
+        if (body.product_unit === undefined) errors.push('product_unit is required.');
         if (values.cost_price === undefined) values.cost_price = 0;
         if (values.stock === undefined) values.stock = 0;
         if (values.reorder_level === undefined) values.reorder_level = 0;
@@ -93,7 +95,7 @@ router.get('/', handle(async (req, res) => {
     let query = req.supabase
     .from('products')
     .select('*')
-    .eq('user_id', req.user.id)
+    .eq('seller_id', req.user.id)
     .order('product_name', { ascending: true });
 
     if (req.query.category_id) {
