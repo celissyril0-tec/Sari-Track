@@ -4,12 +4,21 @@ require('dotenv').config();
 
 const supabase = require('./config/supabase');
 
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
+const lookupRoutes = require('./routes/lookups');
+const saleRoutes = require('./routes/sales');
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
+app.use('/api/lookups', lookupRoutes);
+app.use('/api/sales', saleRoutes);
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'landing_page.html'));
