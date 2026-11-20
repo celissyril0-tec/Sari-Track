@@ -97,7 +97,7 @@ hr{
 .inventory-division article{
     position: relative;
     height: 100px;
-    width: 255px;
+    width: 280px;
     background-color: #FFFFFF;
     border-radius: 1.5rem;
     padding: 13px 30px;
@@ -169,7 +169,7 @@ hr{
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
 }
 
-/* one white product row */
+
 .stock-item {
   display: flex;
   align-items: center;
@@ -181,7 +181,7 @@ hr{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-/*
+
 .stock-thumb {
   width: 26px;
   height: 26px;
@@ -209,7 +209,7 @@ hr{
   margin: 2px 0 0 0;
 }
 
-/* status labels 
+
 .stock-status {
   padding: 3px 14px;
   border-radius: 999px;
@@ -233,7 +233,6 @@ hr{
   color: #b91c1c;
 }
 
-*/
 .stock-empty {
   background: white;
   border-radius: 16px;
@@ -275,14 +274,13 @@ hr{
   border: 2px solid #f6e7c5;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
   font-family: 'Poppins', sans-serif;
-  scrollbar-width: none;          /* hides the scroll bar in Firefox */
+  scrollbar-width: none;          
 }
 
 .modal-box::-webkit-scrollbar {
-  display: none;                  /* hides the scroll bar in Chrome and Edge */
+  display: none;                 
 }
 
-/* makes padding count inside the width, so inputs don't stick out */
 .modal-box,
 .modal-box * {
   box-sizing: border-box;
@@ -294,7 +292,7 @@ hr{
   margin-bottom: 14px;
 }
 
-/* labels, inputs and dropdowns */
+
 .modal-box label {
   display: block;
   font-size: 13px;
@@ -320,7 +318,7 @@ hr{
   color: #9aa0b8;
 }
 
-/* yellow glow when you click a field */
+
 .modal-box input:focus,
 .modal-box select:focus {
   outline: none;
