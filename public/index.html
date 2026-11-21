@@ -10,28 +10,12 @@
 </head>
 <body>
 
-    <header class="header">
-        <div class="left-side">
-         <button class="menu-btn" id="menuBtn" type="button">&#9776;</button>
-         <img class="header-logo" src="pics/catlogo.png">
-          <h2>Sari<span>Track</span></h2>
-        </div>
+    <div id="header-placeholder"></div>
 
-        <div class="right-side">
-          <img class="bell" src="icons/notifications.png">
-
-          <div class="account-info">
-            <img class="account" src="icons/account.png">
-            <span>My Account</span>
-         </div>
-
-        </div>
-    </header>
-
-    <nav class="side-bar">
+    <nav class="side-bar locked">
         <ul class="menu-links">
             <li>
-              <a href="dashboard.html" class="active">
+              <a href="dashboard.html">
                 <img class="icon" src="icons/dashboard.png">
                 <span>Dashboard</span>
               </a>
@@ -193,13 +177,14 @@
           <li>View sales reports</li>
         </ul>
 
+    <p id="storeMsg"></p>
     <div class="form-buttons">
 
     <button type="button" class="cancel-btn" id="cancelBtn">
         Cancel
     </button>
 
-    <button type="submit" class="save-btn" onclick="window.location.href='dashboard.html'">
+    <button type="submit" class="save-btn">
         Save Store
     </button>
 
@@ -214,6 +199,10 @@
 
   
 
+<script src="js/api.js"></script>
+<script>requireLogin();</script>
+<script src="js/auth.js"></script>
 <script src="js/script.js"></script>
+
 </body>
 </html>

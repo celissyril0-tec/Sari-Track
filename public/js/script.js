@@ -2,11 +2,20 @@
 // SIDEBAR: close it after tapping a menu link (phone and tablet)
 // =====================================================
 var sideBarLinks = document.querySelectorAll(".side-bar a");
+var logoutLinks = document.querySelectorAll('.bottom-links a[href="login.html"], .bottom-links a[href="log-out.html"]');
+
 for (var i = 0; i < sideBarLinks.length; i++) {
   sideBarLinks[i].addEventListener("click", function () {
     document.querySelector(".side-bar").classList.remove("open");
   });
 }
+
+logoutLinks.forEach(function (link) {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    logout();
+  });
+});
 
 // =====================================================
 // ADD STORE PAGE (only exists on index.html)
@@ -51,9 +60,9 @@ const USE_BACKEND = false;   // change to true when your backend routes work
 
 const API = {
   notifications: "/api/notifications",
-  markRead:      "/api/notifications/read",
-  account:       "/api/account",
-  logout:        "/api/logout"
+  markRead: "/api/notifications/read",
+  account: "/api/account",
+  logout: "/api/logout"
 };
 
 // =====================================================
@@ -65,9 +74,9 @@ const sampleAccount = {
 };
 
 const sampleNotifications = [
-  { id: 1, type: "low",   title: "Low stock",      message: "Pancit Canton has only 5 left.",    time: "Just now",   link: "inventory.html", read: false },
-  { id: 2, type: "out",   title: "Out of stock",   message: "Lucky Me Beef is out of stock.",     time: "1 hour ago", link: "inventory.html", read: false },
-  { id: 3, type: "utang", title: "Utang reminder", message: "Maria still has an unpaid balance.", time: "Yesterday",  link: "utang.html",     read: false }
+  { id: 1, type: "low", title: "Low stock", message: "Pancit Canton has only 5 left.", time: "Just now", link: "inventory.html", read: false },
+  { id: 2, type: "out", title: "Out of stock", message: "Lucky Me Beef is out of stock.", time: "1 hour ago", link: "inventory.html", read: false },
+  { id: 3, type: "utang", title: "Utang reminder", message: "Maria still has an unpaid balance.", time: "Yesterday", link: "utang.html", read: false }
 ];
 
 // =====================================================
@@ -88,15 +97,13 @@ async function getNotifications() {
 }
 
 async function getAccount() {
-  if (USE_BACKEND) {
-    try {
-      const res = await fetch(API.account);
-      return await res.json();
-    } catch (error) {
-      return { username: "Guest", storeName: "" };
-    }
+  try {
+    const result = await apiFetch("/auth/profile");
+    if (!result.success) return { username: "Guest", storeName: "" };
+    return { username: result.profile.seller_name, storeName: result.profile.store_name || "" };
+  } catch (error) {
+    return { username: "Guest", storeName: "" };
   }
-  return sampleAccount;
 }
 
 // =====================================================
@@ -193,13 +200,6 @@ async function loadAccount() {
   const user = await getAccount();
   name.textContent = user.username;
   document.getElementById("accountStore").textContent = user.storeName;
-}
-
-async function logout() {
-  if (USE_BACKEND) {
-    await fetch(API.logout, { method: "POST" });
-  }
-  window.location.href = "login.html";
 }
 
 // =====================================================

@@ -27,7 +27,7 @@
 
      <article class="right-side">
 
-         <form>
+         <form id="loginForm">
 
         <div class="intro-part">
             <h3 class="intro">Welcome Back!</h3>
@@ -40,12 +40,13 @@
 
 
         <label for="password">Password: </label>
-        <input type="text" id="password" name="password">
+        <input type="password" id="password" name="password">
 
 
         <a href="#">Forgot your password?</a>
 
-        <button type="button" onclick="window.location.href='index.html'">Log In</button>
+        <p id="loginMsg"></p>
+        <button type="submit">Log In</button>
 
         <p>Need an account? <a href="register.html">Register</a></p>
 
@@ -55,5 +56,8 @@
    
     </article>
     
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+
 </body>
 </html>

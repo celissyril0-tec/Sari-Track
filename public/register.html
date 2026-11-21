@@ -27,7 +27,7 @@
     
     <article class="right-side">
 
-        <form>
+        <form id="registerForm">
         <p class="intro">Create an Acount</p>
         <label for="email">E-mail: </label>
         <input type="email" id="email" name="email">
@@ -36,10 +36,10 @@
         <input type="text" id="username" name="username">
 
         <label for="password">Password: </label>
-        <input type="text" id="password" name="password">
+        <input type="password" id="password" name="password">
 
         <label for="cpassword">Confirm Password: </label>
-        <input type="text" id="cpassword" name="cpassword">
+        <input type="password" id="cpassword" name="cpassword">
 
         <p class="terms">
             By clicking "Create Account", you agree to SariTrack's
@@ -47,6 +47,7 @@
             <u>Privacy Policy</u>.
         </p>
 
+        <p id="registerMsg"></p>
         <button type="submit" class="create-btn">Create Account</button>
 
         <p class="login-text">
@@ -58,6 +59,8 @@
     
     </section>
     
-   
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+
 </body>
 </html>
