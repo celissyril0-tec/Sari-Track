@@ -72,8 +72,8 @@
           <img class="logo" src="pics/cat.png">
 
           <div class="store-name">
-            <p>My Sari-Sari Store</p>
-            <p>Brgy. Alangilan, Batangas City, Batangas</p>
+            <p id="dashStoreName">Loading...</p>
+            <p id="dashStoreAddress"></p>
           </div>
         </div>
 
@@ -154,6 +154,9 @@
         </section>
     </main>
 
+<script src="js/api.js"></script>
+<script>requireLogin(); requireStore();</script>
+<script src="js/dashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 <script src="js/graph.js"></script>
 <script src="js/budget.js"></script>
