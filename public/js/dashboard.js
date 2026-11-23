@@ -10,7 +10,8 @@
         nameEl.textContent = result.profile.store_name || 'My Store';
 
         addressEl.textContent = result.profile.store_address || '';
-        addressEl.hidden = !result.profile.store_address;
+        addressEl.textContent = result.profile.store_address || 'No store address added';
+        addressEl.style.opacity = result.profile.store_address ? '1' : '0.6';
     } catch (err) {
         nameEl.textContent = 'My Store';
     }

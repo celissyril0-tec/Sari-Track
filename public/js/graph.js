@@ -8,7 +8,7 @@ if (salesCanvas) {
   const lastWeekData = [0, 0, 0, 0, 0, 0, 0];
 
   const salesChart = new Chart(salesCanvas, {
-    type: 'bar',   // 'bar' = bar graph
+    type: 'bar',
     data: {
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
       datasets: [{
@@ -19,13 +19,19 @@ if (salesCanvas) {
     options: {
       maintainAspectRatio: false,
       plugins: {
-        legend: { display: false }   
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: function (context) {
+              return '₱' + context.parsed.y.toLocaleString('en-Ph', { minimumFractionDigits: 2 });
+            }
+          }
+        }
       },
       scales: {
         y: {
           beginAtZero: true,
-          suggestedMax: 1000,
-          ticks: { stepSize: 100 }   
+          suggestedMax: 100,   
         },
         x: {
           grid: { display: false }  
@@ -60,6 +66,21 @@ if (salesCanvas) {
     salesChart.update();
     updateMessage(data);
   });
+
+  window.updateSalesChart = function (thisWeek, lastWeek) {
+    for (let i = 0; i < 7; i++) {
+      salesData[i] = thisWeek[i];
+      lastWeekData[i] = lastWeek[i];
+    }
+
+    const showing = document.getElementById('salesRange').value === 'Last Week'
+      ? lastWeekData
+      : salesData;
+    
+    salesChart.data.datasets[0].data = showing;
+    salesChart.update();
+    updateMessage(showing);
+  };
 }
 
 

@@ -1238,3 +1238,10 @@ label span{
   pointer-events: none;
   opacity: 0.5;
 }
+
+body.no-store .account-box a[href="settings.html"] {
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.suggestions li span { color: #1b2a6b; }
