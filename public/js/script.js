@@ -205,9 +205,34 @@ async function loadAccount() {
 // =====================================================
 // LOAD THE SHARED HEADER INTO EVERY PAGE
 // =====================================================
+const HEADER_VERSION = "1";
+
+function setupHeader(html) {
+  const placeholder = document.getElementById("header-placeholder");
+  placeholder.innerHTML = html;
+
+  loadNotifications();
+  loadAccount();
+
+  const menuBtn = document.getElementById("menuBtn");
+  const sideBar = document.querySelector(".side-bar");
+  
+  if (menuBtn && sideBar) {
+    menuBtn.addEventListener("click", function () {
+      sideBar.classList.toggle("open");
+    });
+  }
+}
+
 function loadHeader() {
   const placeholder = document.getElementById("header-placeholder");
   if (!placeholder) return;
+
+  const saved = sessionStorage.getItem("headerHtml");
+  if (saved && sessionStorage.getItem("headerVersion") === HEADER_VERSION) {
+    setupHeader(saved);
+    return;
+  }
 
   fetch("header.html")
     .then(function (res) {
@@ -215,21 +240,9 @@ function loadHeader() {
       return res.text();
     })
     .then(function (html) {
-      placeholder.innerHTML = html;
-
-      // These run AFTER the header exists
-      loadNotifications();
-      loadAccount();
-
-      // Menu button (opens and closes the sidebar on tablet and phone)
-      const menuBtn = document.getElementById("menuBtn");
-      const sideBar = document.querySelector(".side-bar");
-
-      if (menuBtn && sideBar) {
-        menuBtn.addEventListener("click", function () {
-          sideBar.classList.toggle("open");
-        });
-      }
+      sessionStorage.setItem("headerHtml", html);
+      sessionStorage.setItem("headerVersion", HEADER_VERSION);
+      setupHeader(html);
     })
     .catch(function (error) {
       console.error("Header problem:", error);

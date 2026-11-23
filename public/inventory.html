@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory | SariTrack</title>
+    <style>html, body { background: #F1EBDD; }</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/inventory.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="icon" href="pics/catlogo.png">
 
 </head>
@@ -83,7 +86,7 @@
     </div>
 
     <div class="main-buttons">
-     <button type="button" class="add-producr-btn" id="addProductBtn">
+     <button type="button" class="add-product-btn" id="addProductBtn">
       <img class="icon" src="icons/add.png">
         Add Product
      </button>
@@ -147,7 +150,7 @@
       </div>
 
       <div class="stock-list" id="stockList">
-        <p class="stock-empty">No products yet. Add your first product to see ypur stock here.</p>
+        <p class="stock-empty">No products yet. Add your first product to see your stock here.</p>
       </div>
 
     </section>
@@ -155,8 +158,8 @@
 
 <div class="modal" id="addProductModal">
   <div class="modal-box">
-    <h2>Add product</h2>
-    <p class="modal-sub">Add a new item to your inventory.</p>
+    <h2 id="productModalTitle">Add product</h2>
+    <p class="modal-sub" id="productModalSubtitle">Add a new item to your inventory.</p>
 
     <form id="addProductForm">
       <label for="productName">Product name</label>
@@ -197,7 +200,7 @@
 
       <div class="row">
         <div>
-          <label for="productStock">Starting stock</label>
+          <label for="productStock">Stock</label>
           <input type="number" id="productStock" min="0" value="0">
         </div>
         <div>
@@ -210,7 +213,7 @@
 
       <div class="modal-buttons">
         <button type="button" id="cancelAddBtn" class="cancel-btn">Cancel</button>
-        <button type="submit" class="save-btn">Save product</button>
+        <button type="submit" class="save-btn" id="productSaveBtn">Save product</button>
       </div>
     </form>
   </div>

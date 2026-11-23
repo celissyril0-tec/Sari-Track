@@ -1,12 +1,10 @@
-// Inventory page shows products, adds new ones, and restocks existing ones.
-
 (function () {
   function $(id) {
     return document.getElementById(id);
   }
 
   function peso(n) {
-    return '₱' + Number(n).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    return '₱ ' + Number(n).toLocaleString('en-PH', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   function openModal(id) {
@@ -26,11 +24,11 @@
     return result.message || 'Something went wrong.';
   }
 
-  // data kept in memory while the page is open
   var products = [];
   var categories = [];
   var units = [];
   var selectedProduct = null;
+  var editingId = null;
 
   function nameOf(list, id, field) {
     var found = list.find(function (item) { return item.id === id; });
@@ -43,7 +41,6 @@
     return 'ok';
   }
 
-  // load data from backend
   function fillSelect(select, list, labelField) {
     select.innerHTML = '';
     list.forEach(function (item) {
@@ -139,23 +136,65 @@
         nameOf(units, p.product_unit, 'unit_name'),
         peso(p.price_per_unit),
         p.stock + ' left'
-      ].filter(Boolean).join(' . ');
+      ].filter(Boolean).join(' · ');
 
       info.append(name, meta);
 
       var badge = document.createElement('span');
       badge.className = 'stock-status ' + (status === 'ok' ? 'in' : status);
-      badge.textContent = status === 'out' ? ' Out of stock' : status === 'low' ? ' Low stock' : ' In stock';
+      badge.textContent = status === 'out' ? 'Out of stock' : status === 'low' ? ' Low stock' : 'In stock';
 
-      item.append(thumb, info, badge);
+      var actions = document.createElement('div');
+      actions.className = 'stock-actions';
+
+      var editBtn = document.createElement('button');
+      editBtn.type = 'button';
+      editBtn.className = 'stock-btn edit';
+      editBtn.textContent = 'Edit';
+      editBtn.onclick = function () { openEditModal(p); };
+      
+      var deleteBtn = document.createElement('button');
+      deleteBtn.type = 'button';
+      deleteBtn.className = 'stock-btn delete';
+      deleteBtn.textContent = 'Delete';
+      deleteBtn.onclick = function () { removeProduct(p); };
+
+      actions.append(editBtn, deleteBtn);
+
+      item.append(thumb, info, badge, actions);
       box.appendChild(item);
     });
   }
 
-  $('addProductBtn').onclick = function () {
+  function openAddModal() {
+    editingId = null;
+    $('addProductForm').reset();
+    $('productModalTitle').textContent = 'Add product';
+    $('productModalSubtitle').textContent = 'Add a new item to your inventory.';
+    $('productSaveBtn').textContent = 'Save product';
     showMsg('addProductMsg', '');
     openModal('addProductModal');
-  };
+  }
+
+  function openEditModal(p) {
+    editingId = p.id;
+    $('productModalTitle').textContent = 'Edit product';
+    $('productModalSubtitle').textContent = 'Update the details of this item.';
+    $('productSaveBtn').textContent = 'Save changes';
+
+    $('productName').value = p.product_name;
+    $('productCategory').value = p.category_id;
+    $('productUnit').value = p.product_unit;
+    $('productCost').value = p.cost_price;
+    $('productPrice').value = p.price_per_unit;
+    $('productStock').value = p.stock;
+    $('productLow').value = p.reorder_level;
+
+    showMsg('addProductMsg', '');
+    openModal('addProductModal');
+  }
+
+  $('addProductBtn').onclick = openAddModal;
   $('cancelAddBtn').onclick = function () {
     closeModal('addProductModal');
   };
@@ -206,7 +245,7 @@
       return;
     }
     if(!(body.price_per_unit > 0)) {
-      showMsg('AddProductMsg', 'Please enter a selling price above 0.');
+      showMsg('addProductMsg', 'Please enter a selling price above 0.');
       return;
     }
 
@@ -214,22 +253,46 @@
     button.disabled = true;
 
     try {
-      var result = await apiFetch('/products', { method: 'POST', body: body });
+      var editing = editingId !== null;
+      var result = await apiFetch(editing ? '/products/' + editingId : '/products', {
+        method: editing ? 'PATCH' : 'POST',
+        body: body
+      });
 
       if (!result.success) {
         showMsg('addProductMsg', errorText(result));
         return;
       }
 
+      editingId = null;
       event.target.reset();
       closeModal('addProductModal');
       await loadProducts();
     } catch (err) {
       showMsg('addProductMsg', 'Could not reach the server. Please try again.');
     } finally {
-      button.diabled = false;
+      button.disabled = false;
     }
   };
+
+  async function removeProduct(p) {
+    if (!confirm('Delete "' + p.product_name + '"?')) return;
+
+    try {
+      var result = await apiFetch('/products/' + p.id, { method: 'DELETE' });
+
+      if (!result.success) {
+        alert(errorText(result));
+        return;
+      }
+
+      if (result.archived) alert(result.message);
+
+      await loadProducts();
+    } catch (err) {
+      alert('Could not reach the server. Please try again.');
+    }
+  }
 
   function updateNewTotal() {
     var add = Number($('addStock').value) || 0;
@@ -309,7 +372,7 @@
     } catch (err) {
       showMsg('restockMsg', 'Could not reach the server. Please try again.');
     } finally {
-      button.diabled = false;
+      button.disabled = false;
     }
   };
 
