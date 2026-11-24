@@ -8,6 +8,8 @@ const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const lookupRoutes = require('./routes/lookups');
 const saleRoutes = require('./routes/sales');
+const utangRoutes = require('./routes/utang');
+const customerRoutes = require('./routes/customers');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +19,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/lookups', lookupRoutes);
 app.use('/api/sales', saleRoutes);
+app.use('/api/utang', utangRoutes);
+app.use('/api/customers', customerRoutes);
 
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
