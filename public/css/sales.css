@@ -499,6 +499,8 @@ hr{
   border-radius: 999px;
   font-size: 12px;
   font-weight: 600;
+  display: inline-block;
+  white-space: nowrap;
 }
 
 .status.paid {
@@ -510,6 +512,48 @@ hr{
   background: #ffe9bd;
   color: #b45309;
 }
+
+.status.partial { background: #dbe8ff; color: #0b45c9; }
+
+  .summary li span,
+  .suggestions li span {
+    color: #1b2a6b;
+    font-style: normal;
+  }
+
+  .summary li {
+    align-items: center;
+    gap: 10px;
+  }
+
+  .summary li span:first-child {
+    flex: 1;
+  }
+
+  .summary li span:last-child {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  .summary .remove-item {
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    gap: 0;
+    border-radius: 50%;
+    background: #fde2e1;
+    color: #b91c1c;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .summary .remove-item:hover {
+    background: #f9c4c1;
+  }
 
 /* =====================================================
    1. SHARED RULES  (all phones AND tablets)

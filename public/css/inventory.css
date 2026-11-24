@@ -244,6 +244,35 @@ hr{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
+.stock-item { flex-wrap: wrap; }
+
+.stock-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.stock-btn {
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+}
+
+.stock-btn.edit {
+  background: #ffffff;
+  color: #0b45c9;
+  border: 1.5px solid #f0dfb8;
+}
+.stock-btn.edit:hover { background: #fdefd8; }
+
+.stock-btn.delete {
+  background: #fde0e0;
+  color: #b91c1c;
+  border: none;
+}
+.stock-btn.delete:hover { background: #f9c4c4; }
 
 .modal {
   display: none;
