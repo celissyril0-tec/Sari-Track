@@ -41,6 +41,7 @@
   var utangItems = [];
   var chosenProduct = null;
   var selectedOwing = null;
+  var defaultDueDays = 7;
 
   function fillSelect(select, list, labelField) {
     select.innerHTML = '';
@@ -60,6 +61,13 @@
       option.value = item[field];
       dl.appendChild(option);
     });
+  }
+
+  async function loadDefaults() {
+    var result = await apiFetch('/auth/profile');
+    if (result.success) {
+      defaultDueDays = result.profile.default_due_days ?? 7;
+    }
   }
 
   async function loadLookups() {
@@ -159,7 +167,7 @@
     $('addUtangForm').reset();
     $('utangSuggestions').innerHTML = '';
     sayUtang('');
-    $('utangDate').value = dateInputValue(addDays(new Date(), 7)); // default due date: a week out
+    $('utangDate').value = dateInputValue(addDays(new Date(), defaultDueDays));
     renderUtangList();
   }
 
@@ -483,6 +491,7 @@
 
   (async function start() {
     try {
+      await loadDefaults();
       await loadLookups();
       await loadProducts();
       await refreshAll();

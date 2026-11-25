@@ -405,6 +405,26 @@ hr{
     margin: 0 0 15px;
 }
 
+.bd-legend li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  font-size: 14px;
+  color: #1e3a8a;
+}
+
+.bd-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.bd-legend li b {
+  margin-left: auto;
+}
 
 .bd-form {
     display: flex;
