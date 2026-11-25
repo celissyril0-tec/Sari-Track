@@ -1,6 +1,4 @@
-// =====================================================
-// SIDEBAR: close it after tapping a menu link (phone and tablet)
-// =====================================================
+// Sidebar
 var sideBarLinks = document.querySelectorAll(".side-bar a");
 var logoutLinks = document.querySelectorAll('.bottom-links a[href="login.html"], .bottom-links a[href="log-out.html"]');
 
@@ -17,9 +15,7 @@ logoutLinks.forEach(function (link) {
   });
 });
 
-// =====================================================
-// ADD STORE PAGE (only exists on index.html)
-// =====================================================
+// Add store (index.html)
 const addStoreBtn = document.getElementById("add-store-btn");
 const addStorePage = document.getElementById("add-store-form");
 const cancelStoreBtn = document.getElementById("cancelBtn");
@@ -53,11 +49,8 @@ if (addStoreBtn && addStorePage && cancelStoreBtn) {
   });
 }
 
-// =====================================================
-// SETTINGS
-// =====================================================
-const USE_BACKEND = false;   // change to true when your backend routes work
-
+// Settings
+const USE_BACKEND = true;
 const API = {
   notifications: "/api/notifications",
   markRead: "/api/notifications/read",
@@ -65,50 +58,108 @@ const API = {
   logout: "/api/logout"
 };
 
-// =====================================================
-// SAMPLE DATA (only used while USE_BACKEND is false)
-// =====================================================
-const sampleAccount = {
-  username: "Juan Dela Cruz",
-  storeName: "My Sari-Sari Store"
-};
+// Notifications
+async function buildNotifications() {
+  const list = [];
+  let prefs = { notify_low_stock: true, notify_overdue: true };
 
-const sampleNotifications = [
-  { id: 1, type: "low", title: "Low stock", message: "Pancit Canton has only 5 left.", time: "Just now", link: "inventory.html", read: false },
-  { id: 2, type: "out", title: "Out of stock", message: "Lucky Me Beef is out of stock.", time: "1 hour ago", link: "inventory.html", read: false },
-  { id: 3, type: "utang", title: "Utang reminder", message: "Maria still has an unpaid balance.", time: "Yesterday", link: "utang.html", read: false }
-];
-
-// =====================================================
-// GET THE DATA (the only part that changes with backend)
-// =====================================================
-async function getNotifications() {
-  if (USE_BACKEND) {
-    try {
-      const res = await fetch(API.notifications);
-      if (!res.ok) return [];
-      return await res.json();
-    } catch (error) {
-      return [];
-    }
-  }
-  const saved = localStorage.getItem("notifications");
-  return saved ? JSON.parse(saved) : sampleNotifications;
-}
-
-async function getAccount() {
   try {
-    const result = await apiFetch("/auth/profile");
-    if (!result.success) return { username: "Guest", storeName: "" };
-    return { username: result.profile.seller_name, storeName: result.profile.store_name || "" };
-  } catch (error) {
-    return { username: "Guest", storeName: "" };
+    const profileResult = await apiFetch("/auth/profile");
+    if (profileResult.success) {
+      prefs.notify_low_stock = profileResult.profile.notify_low_stock !== false;
+      prefs.notify_overdue = profileResult.profile.notify_overdue !== false;
+    }
+  } catch (err) {}
+
+  try {
+    const products = await apiFetch("/products");
+    if (products.success) {
+      products.data.forEach(function (p) {
+        if (p.stock === 0) {
+          list.push({
+            id: "out-" + p.id + "-" + p.updated_at,
+            type: "out", title: "Out of Stock",
+            message: p.product_name + " is out of stock.",
+            link: "inventory.html",
+            time: "Inventory"
+          });
+        } else if (prefs.notify_low_stock && p.stock <= p.reorder_level) {
+          list.push({
+            id: "low-" + p.id + "-" + p.updated_at,
+            type: "low",
+            title: "Low Stock",
+            message: p.product_name + " has only " + p.stock + " left.",
+            link: "inventory.html",
+            time: "Inventory"
+          });
+        }
+      });
+    }
+  } catch (err) {}
+
+  if (prefs.notify_overdue) {
+    try {
+      const utang = await apiFetch("/utang/customers");
+      if (utang.success) {
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        utang.data.forEach(function (c) {
+          if (c.due_date && new Date(c.due_date) < today) {
+            list.push({
+              id: "utang-" + c.customer_id,
+              type: "utang",
+              title: "Utang reminder",
+              message: c.customer_name + " has an overdue balance of ₱" + Number(c.balance).toFixed(2) + ".",
+              link: "utang.html",
+              time: "Overdue"
+            });
+          }
+        });
+      }
+    } catch (err) {}
+  }
+
+  return list;
+}
+
+function getReadIds() {
+  try { return JSON.parse(localStorage.getItem("readNotificationIds") || "[]"); }
+  catch (e) { return []; }
+}
+
+function saveReadIds(ids) {
+  try { localStorage.setItem("readNotificationIds", JSON.stringify(ids)); }
+  catch (e) {}
+}
+
+function markAsRead(id) {
+  const read = getReadIds();
+  if (read.indexOf(id) === -1) {
+    read.push(id);
+    saveReadIds(read);
   }
 }
 
-// =====================================================
-// TIME TEXT (backend sends createdAt, this makes "5 min ago")
-// =====================================================
+async function getNotifications() {
+  const list = await buildNotifications();
+  const read = getReadIds();
+  list.forEach(function (n) { n.read = read.indexOf(n.id) !== -1; });
+
+  const current = list.map(function (n) { return n.id; });
+  const kept = read.filter(function (id) { return current.indexOf(id) !== -1; });
+  if (kept.length !== read.length) saveReadIds(kept);
+
+  return list;
+}
+
+async function markAllAsRead() {
+  const list = await buildNotifications();
+  saveReadIds(list.map(function (n) { return n.id; }));
+  loadNotifications();
+}
+
+// Time Ago
 function timeAgo(dateString) {
   const minutes = Math.floor((Date.now() - new Date(dateString)) / 60000);
 
@@ -121,12 +172,9 @@ function timeAgo(dateString) {
   return Math.floor(hours / 24) + " day(s) ago";
 }
 
-// =====================================================
-// DRAW THE NOTIFICATIONS
-// =====================================================
 function renderNotifications(list) {
   const box = document.getElementById("notifList");
-  if (!box) return; // this page has no bell
+  if (!box) return;
 
   const badge = document.getElementById("notifBadge");
   const markBtn = document.getElementById("markReadBtn");
@@ -142,6 +190,9 @@ function renderNotifications(list) {
     const item = document.createElement("a");
     item.className = "notif-item " + n.type + (n.read ? "" : " unread");
     item.href = n.link;
+    item.addEventListener("click", function () {
+      markAsRead(n.id);
+    });
 
     const title = document.createElement("strong");
     title.textContent = n.title;
@@ -164,47 +215,27 @@ async function loadNotifications() {
   renderNotifications(list);
 }
 
-// =====================================================
-// MARK ALL AS READ
-// =====================================================
-async function markAllAsRead() {
-  if (USE_BACKEND) {
-    await fetch(API.markRead, { method: "POST" });
-  } else {
-    const list = await getNotifications();
-    list.forEach(function (n) { n.read = true; });
-    localStorage.setItem("notifications", JSON.stringify(list));
+// My Account
+async function getAccount() {
+  try {
+    const result = await apiFetch("/auth/profile");
+    if (!result.success) return { username: "Guest", storeName: "" };
+    return { username: result.profile.seller_name, storeName: result.profile.storeName || "" };
+  } catch (error) {
+    return { username: "Guest", storeName: "" };
   }
-  loadNotifications();
 }
 
-// =====================================================
-// ADD A NOTIFICATION (front end only, for testing)
-// The backend will create these by itself later.
-// Example: addNotification("low", "Low stock", "Pancit Canton has only 5 left.", "inventory.html");
-// =====================================================
-async function addNotification(type, title, message, link) {
-  const list = await getNotifications();
-  list.unshift({ id: Date.now(), type: type, title: title, message: message, time: "Just now", link: link, read: false });
-  localStorage.setItem("notifications", JSON.stringify(list));
-  loadNotifications();
-}
-
-// =====================================================
-// MY ACCOUNT
-// =====================================================
 async function loadAccount() {
   const name = document.getElementById("accountName");
-  if (!name) return; // this page has no account menu
+  if (!name) return;
 
   const user = await getAccount();
   name.textContent = user.username;
   document.getElementById("accountStore").textContent = user.storeName;
 }
 
-// =====================================================
-// LOAD THE SHARED HEADER INTO EVERY PAGE
-// =====================================================
+// Header
 const HEADER_VERSION = "1";
 
 function setupHeader(html) {
@@ -213,6 +244,12 @@ function setupHeader(html) {
 
   loadNotifications();
   loadAccount();
+
+  setInterval(loadNotifications, 60000);
+  document.addEventListener("visibilitychange", function () {
+    if (!document.hidden) loadNotifications();
+  });
+  window.addEventListener("focus", loadNotifications);
 
   const menuBtn = document.getElementById("menuBtn");
   const sideBar = document.querySelector(".side-bar");
@@ -249,4 +286,4 @@ function loadHeader() {
     });
 }
 
-loadHeader();   // <- keep this as the last line
+loadHeader();
