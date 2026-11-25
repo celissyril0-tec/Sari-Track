@@ -42,11 +42,17 @@ body {
 
 .store-name p{
     margin: 0;
-    font-size: 14px;
 }
 
 .store-name > p:first-of-type{
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 22px;
+    color: #1e3a8a;
+}
+
+.store-name > p:last-of-type {
+  font-size: 14px;
+  color: #6b7a99;
 }
 
 main h3{

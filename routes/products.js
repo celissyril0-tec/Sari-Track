@@ -154,6 +154,38 @@ router.post('/', handle(async (req, res) => {
         return res.status(400).json({ success: false, message: 'Invalid input', errors });
     }
 
+    const { data: existing, error: findError } = await req.supabase
+        .from('products')
+        .select('*')
+        .eq('seller_id', req.user.id)
+        .eq('is_active', true)
+        .ilike('product_name', values.product_name)
+        .maybeSingle();
+    
+    if (findError) {
+        return res.status(400).json({ success: false, message: 'Could not check for an existing product', error: findError.message });
+    }
+
+    if (existing) {
+        const { data, error } = await req.supabase
+            .from('products')
+            .update({ stock: existing.stock + values.stock, updated_at: new Date().toISOString() })
+            .eq('id', existing.id)
+            .select()
+            .single();
+        
+        if (error) {
+            return res.status(400).json({ success: false, message: 'Could not update existing product', error: error.message });
+        }
+
+        return res.json({
+            success:true,
+            merged: true,
+            message: 'Added ' + values.stock + ' to the existing stock for "' + existing.product_name + '".',
+            data
+        });
+    }
+
     const { data, error } = await req.supabase
         .from('products')
         .insert([{ ...values, seller_id: req.user.id }])

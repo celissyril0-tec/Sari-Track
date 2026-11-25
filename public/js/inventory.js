@@ -264,6 +264,8 @@
         return;
       }
 
+      if (result.merged) alert(result.message);
+
       editingId = null;
       event.target.reset();
       closeModal('addProductModal');
