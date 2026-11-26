@@ -3,10 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Settings | SariTrack</title>
+    <style>html, body { background: #F1EBDD; }</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/settings.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="pics/catlogo.png">
 </head>
 <body>
 
@@ -59,7 +63,7 @@
           </li>
 
           <li>
-            <a href="log-out.html">
+            <a href="login.html">
                 <img class="icon" src="icons/logout.png">
               <span>Logout</span>
             </a>
@@ -98,7 +102,7 @@
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" id="email" value="maria@email.com" required>
+          <input type="email" id="email" value="maria@email.com" readonly required>
         </div>
       </div>
 
@@ -176,7 +180,8 @@
     </main>
     
     <script src="js/api.js"></script>
-    <script>requireLogin();</script>
+    <script>requireLogin(); requireStore();</script>
+    <script src="js/settings.js"></script>
     <script src="js/script.js"></script>
     
 </body>

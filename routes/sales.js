@@ -35,6 +35,18 @@ function cleanSaleInput(body) {
         }
     }
 
+    if (body.customer_name !== undefined && body.customer_name !== null) {
+        if (typeof body.customer_name !== 'string' || body.customer_name.trim().length > 100) {
+            errors.push('customer_name must be text of 100 characters or less.');
+        }
+    }
+
+    if (body.amount_paid !== undefined && body.amount_paid !== null) {
+        if (typeof body.amount_paid !== 'number' || !Number.isFinite(body.amount_paid) || body.amount_paid < 0) {
+            errors.push('amount_paid must be a number that is 0 or more.');
+        }
+    }
+
     if (!Array.isArray(body.items) || body.items.length === 0) {
         errors.push('items must be a list with at least one product.');
     } else if (body.items.length > 100) {
@@ -106,7 +118,7 @@ router.get('/', handle(async (req, res) => {
 
     let query = req.supabase
         .from('sales')
-        .select('*')
+        .select('*, payment_methods(method_name), utang_status(status_name), sale_items(quantity, products(product_name))')
         .eq('seller_id', req.user.id)
         .order('created_at', { ascending: false })
         .limit(limit);

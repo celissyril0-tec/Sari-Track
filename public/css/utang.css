@@ -13,7 +13,6 @@ body {
     border-radius: 10px;
 }
 
-
 .menu-links a.active,
 .bottom-links a.active {
     background-color: white;
@@ -21,8 +20,6 @@ body {
     border-radius: 10px;
     font-weight: 500;
 }
-
-
 
 .menu-links a.active .icon,
 .bottom-links a.active .icon {
@@ -188,7 +185,6 @@ hr{
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
-
 .modal {
   display: none;
   position: fixed;
@@ -205,7 +201,6 @@ hr{
 .modal.show {
   display: flex;
 }
-
 
 .modal-box {
   background: #ffffff;
@@ -225,7 +220,6 @@ hr{
   display: none;                  
 }
 
-
 .modal-box,
 .modal-box * {
   box-sizing: border-box;
@@ -242,7 +236,6 @@ hr{
   color: #6b7494;
   margin: -8px 0 14px 0;
 }
-
 
 .modal-box label {
   display: block;
@@ -321,7 +314,6 @@ hr{
   background: #fdefd8;
 }
 
-
 .add-item-btn {
   width: 100%;
   margin: 0;
@@ -345,7 +337,6 @@ hr{
   min-height: 16px;
   margin: 4px 0;
 }
-
 
 .summary {
   background: #fdefd8;
@@ -403,7 +394,6 @@ hr{
   font-size: 18px;
 }
 
-
 .modal-buttons {
   display: flex;
   justify-content: flex-end;
@@ -439,6 +429,46 @@ hr{
 
 .save-btn:hover {
   background: #ffcf3d;
+}
+
+.utang-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+}
+
+.utang-row h4 { margin: 0; color: #1a3a8a; }
+.utang-row p { margin: 2px 0 0; font-size: 13px; color: #6b7a99; }
+.utang-row-right { display: flex; align-items: center; gap: 10px; }
+
+.status { padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 600; display: inline-block; white-space: nowrap; }
+.status.unpaid { background: #ffe9bd; color: #b45309; }
+.status.partial { background: #dbe8ff; color: #0b45c9; }
+
+.utang-pay {
+  background: #ffbe00;
+  border: none;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.summary li span,
+.suggestions li span { color: #1b2a6b; font-style: normal; }
+.summary li { align-items: center; gap: 10px; }
+.summary li span:first-child { flex: 1; }
+.summary li span:last-child { display: flex; align-items: center; gap: 8px; white-space: nowrap; }
+.remove-item {
+  width: 22px; height: 22px; padding: 0; margin: 0; gap: 0;
+  border-radius: 50%; background: #fde2e1; color: #b91c1c;
+  font-size: 14px; line-height: 1; cursor: pointer;
 }
 
 @media (max-width: 599px),

@@ -84,3 +84,14 @@ async function requireStore() {
 
     document.body.style.visibility = 'visible';
 }
+
+async function redirectIfHasStore() {
+    try {
+        var result = await apiFetch('/auth/profile');
+        if (result.success && result.profile.store_name) {
+            window.location.href = 'dashboard.html';
+        }
+    } catch (err) {
+        
+    }
+}

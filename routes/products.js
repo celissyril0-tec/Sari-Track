@@ -96,6 +96,7 @@ router.get('/', handle(async (req, res) => {
     .from('products')
     .select('*')
     .eq('seller_id', req.user.id)
+    .eq('is_active', true)
     .order('product_name', { ascending: true });
 
     if (req.query.category_id) {
@@ -129,6 +130,7 @@ router.get('/:id', handle(async (req, res) => {
         .select('*')
         .eq('id', id)
         .eq('seller_id', req.user.id)
+        .eq('is_active', true)
         .maybeSingle();
 
     if (error) {
@@ -150,6 +152,38 @@ router.post('/', handle(async (req, res) => {
 
     if (errors.length > 0) {
         return res.status(400).json({ success: false, message: 'Invalid input', errors });
+    }
+
+    const { data: existing, error: findError } = await req.supabase
+        .from('products')
+        .select('*')
+        .eq('seller_id', req.user.id)
+        .eq('is_active', true)
+        .ilike('product_name', values.product_name)
+        .maybeSingle();
+    
+    if (findError) {
+        return res.status(400).json({ success: false, message: 'Could not check for an existing product', error: findError.message });
+    }
+
+    if (existing) {
+        const { data, error } = await req.supabase
+            .from('products')
+            .update({ stock: existing.stock + values.stock, updated_at: new Date().toISOString() })
+            .eq('id', existing.id)
+            .select()
+            .single();
+        
+        if (error) {
+            return res.status(400).json({ success: false, message: 'Could not update existing product', error: error.message });
+        }
+
+        return res.json({
+            success:true,
+            merged: true,
+            message: 'Added ' + values.stock + ' to the existing stock for "' + existing.product_name + '".',
+            data
+        });
     }
 
     const { data, error } = await req.supabase
@@ -187,6 +221,7 @@ router.patch('/:id', handle(async (req, res) => {
         .update({ ...values, updated_at: new Date().toISOString() })
         .eq('id', id)
         .eq('seller_id', req.user.id)
+        .eq('is_active', true)
         .select()
         .maybeSingle();
 
@@ -218,11 +253,32 @@ router.delete('/:id', handle(async (req, res) => {
 
     if (error) {
         if (error.code === '23503') {
-            return res.status(409).json({
-                success: false,
-                message: 'This product is part of past sales and cannot be deleted.'
+            const hidden = await req.supabase
+                .from('products')
+                .update({ is_active: false, updated_at: new Date().toISOString() })
+                .eq('id', id)
+                .eq('seller_id', req.user.id)
+                .select()
+                .maybeSingle();
+
+            if (hidden.error) {
+                return res.status(400).json({
+                    success: false,
+                    message: 'Could not remove product.',
+                    error: hidden.error.message
+                });
+            }
+            if (!hidden.data) {
+                return res.status(404).json({ success: false, message: 'Product not found.' });
+            }
+
+            return res.json({
+                success: true,
+                archived: true,
+                message: 'This product has past sales, so it was removed from your list and kept in your sales history.'
             });
         }
+
         return res.status(400).json({
             success: false,
             message: 'Could not delete product.',
@@ -234,7 +290,6 @@ router.delete('/:id', handle(async (req, res) => {
     }
 
     res.json({ success: true, message: 'Product deleted.' });
-
 }));
 
 module.exports = router;

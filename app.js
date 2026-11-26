@@ -2,12 +2,13 @@ const express = require('express');
 const path = require('path');
 require('dotenv').config();
 
-const supabase = require('./config/supabase');
-
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/products');
 const lookupRoutes = require('./routes/lookups');
 const saleRoutes = require('./routes/sales');
+const utangRoutes = require('./routes/utang');
+const customerRoutes = require('./routes/customers');
+const budgetRoutes = require('./routes/budget');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -17,6 +18,9 @@ app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/lookups', lookupRoutes);
 app.use('/api/sales', saleRoutes);
+app.use('/api/utang', utangRoutes);
+app.use('/api/customers', customerRoutes);
+app.use('/api/budget', budgetRoutes);
 
 app.use(express.static(path.join(__dirname, 'public'), { index: false }));
 
@@ -29,35 +33,6 @@ app.get('/api/health', (req, res) => {
         success: true,
         message: 'SariTrack API is working!'
     });
-});
-
-app.get('/api/test-db', async (req, res) => {
-    try {
-        const { data, error } = await supabase
-        .from('products')
-        .select('*');
-
-        if (error) {
-            return res.status(400).json({
-                success: false,
-                message: 'Error fetching data from Supabase',
-                error: error.message
-            });
-        }
-
-        res.json({
-            success: true,
-            message: 'Data fetched successfully from Supabase',
-            data: data
-        });
-    
-    } catch (err) {
-        res.status(500).json({
-            success: false,
-            message: 'Internal server error',
-            error: err.message
-        });
-    }
 });
 
 app.listen(PORT, () => {

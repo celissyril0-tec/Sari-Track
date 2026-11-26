@@ -128,7 +128,8 @@ function percent() {
   $('tabProfit').onclick = function () { showTab('profit'); };
 
   // ----- Profit Calculator -----
-  var sellHint = $('pSell').placeholder;             // your own wording, for example "e.g. 20"
+  var sellHint = $('pSell').placeholder;
+  var userTypedSell = false;
 
   function profitUpdate() {
     var pack = Number($('pPack').value);
@@ -145,13 +146,17 @@ function percent() {
     $('pSellBox').classList.toggle('p-off', !ready);
     $('pSell').placeholder = ready ? sellHint : 'Fill in the pack price and pieces first';
 
+    if (ready && !userTypedSell) {
+      $('pSell').value = (costEach * 1.1).toFixed(2);
+    }
+
     // profit
-    if (!ready || sellText === '') {
+    if (!ready || $('pSell').value === '') {
       showProfit(0, 0);
       return;
     }
 
-    var sell = Number(sellText);
+    var sell = Number($('pSell').value);
     var profitEach = sell - costEach;
     var profitTotal = sell * pieces - pack;       // exact, so the total never has a rounding error
     showProfit(profitEach, profitTotal);
@@ -167,7 +172,8 @@ function percent() {
     $('pTotalBox').classList.toggle('p-loss', loss);
   }
 
-  ['pPack', 'pPieces', 'pSell'].forEach(function (id) { $(id).oninput = profitUpdate; });
+  $('pSell').oninput = function () { userTypedSell = true; profitUpdate(); };
+  ['pPack', 'pPieces'].forEach(function (id) { $(id).oninput = profitUpdate; });
 
   profitUpdate();
 })();
