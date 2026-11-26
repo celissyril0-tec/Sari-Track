@@ -53,7 +53,7 @@ router.post('/signup', async (req, res) => {
 
         res.status(201).json({
             success: true,
-            message: 'Account created successfully. Please check your email to confirm your account.',
+            message: 'Account created successfully.',
             user: { id: data.user.id, email }
         });
     } catch (err) {
@@ -110,7 +110,7 @@ router.get('/profile', requireAuth, async (req, res) => {
             .select('*')
             .eq('id', req.user.id)
             .single();
-        
+
         if (error) {
             return res.status(404).json({
                 success: false,
@@ -128,6 +128,7 @@ router.get('/profile', requireAuth, async (req, res) => {
         });
     }
 });
+
 router.patch('/profile', requireAuth, async (req, res) => {
     try {
         const values = {};
@@ -137,7 +138,7 @@ router.patch('/profile', requireAuth, async (req, res) => {
             if (value === undefined) continue;
 
             if (typeof value !== 'string') {
-                return res.status(400).json({ success: false, message: `${field} must be text.` });   
+                return res.status(400).json({ success: false, message: `${field} must be text.` });
             }
             values[field] = value.trim();
         }
@@ -157,6 +158,26 @@ router.patch('/profile', requireAuth, async (req, res) => {
             return res.status(400).json({ success: false, message: 'Invalid store type.' });
         }
 
+        for (const field of ['default_low_stock', 'default_due_days']) {
+            const value = req.body[field];
+            if (value === undefined) continue;
+
+            if (!Number.isInteger(value) || value < 0) {
+                return res.status(400).json({ success: false, message: `${field} must be a whole number of 0 or more.` });
+            }
+            values[field] = value;
+        }
+
+        for (const field of ['notify_low_stock', 'notify_overdue']) {
+            const value = req.body[field];
+            if (value === undefined) continue;
+
+            if (typeof value !== 'boolean') {
+                return res.status(400).json({ success: false, message: `${field} must be true or false.` });
+            }
+            values[field] = value;
+        }
+
         if (Object.keys(values).length === 0) {
             return res.status(400).json({ success: false, message: 'Nothing to update.' });
         }
@@ -167,9 +188,9 @@ router.patch('/profile', requireAuth, async (req, res) => {
             .eq('id', req.user.id)
             .select()
             .maybeSingle();
-        
+
         if (error) {
-            return res.status(400).json({ success: false, message: 'Could not update profile.', error: error.message  });
+            return res.status(400).json({ success: false, message: 'Could not update profile.', error: error.message });
         }
         if (!data) {
             return res.status(404).json({ success: false, message: 'Profile not found.' });
@@ -201,6 +222,50 @@ router.post('/refresh', async (req, res) => {
             access_token: data.session.access_token,
             refresh_token: data.session.refresh_token
         });
+    } catch (err) {
+        res.status(500).json({ success: false, message: 'Internal server error.', error: err.message });
+    }
+});
+
+router.post('/change-password', requireAuth, async (req, res) => {
+    try {
+        const { current_password, new_password } = req.body;
+
+        if (!current_password || !new_password) {
+            return res.status(400).json({
+                success: false,
+                message: 'current_password and new_password are required.'
+            });
+        }
+
+        if (new_password.length < 8) {
+            return res.status(400).json({
+                success: false,
+                message: 'New password must be at least 8 characters.'
+            });
+        }
+
+        const checkClient = createSupabaseClient();
+        const { error: checkError } = await checkClient.auth.signInWithPassword({
+            email: req.user.email,
+            password: current_password
+        });
+
+        if (checkError) {
+            return res.status(401).json({ success: false, message: 'Current password is incorrect.' });
+        }
+
+        const { error } = await req.supabase.auth.updateUser({ password: new_password });
+
+        if (error) {
+            return res.status(400).json({
+                success: false,
+                message: 'Could not update password.',
+                error: error.message
+            });
+        }
+
+        res.json({ success: true, message: 'Password updated.' });
     } catch (err) {
         res.status(500).json({ success: false, message: 'Internal server error.', error: err.message });
     }

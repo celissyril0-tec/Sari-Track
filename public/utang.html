@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/utang.css">
     <link rel="icon" href="pics/catlogo.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0151ce">
+    <link rel="apple-touch-icon" href="/icons/pwa/apple-touch-icon.png">
+    <script src="/js/pwa.js" defer></script>
 </head>
 <body>
 
@@ -198,6 +202,8 @@
         <label for="utangDate">Date</label>
         <input type="date" id="utangDate">
 
+        <p id="utangMsg" class="error-msg"></p>
+
         <div class="total-row">
           <span> Utang to add: </span>
           <span id="utangTotal">₱0.00</span>
@@ -254,7 +260,7 @@
 </div>
 
 <script src="js/api.js"></script>
-<script>requireLogin();</script>
+<script>requireLogin(); requireStore();</script>
 <script src="js/utang.js"></script>
 <script src="js/script.js"></script>
     

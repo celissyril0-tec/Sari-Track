@@ -29,6 +29,7 @@
   var units = [];
   var selectedProduct = null;
   var editingId = null;
+  var defaults = { low_stock: 5 };
 
   function nameOf(list, id, field) {
     var found = list.find(function (item) { return item.id === id; });
@@ -49,6 +50,13 @@
       option.textContent = item[labelField];
       select.appendChild(option);
     });
+  }
+
+  async function loadDefaults() {
+    var result = await apiFetch('/auth/profile');
+    if (result.success) {
+      defaults.low_stock = result.profile.default_low_stock ?? 5;
+    }
   }
 
   async function loadLookups() {
@@ -169,6 +177,7 @@
   function openAddModal() {
     editingId = null;
     $('addProductForm').reset();
+    $('productLow').value = defaults.low_stock;
     $('productModalTitle').textContent = 'Add product';
     $('productModalSubtitle').textContent = 'Add a new item to your inventory.';
     $('productSaveBtn').textContent = 'Save product';
@@ -263,6 +272,8 @@
         showMsg('addProductMsg', errorText(result));
         return;
       }
+
+      if (result.merged) alert(result.message);
 
       editingId = null;
       event.target.reset();
@@ -380,6 +391,7 @@
 
   (async function start() {
     try {
+      await loadDefaults();
       await loadLookups();
       await loadProducts();
     } catch (err) {

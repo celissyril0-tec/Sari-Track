@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/settings.css">
     <link rel="icon" href="pics/catlogo.png">
+    <link rel="manifest" href="/manifest.webmanifest">
+    <meta name="theme-color" content="#0151ce">
+    <link rel="apple-touch-icon" href="/icons/pwa/apple-touch-icon.png">
+    <script src="/js/pwa.js" defer></script>
 </head>
 <body>
 
@@ -102,7 +106,7 @@
         </div>
         <div class="field">
           <label for="email">Email</label>
-          <input type="email" id="email" value="maria@email.com" required>
+          <input type="email" id="email" value="maria@email.com" readonly required>
         </div>
       </div>
 
@@ -180,7 +184,8 @@
     </main>
     
     <script src="js/api.js"></script>
-    <script>requireLogin(); </script>
+    <script>requireLogin(); requireStore();</script>
+    <script src="js/settings.js"></script>
     <script src="js/script.js"></script>
     
 </body>

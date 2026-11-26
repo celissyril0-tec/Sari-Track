@@ -46,6 +46,7 @@
   var saleItems = [];
   var chosen = null;
   var sales = [];
+  var defaultDueDays = 7;
 
   function fillSelect(select, list, labelField) {
     select.innerHTML = '';
@@ -55,6 +56,13 @@
       option.textContent = item[labelField];
       select.appendChild(option);
     });
+  }
+
+  async function loadDefaults() {
+    var result = await apiFetch('/auth/profile');
+    if (result.success) {
+      defaultDueDays = result.profile.default_due_days ?? 7;
+    }
   }
 
   async function loadLookups() {
@@ -143,7 +151,7 @@
 
     if (needsCustomer) {
       if (!$('dueDateInput').value) {
-        $('dueDateInput').value = dateInputValue(addDays(new Date(), 7));
+        $('dueDateInput').value = dateInputValue(addDays(new Date(), defaultDueDays));
       }
 
       var utangOption = Array.from($('paymentInput').options).find(function (o) {
@@ -445,6 +453,7 @@
 
   (async function start() {
     try {
+      await loadDefaults();
       await loadLookups();
       await loadProducts();
       await loadSales();
