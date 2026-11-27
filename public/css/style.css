@@ -127,8 +127,6 @@ body{
     gap: 2rem;
 }
 
-
-
 .header h2{
   color: #2874D0;
 }
@@ -362,11 +360,13 @@ button{
     padding: 8px 16px;
     margin-left: 10px;
     margin-bottom: 5px;
+    font-family: 'Poppins', sans-serif;
 }
 
 #store-form input[type="text"]::placeholder {
     color: #a6a6a6;
     font-style: italic;
+    font-family: 'Poppins', sans-serif;
 }
 
 .store-type-options{

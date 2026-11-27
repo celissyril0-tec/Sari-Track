@@ -1,9 +1,12 @@
 body{
-    height: 90vh;
-    min-height: 550px;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 5rem;         
+    box-sizing: border-box;
     background: linear-gradient(to bottom, #0066d9, #ffffff);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: 'Poppins', sans-serif;
-    margin-top: 5rem;
 }
 
 h1{
@@ -17,22 +20,25 @@ span{
 }
 
 form{
-    background-color: rgb(252, 252, 179);
+    background-color: #FFF4D9;
     display: flex;
     flex-direction: column;
     width: 360px;
     padding: 20px;
     border-radius: 12px;
-    margin-left: -2rem;
+    margin-left: 2rem;
+    margin-top: 2.5rem;
 }
 
 input{
+    font-family: 'Poppins', sans-serif;
     margin-left: 5px;
     margin-right: 5px;
     margin-bottom: 8px;
     border: none;
     height: 25px;
     border-radius: 5px;
+    padding: 5px;
 }
 
 label{
@@ -63,11 +69,42 @@ button{
     font-size: 16px;
 }
 
+.password-wrap {
+  position: relative;
+  margin: 0 5px 8px;
+}
+
+.password-wrap input {
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding-right: 40px;
+}
+
+
+.password-wrap .toggle-password {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 28px;
+  height: 28px;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f2a44' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E") center / 20px no-repeat;
+}
+
+
+.password-wrap .toggle-password.showing {
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231f2a44' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 3l18 18'/%3E%3Cpath d='M10.6 5.1A9.8 9.8 0 0112 5c6.5 0 10 7 10 7a17 17 0 01-3 3.9M6.6 6.6A17 17 0 002 12s3.5 7 10 7a9.7 9.7 0 004.4-1'/%3E%3Cpath d='M9.9 9.9a3 3 0 004.2 4.2'/%3E%3C/svg%3E") center / 20px no-repeat;
+}
+
 .login{
-    display: flex; 
-    justify-content: space-evenly; 
-    align-items: center; 
-    gap: 20px; 
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    gap: 2rem;                 
 }
 
 .intro-part{
@@ -84,14 +121,14 @@ button{
     font-size: 14px;
 }
 
-.left-side{
-    width: 45%;
-    box-sizing: border-box; 
-    margin-right: 3rem;
+.leftside{
+    width: auto;              
+    box-sizing: border-box;
+    margin: 0;                 
 }
 
 .right-side{
-      flex: 0 0 30%; 
+      flex: 0 0 auto; 
 
 }
 
@@ -582,5 +619,31 @@ span{
 
   .right-side form > p a {
     font-size: 1.1em !important;
+  }
+}
+
+/* ===== PASSWORD EYE FIX: phones and tablets ===== */
+@media (max-width: 1180px),
+       (min-width: 1181px) and (max-width: 1400px) and (orientation: landscape) and (min-height: 800px) {
+
+  .right-side .password-wrap {
+    margin: 0 0 clamp(16px, 3dvh, 28px) 0;
+  }
+
+  .right-side .password-wrap input {
+    margin: 0 !important;
+    padding: 0 48px 0 16px !important;
+  }
+
+  .right-side .password-wrap .toggle-password {
+    display: block !important;
+    width: 32px !important;
+    height: 32px !important;
+    right: 8px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border-radius: 8px !important;
   }
 }

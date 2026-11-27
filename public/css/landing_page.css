@@ -1,6 +1,9 @@
 html {
-  scrollbar-width: none;       /* Firefox */
+  scrollbar-width: none;    
+  scroll-behavior: smooth;   
 }
+
+
 
 
 body{
@@ -200,7 +203,7 @@ button{
 }
 
 .Features{
-    height: 60vh;
+    height: 65vh;
     background-color:  #FFF4D9;
 }
 
